@@ -1,0 +1,15 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "employee-dashboard" */
+.employee-dashboard div{
+    display: flex;
+    /* ...more css */
+}
+
+.employee-dashboard div p{
+    color: beige;
+    /* ...more css */
+}
+
+.employee-dashboard div span{
+    /* ...more css */
+}

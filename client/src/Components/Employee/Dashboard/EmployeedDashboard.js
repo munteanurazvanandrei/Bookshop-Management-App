@@ -1,4 +1,4 @@
 export default function EmployeeDashboard(){
     // Employee dashboard
-    return(<></>)
+    return(<div className="employee-dashboard"></div>)
 }

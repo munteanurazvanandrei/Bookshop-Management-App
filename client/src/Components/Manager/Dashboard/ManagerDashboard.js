@@ -1,4 +1,4 @@
 export default function ManagerDashboard(){
-    // Manager Dashboard
-    return(<></>)
+    // Manager's Dashboard
+    return(<div className="manager-dashboard"></div>)
 }

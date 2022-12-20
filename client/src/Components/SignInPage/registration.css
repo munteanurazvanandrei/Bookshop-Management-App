@@ -1,0 +1,15 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "registration" */
+.registration div{
+    display: flex;
+    /* ...more css */
+}
+
+.registration div p{
+    color: beige;
+    /* ...more css */
+}
+
+.registration div span{
+    /* ...more css */
+}
