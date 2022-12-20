@@ -1,0 +1,15 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "sign-in" */
+.sign-in div{
+    display: flex;
+    /* ...more css */
+}
+
+.sign-in div p{
+    color: beige;
+    /* ...more css */
+}
+
+.sign-in div span{
+    /* ...more css */
+}

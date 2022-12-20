@@ -1,0 +1,15 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "landing-page" */
+.landing-page div{
+    display: flex;
+    /* ...more css */
+}
+
+.landing-page div p{
+    color: beige;
+    /* ...more css */
+}
+
+.landing-page div span{
+    /* ...more css */
+}

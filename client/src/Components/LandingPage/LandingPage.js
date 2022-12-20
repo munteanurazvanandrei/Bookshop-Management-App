@@ -1,4 +1,4 @@
 export default function LandingPage(){
     // Landing page
-    return(<></>)
+    return(<div className="landing-page"></div>)
 }
