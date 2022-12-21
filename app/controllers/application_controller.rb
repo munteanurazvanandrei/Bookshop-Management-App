@@ -22,10 +22,11 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
         end
     end
 
+    # check user role from the decoded token
     def current_user
         if decoded_token
-            user_id = decoded_token[0]['user_id']
-            @user = User.find_by(id: user_id)
+            decoded_id = decoded_token[0]['user_id']
+            request.headers['role'] === "manager" ? Employee.find_by(id: decoded_id) : Manager.find_by(id:decoded_id)
         end
     end
     # checks if the user logged in shares the same user_id
