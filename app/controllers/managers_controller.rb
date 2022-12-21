@@ -1,6 +1,5 @@
 class ManagersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-
     before_action :authorized
     # GET /managers
     def index
