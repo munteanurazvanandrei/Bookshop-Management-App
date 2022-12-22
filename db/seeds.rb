@@ -11,3 +11,8 @@ Employee.create(manager_id: 1, email: "employee201@email.com", password: "asd")
 SalesTransaction.create(amount: 1000, recieved: 1000,change:0, employee_id:1)
 Sale.create( sales_transaction_id: 1, item_id:1, item_price_at_sale: 500, qty: 2)
 # 
+Manager.create(name: "Xarl", email: "emailXarl@email.com", password: "Xarl")
+Item.create(manager_id: 2, name_or_title: "That cool book", manufacturer_or_author: "John", price_per_item:100, qty: 50)
+Employee.create(manager_id: 2, email: "xemployee201@email.com", password: "asd")
+SalesTransaction.create(amount: 1000, recieved: 1000,change:0, employee_id:2)
+Sale.create( sales_transaction_id: 2, item_id:1, item_price_at_sale: 200, qty: 2)
