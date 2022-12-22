@@ -4,11 +4,13 @@ class JwtController < ApplicationController
     
     # create action for user creation and auth
     def create
-        user = request.headers['role'] === "manager" ? Manager.find_by!(username: params[:email]) : Employee.find_by!(username: params[:email])
+        user = request.headers['role'] == "manager" ? 
+            Manager.find_by!(email: params[:email]) : 
+            Employee.find_by!(email: params[:email])
         # checks if the user is valid and then proceeds to encode
-        if user
+        if user&.authenticate(params[:password])
             token = encode_token(user_id: user.id)
-            render json: { reques.headers['role'] == "manager" ? ManagerSerializer.new(user): EmployeeSerializer.new(user), token: jwt}, status: :accepted
+            render json: { user: request.headers['role'] == "manager" ? ManagerSerializer.new(user): EmployeeSerializer.new(user), jwt: token}, status: :accepted
         else
             # Invalid response returned if wrong credentials are provided
             render json: { errors: "Invalid email or password" }, status: :unauthorized
