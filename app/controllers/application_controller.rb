@@ -39,6 +39,15 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
         render json: { message: 'Please sign in' }, status: :unauthorized unless logged_in?
     end
 
+    # Check if user is a manager
+    def manager_access?
+        current_user.is_a?(Manager)
+    end
+
+    def is_manager?
+        render json: {message: "Kindly login as Manager"}, status: :unauthorized unless manager_access?
+    end
+
     private
     # error messages 
     def unprocessable_entity_method entity
