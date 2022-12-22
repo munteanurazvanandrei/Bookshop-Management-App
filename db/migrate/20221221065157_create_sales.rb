@@ -4,9 +4,9 @@ class CreateSales < ActiveRecord::Migration[7.0]
       t.integer :transaction_id
       t.string :item_id_integer
       t.integer :item_id
-      t.integer :item_price_at_sale
+      t.integer :item_price_at_sale, default: 0
       t.integer :employee_id
-      t.integer :qty
+      t.integer :qty, default: 0
 
       t.timestamps
     end
