@@ -1,6 +1,6 @@
 class ManagersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
-    before_action :authorized
+    before_action :authorized, except: [:create]
     # GET /managers
     def index
         render json: Manager.all
@@ -9,6 +9,12 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     # GET /managers/:id
     def show
         render json: manager, status: :ok
+    end
+
+    # POST
+    def create
+        manager = Manager.create!(manager_params)
+        render json: manager, status: :created
     end
 
     # DELETE /managers/:id
@@ -24,6 +30,9 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
         Manager.find_by!(id: params[:id])
     end
 
+    def manager_params
+        params.permit(:name, :email, :password, :confirm_password, :bookshop_name, :bookshop_items_alert_limit)
+    end
     def record_not_found
         render json: { error: "Manager not found" }, status: :no_found        
     end
