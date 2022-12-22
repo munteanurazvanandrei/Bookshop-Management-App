@@ -32,7 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_073348) do
   end
 
   create_table "managers", force: :cascade do |t|
-    t.string "username"
+    t.string "name"
     t.string "email"
     t.string "password_digest"
     t.string "bookshop_name"
