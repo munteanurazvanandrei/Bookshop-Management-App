@@ -4,6 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[7.0]
       t.integer :amount
       t.integer :recieved
       t.integer :change
+      t.integer :employee_id
 
       t.timestamps
     end
