@@ -1,3 +1,4 @@
 class EmployeeSerializer < ActiveModel::Serializer
-  attributes :id, :manager_id, :name, :email, :password_digest
+  attributes :manager_id, :name, :email
+  has_many :salesTransactions
 end
