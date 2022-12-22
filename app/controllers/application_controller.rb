@@ -2,7 +2,7 @@ class ApplicationController < ActionController::API
 # 
 rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
     # stores secret key in environment variable
-    def encode_token
+    def encode_token(payload)
         JWT.encode(payload, 'pass_phrase')
     end
     # bearer token {Authorization: 'Bearer <tokrn>'}
