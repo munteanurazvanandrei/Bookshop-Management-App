@@ -8,7 +8,7 @@ class EmployeesController < ApplicationController
 
     # GET /employees/:id
     def show
-        render json: employee, status: :ok
+        render json: find_employee, status: :ok
     end
 
     # POST
@@ -22,6 +22,13 @@ class EmployeesController < ApplicationController
         employee = find_employee
         employee.destroy
         head :no_content
+    end
+
+    # PATCH /employees/:id
+    def update
+        employee = find_employee
+        employee.update!(employee_params)
+        render json: employee, status: :accepted
     end
 
     private
