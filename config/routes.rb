@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :transactions
+  resources :sales_transactions
   resources :sales
   resources :items
   resources :employees
