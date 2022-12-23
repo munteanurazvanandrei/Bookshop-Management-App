@@ -3,6 +3,6 @@ class Employee < ApplicationRecord
     belongs_to :manager
     has_many :salesTransactions
     has_many :sales, through: :salesTransactions
-    # validates :email, uniqueness: true
-    # validates :name, presence: true
+    validates :email, uniqueness: true
+    validates :name, presence: true
 end
