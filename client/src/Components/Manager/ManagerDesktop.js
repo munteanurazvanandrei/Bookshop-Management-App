@@ -2,12 +2,13 @@ import AddOrEditEmployee from "./AddOrEdit/AddOrEditEmployee";
 import AddOrEditItem from "./AddOrEdit/AddOrEditItem";
 import Employees from "./Employees/Employees";
 import Items from "./Items/Items";
-import ManagerSideBar from "./ManagerSidebar";
+import ManagerSideBar from "./ManagerSidebar/ManagerSidebar";
+import { Route, Routes } from "react-router-dom";
 
 export default function ManagerDesktop(){
     // manager's view for all desktops with the side bar
     return(<div className="manager-desktop">
-    <ManagerSideBar/>
+    <ManagerSideBar managerName={"John"}/>
         <Routes>
             <Route path="/employees" element={<Employees/>}/>
             <Route path="/employees" element={<Items/>}/>
