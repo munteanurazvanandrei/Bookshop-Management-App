@@ -51,7 +51,7 @@
 }
 .pos-sidebar .input-btn {
   color: white;
-  background-color: #5E5555;
+  background-color: #5e5555;
   text-decoration: none;
   border: none;
   padding: 10px;
@@ -64,6 +64,12 @@
   margin: auto;
 }
 .pos-sidebar .input-btn:hover {
-  background-color: #3D9A57;
+  background-color: #3d9a57;
   transition: 0.9s;
+}
+
+.product-table {
+  display: flex;
+  margin: 0;
+  position: absolute;
 }/*# sourceMappingURL=sale.css.map */
