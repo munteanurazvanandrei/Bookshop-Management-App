@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import '../../dist/sale.css'
+import './styling/sale.css'
 import { useState } from 'react'
 
 const items = [{ name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }]
