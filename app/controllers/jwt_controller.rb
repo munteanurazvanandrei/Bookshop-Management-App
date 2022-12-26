@@ -4,6 +4,7 @@ class JwtController < ApplicationController
     
     # create action for user creation and auth
     def create
+        # byebug
         user = manager_access? ? 
             Manager.find_by!(email: params[:email]) : 
             Employee.find_by!(email: params[:email])
