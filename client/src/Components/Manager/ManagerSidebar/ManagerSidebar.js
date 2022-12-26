@@ -6,7 +6,7 @@ export default function ManagerSideBar({ managerName }) {
   const nav = useNavigate();
   return (
     <div className="manager-sidebar">
-      <img src="/svgs/book-reader.svg" alt="book-reader" />
+      <img className='book-reader' src="/svgs/book-reader.svg" alt="book-reader" />
       <p>{managerName}</p>
       <hr />
       <NavLink to="/dashboard">
