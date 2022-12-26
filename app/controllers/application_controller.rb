@@ -41,7 +41,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
 
     # Check if user is a manager
     def manager_access?
-        current_user.is_a?(Manager)
+        # current_user.is_a?(Manager)
+        request.headers['role'] === "manager"
     end
 
     def is_manager?
