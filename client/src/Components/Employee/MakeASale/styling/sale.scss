@@ -1,5 +1,4 @@
 .pos-sidebar {
-  position: fixed;
   top: 0;
   left: 0;
   height: 100vh;
@@ -28,8 +27,7 @@
   }
   .bottom {
     position: absolute;
-    top: auto;
-    width: 100%;
+    width: 15rem;
     bottom: 0;
     margin-bottom: 1rem;
     padding-bottom: 1rem;
@@ -68,8 +66,6 @@
     }
   }
 }
-.product-table {
+.point-of-sale {
   display: flex;
-  margin: 0;
-  position: absolute;
 }
