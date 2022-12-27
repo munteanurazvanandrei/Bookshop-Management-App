@@ -1,9 +1,103 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "employee-dashboard" */
-.employee-dashboard div {
+.employee-dashboard {
   display: flex;
+  position: relative;
+  width: 1024px;
+  height: 768px;
+  background: linear-gradient(
+    180deg,
+    rgb(167, 132, 81) 0%,
+    rgba(40, 57, 119, 1) 30%,
+    rgba(63, 69, 125, 1) 50%,
+    rgba(40, 57, 119, 1) 70%,
+    rgba(20, 36, 93, 1) 100%
+  );
   /* ...more css */
 }
+.employee-dashboard-heading {
+  position: absolute;
+  width: 382px;
+  height: 78px;
+  left: 19px;
+  top: -4px;
+
+  /* Header 1 */
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+.pointofsale-title {
+  /* Point of Sale */
+
+  position: absolute;
+  width: 122px;
+  height: 23px;
+  left: 56px;
+  top: 118px;
+
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+.make-a-sale{
+  /* Rectangle 32 */
+
+position: absolute;
+width: 156px;
+height: 129px;
+left: 220px;
+top: 50%;
+
+background: rgba(196, 196, 196, 0.8);
+
+}
+.sales-history {
+  /* Rectangle 32 */
+
+position: absolute;
+width: 156px;
+height: 129px;
+right: 220px;
+top: 50%;
+
+background: rgba(196, 196, 196, 0.8);
+
+}
+.make-sale-telephone{
+ /* Vector */
+
+position: absolute;
+left: 34%;
+right: 41%;
+top: 28.68%;
+bottom: 29.46%;
+}
+
+.sales-history-svg{
+  position: absolute;
+  left: 34%;
+  right: 41%;
+  top: 28.68%;
+  bottom: 29.46%; 
+}
+
 
 .employee-dashboard div p {
   color: beige;
