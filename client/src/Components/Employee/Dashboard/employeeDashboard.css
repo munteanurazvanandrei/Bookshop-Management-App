@@ -97,7 +97,19 @@ bottom: 29.46%;
   top: 28.68%;
   bottom: 29.46%; 
 }
+.button{
+  /* Rectangle 7 */
 
+position: absolute;
+width: 85px;
+height: 50px;
+left: 911px;
+top: 102px;
+
+background: rgba(196, 196, 196, 0.1);
+border-radius: 15px;
+
+}
 
 .employee-dashboard div p {
   color: beige;
