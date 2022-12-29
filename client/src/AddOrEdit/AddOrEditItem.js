@@ -8,7 +8,7 @@ export default function AddOrEditItem() {
     img_url: "",
     price: "",
     category: "",
-    quantity:""
+    quantity: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,23 +40,23 @@ export default function AddOrEditItem() {
             Name: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Publisher: <input type="text" name="publisher" onChange={handleChange} />
+            Publisher:{" "}
+            <input type="text" name="publisher" onChange={handleChange} />
           </label>
           <label>
             Img_url:{" "}
             <input type="img_url" name="img_url" onChange={handleChange} />
           </label>
           <label>
-            Price:{" "}
-            <input type="number" name="price" onChange={handleChange} />
+            Price: <input type="number" name="price" onChange={handleChange} />
           </label>
           <label>
             Category:
-             <input type="number" name="category" onChange={handleChange} />
+            <input type="number" name="category" onChange={handleChange} />
           </label>
           <label>
             Quantity:
-             <input type="number" name="quantity" onChange={handleChange} />
+            <input type="number" name="quantity" onChange={handleChange} />
           </label>
         </form>
         <button type="add" onClick={handleSubmit} className="add">
