@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Registration() {
   // the registration for the manager;
@@ -7,6 +7,7 @@ export default function Registration() {
 
   const [formState, setFormState] = useState({});
   const navigate = useNavigate();
+  const myRouteLocation = window.location.pathname;
 
   function formChange(e) {
     const value = e.target.value;
@@ -78,6 +79,20 @@ export default function Registration() {
             <button onClick={() => navigate("/login")}>Signup</button>
           </div>
         </form>
+      </div>
+      <div className="login-footer">
+        <div className="register">
+          <p>
+            Have an account?
+            <span>
+              <Link
+                to={myRouteLocation !== "/manager/signup" ? "/login" : "/manager/login"}
+              >
+                Login
+              </Link>
+            </span>
+          </p>
+        </div>
       </div>
     </div>
   );
