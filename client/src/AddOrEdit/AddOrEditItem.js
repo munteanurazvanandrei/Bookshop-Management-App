@@ -59,7 +59,12 @@ export default function AddOrEditItem() {
              <input type="number" name="quantity" onChange={handleChange} />
           </label>
         </form>
-        
+        <button type="add" onClick={handleSubmit} className="add">
+          Add
+        </button>
+        <button type="cancel" onClick={handleClick} className="cancel">
+          Cancel
+        </button>
       </div>
     </div>
   );
