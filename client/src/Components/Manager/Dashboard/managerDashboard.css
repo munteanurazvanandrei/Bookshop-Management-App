@@ -6,6 +6,8 @@
   position: relative;
   width: 1024px;
   height: 768px;
+  left: 253px;
+  top: 3px;
   background: linear-gradient(
     180deg,
     rgb(167, 132, 81) 0%,
@@ -177,7 +179,7 @@
   top: 25%;
   bottom: 0%;
 }
-.manager-dashboard-employees{
+.manager-dashboard-employees {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -185,7 +187,7 @@
   bottom: 0%;
 }
 
-.manager-dashboard-item{
+.manager-dashboard-item {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -193,71 +195,66 @@
   bottom: 0%;
 }
 
-.pencil-dashboard{
+.pencil-dashboard {
   /* Rectangle 46 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 842px;
-top: 175px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 842px;
+  top: 175px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
 
-.pen-dashboard{
+.pen-dashboard {
   /* Rectangle 47 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 909px;
-top: 175px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 909px;
+  top: 175px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
-.primary-dashboard{
+.primary-dashboard {
   /* Rectangle 48 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 842px;
-top: 245px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 842px;
+  top: 245px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
-.exercisebook-dashboard{
+.exercisebook-dashboard {
   /* Rectangle 49 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 909px;
-top: 245px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 909px;
+  top: 245px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
 
-.btn{
-
+.btn {
   /* Rectangle 6 */
 
-position: absolute;
-width: 87px;
-height: 50px;
-left: 909px;
-top: 76px;
+  position: absolute;
+  width: 87px;
+  height: 50px;
+  left: 909px;
+  top: 76px;
 
-background: rgba(96, 102, 180, 0.1);
-border-radius: 15px;
+  background: rgba(96, 102, 180, 0.1);
+  border-radius: 15px;
 
   /* Rectangle 6 */
-/* 
+  /* 
 position: absolute;
 width: 67px;
 height: 60px;
@@ -266,7 +263,6 @@ top: 76px;
 
 background: rgba(133, 120, 120, 0.1);
 border-radius: 15px; */
-
 }
 .manager-dashboard div p {
   color: beige;
