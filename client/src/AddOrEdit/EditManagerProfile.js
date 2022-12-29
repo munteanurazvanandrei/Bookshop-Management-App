@@ -38,29 +38,29 @@ export default function EditManagerProfile() {
       <div className="form">
         <form>
           <label>
-            Name: <input type="text" name="name" onChange={handleChange} />
+            Username: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Publisher:{" "}
-            <input type="text" name="publisher" onChange={handleChange} />
+            Email:{" "}
+            <input type="email" name="email" onChange={handleChange} />
           </label>
           <label>
-            Img_url:{" "}
-            <input type="text" name="img_url" onChange={handleChange} />
+            Password:{" "}
+            <input type="password" name="pass" onChange={handleChange} />
           </label>
           <label>
-            Price: <input type="number" name="price" onChange={handleChange} />
+          Bookshop: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Quantity:{" "}
-            <input type="number" name="quantity" onChange={handleChange} />
+           Limit:{" "}
+            <input type="number" name="number" onChange={handleChange} />
           </label>
         </form>
         <button type="add" onClick={handleSubmit} className="add">
-          Add
+          Update
         </button>
         <button type="cancel" onClick={handleClick} className="cancel">
-          Cancel
+          Delete Profile
         </button>
       </div>
     </div>

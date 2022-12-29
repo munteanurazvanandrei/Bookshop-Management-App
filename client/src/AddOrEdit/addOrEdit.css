@@ -19,11 +19,11 @@
 
 .form {
   position: absolute;
-  width: 60%;
+  width: 100%;
   height: 60%;
   left: 246px;
   top: 105px;
-  /* background-color: #c70039; */
+  line-height: 36px;
   align-items: center;
   padding-top: 50px;
   display: flex;
@@ -33,6 +33,7 @@ input {
   height: 20px;
   border-radius: 5px;
   line-height: 46px;
+  line-height: 26px;
 }
 
 label {
@@ -42,7 +43,7 @@ label {
   justify-content: flex-end;
   text-align: right;
   width: 400px;
-  line-height: 46px;
+  
   margin-bottom: 10px;
 }
 
@@ -68,7 +69,7 @@ label {
 }
 .btn {
   /* Rectangle 6 */
-
+  font-weight: 700;
   position: absolute;
   width: 87px;
   height: 50px;
@@ -80,18 +81,40 @@ label {
 }
 
 .cancel {
-    /* Rectangle 73 */
-  
-    position: absolute;
-    width: 100px;
-    height: 35px;
-    left: 404px;
-    top: 646px;
-    color: #ffffff;
-    background: #900c3f;
-    border-radius: 30px;
-    border-color: #900c3f;
-  }
+  /* Rectangle 73 */
+
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  left: 300px;
+  top: 446px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(238, 48, 48, 0.808);
+  border-color: rgba(15, 15, 15, 0.1);
+}
+
+.add {
+  text-align: center;
+  border-radius: 15px;
+  background-color: blue;
+  border-color: blue;
+  position: absolute;
+  width: 102px;
+  height: 35px;
+  left: 74px;
+  top: 446px;
+
+  font-family: "Lato";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  display: flex;
+  align-items: center;
+
+  color: #ffffff;
+}
 .add-or-edit div p {
   color: beige;
   /* ...more css */
