@@ -1,5 +1,5 @@
 import { NavLink, useNavigate } from 'react-router-dom'
-import '../../dist/sale.css'
+import './styling/sale.css'
 import { useState } from 'react'
 
 const items = [{ name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }]
@@ -37,7 +37,8 @@ export default function MakeASale({ employeeName }) {
     const nav = useNavigate()
 
     // Sample data
-    const [rows, setRows] = useState(items)
+    // eslint-disable-next-line
+    const [rows, setRows] = useState(items) 
     return (
         <div className="point-of-sale">
             <div className="pos-sidebar">
@@ -72,6 +73,7 @@ export default function MakeASale({ employeeName }) {
             <div className='product-table'>
                 <Table data={rows} />
             </div>
+
         </div>
     )
 }
