@@ -33,7 +33,7 @@ input {
   height: 20px;
   border-radius: 5px;
   line-height: 46px;
-  line-height: 26px;
+  line-height: 36px;
 }
 
 label {
@@ -43,7 +43,7 @@ label {
   justify-content: flex-end;
   text-align: right;
   width: 400px;
-  
+  line-height: 46px;
   margin-bottom: 10px;
 }
 
@@ -122,4 +122,63 @@ label {
 
 .add-or-edit div span {
   /* ...more css */
+}
+/* Items css */
+.add-or-edit-item{
+    position: relative;
+    width: 1024px;
+    height: 768px;
+    left: 253px;
+    top: 3px;
+    background: linear-gradient(
+      180deg,
+      rgb(167, 132, 81) 0%,
+      rgba(40, 57, 119, 1) 30%,
+      rgba(63, 69, 125, 1) 50%,
+      rgba(40, 57, 119, 1) 70%,
+      rgb(92, 116, 204) 100%
+    );
+    display: flex; 
+}
+.itemheading{
+    position: absolute;
+  width: 382px;
+  height: 78px;
+  left: 59px;
+  top: 34px;
+
+  /* Header 1 */
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 44px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+.item-form{
+    position: absolute;
+  width: 100%;
+  height: 60%;
+  left: 246px;
+  top: 105px;
+  line-height: 36px;
+  align-items: center;
+  padding-top: 50px;
+  display: flex;
+}
+.item-btn{
+    font-weight: 700;
+    position: absolute;
+    width: 87px;
+    height: 50px;
+    left: 909px;
+    top: 76px;
+    color: #ffffff;
+    background: rgba(96, 102, 180, 0.1);
+    border-radius: 15px;  
 }

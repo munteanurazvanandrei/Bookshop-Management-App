@@ -3,11 +3,11 @@ import { useState } from "react";
 import "./addOrEdit.css";
 export default function EditManagerProfile() {
   const [details, setDetails] = useState({
-    name: "",
-    publisher: "",
-    quantity: "",
-    price: "",
-    img_url: "",
+    username: "",
+    email: "",
+    bookshop: "",
+    password: "",
+    limit: "",
   });
 
   const handleChange = (e) => {
@@ -46,14 +46,14 @@ export default function EditManagerProfile() {
           </label>
           <label>
             Password:{" "}
-            <input type="password" name="pass" onChange={handleChange} />
+            <input type="password" name="password" onChange={handleChange} />
           </label>
           <label>
-          Bookshop: <input type="text" name="name" onChange={handleChange} />
+          Bookshop: <input type="text" name="bookshop" onChange={handleChange} />
           </label>
           <label>
            Limit:{" "}
-            <input type="number" name="number" onChange={handleChange} />
+            <input type="number" name="limit" onChange={handleChange} />
           </label>
         </form>
         <button type="add" onClick={handleSubmit} className="add">
