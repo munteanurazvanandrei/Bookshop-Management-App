@@ -1,5 +1,6 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import './styling/sale.css'
+import './styling/search.css'
 import { useState } from 'react'
 import Search from './Search'
 import Subtotal from './Subtotal'
