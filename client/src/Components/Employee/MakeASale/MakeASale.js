@@ -37,7 +37,8 @@ export default function MakeASale({ employeeName }) {
     const nav = useNavigate()
 
     // Sample data
-    const [rows, setRows] = useState(items)
+    // eslint-disable-next-line
+    const [rows, setRows] = useState(items) 
     return (
         <div className="point-of-sale">
             <div className="pos-sidebar">
@@ -72,6 +73,7 @@ export default function MakeASale({ employeeName }) {
             <div className='product-table'>
                 <Table data={rows} />
             </div>
+
         </div>
     )
 }
