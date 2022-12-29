@@ -1,6 +1,8 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import './styling/sale.css'
 import { useState } from 'react'
+import Search from './Search'
+import Subtotal from './Subtotal'
 
 const items = [{ name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }]
 
@@ -71,7 +73,9 @@ export default function MakeASale({ employeeName }) {
                 </div>
             </div>
             <div className='product-table'>
+                <Search />
                 <Table data={rows} />
+                <Subtotal />
             </div>
 
         </div>
