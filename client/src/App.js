@@ -2,7 +2,8 @@ import './App.css';
 import LandingPage from './Components/LandingPage/LandingPage';
 import { Route,Routes } from 'react-router-dom';
 import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
-// import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
+//  import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
+ 
 
 function App() {
   return (

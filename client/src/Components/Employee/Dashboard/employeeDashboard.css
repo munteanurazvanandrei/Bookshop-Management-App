@@ -3,8 +3,10 @@
 .employee-dashboard {
   display: flex;
   position: relative;
-  width: 1024px;
-  height: 768px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0%;
+ 
   background: linear-gradient(
     180deg,
     rgb(167, 132, 81) 0%,
@@ -16,11 +18,12 @@
   /* ...more css */
 }
 .employee-dashboard-heading {
+  
   position: absolute;
   width: 382px;
   height: 78px;
-  left: 19px;
-  top: -4px;
+  left: 100px;
+  top: 39px;
 
   /* Header 1 */
   font-family: "Work Sans";
@@ -33,16 +36,16 @@
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: #f0eaea;
 }
 .pointofsale-title {
-  /* Point of Sale */
+  
 
   position: absolute;
   width: 122px;
   height: 23px;
-  left: 56px;
-  top: 118px;
+  left: 100px;
+  top: 198px;
 
   font-family: "Work Sans";
   font-style: normal;
@@ -54,61 +57,58 @@
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: #faf8f8;
 }
-.make-a-sale{
-  /* Rectangle 32 */
+.make-a-sale {
+  
+  position: absolute;
+  width: 156px;
+  height: 129px;
+  left: 192px;
+  top: 370px;
 
-position: absolute;
-width: 156px;
-height: 129px;
-left: 220px;
-top: 50%;
-
-background: rgba(196, 196, 196, 0.8);
-
+  background: rgba(211, 205, 205, 0.8);
 }
 .sales-history {
   /* Rectangle 32 */
 
-position: absolute;
-width: 156px;
-height: 129px;
-right: 220px;
-top: 50%;
+  position: absolute;
+  width: 156px;
+  height: 129px;
+  right: 220px;
+  top: 370px;
 
-background: rgba(196, 196, 196, 0.8);
-
+  background: rgba(196, 196, 196, 0.8);
 }
-.make-sale-telephone{
- /* Vector */
+.make-sale-telephone {
+  /* Vector */
 
-position: absolute;
-left: 34%;
-right: 41%;
-top: 28.68%;
-bottom: 29.46%;
-}
-
-.sales-history-svg{
   position: absolute;
   left: 34%;
   right: 41%;
   top: 28.68%;
-  bottom: 29.46%; 
+  bottom: 29.46%;
 }
-.button{
+
+.sales-history-svg {
+  position: absolute;
+  left: 34%;
+  right: 41%;
+  top: 28.68%;
+  bottom: 29.46%;
+}
+.button {
   /* Rectangle 7 */
-
-position: absolute;
-width: 85px;
-height: 50px;
-left: 911px;
-top: 102px;
-
-background: rgba(196, 196, 196, 0.1);
-border-radius: 15px;
-
+  font-weight: 700;
+  position: absolute;
+  width: 85px;
+  height: 50px;
+  left: 1131px;
+  top: 39px;
+  color: rgb(245, 247, 248);
+  background: rgba(196, 196, 196, 0.1);
+  border-radius: 15px;
+  border: none;
 }
 
 .employee-dashboard div p {

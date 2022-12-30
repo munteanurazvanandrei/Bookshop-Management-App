@@ -1,11 +1,16 @@
 /* Example of css to prevent css overlap */
+/* Manager Dashboard */
+
 /* Emphasis on using the "super" parent class, ie. "manager-dashboard" */
 .manager-dashboard {
   /* Manager Dashboard */
 
+  display: flex;
   position: relative;
-  width: 1024px;
-  height: 768px;
+  width: 100vw;
+  height: 100vh;
+  margin: 0%;
+
   background: linear-gradient(
     180deg,
     rgb(167, 132, 81) 0%,
@@ -14,7 +19,7 @@
     rgba(40, 57, 119, 1) 70%,
     rgba(20, 36, 93, 1) 100%
   );
-
+  /* ...more css */
   /* background: url(gradient.jpg); */
 }
 .manager-dashboard-heading {
@@ -23,8 +28,8 @@
   position: absolute;
   width: 382px;
   height: 78px;
-  left: 19px;
-  top: -4px;
+  left: 100px;
+  top: 5px;
 
   /* Header 1 */
   font-family: "Work Sans";
@@ -37,15 +42,15 @@
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: #faf8f8;
 }
 .sales-transaction-title {
   /* Sales & Transactions */
 
   position: absolute;
-  width: 205px;
+  width: 122px;
   height: 23px;
-  left: 52px;
+  left: 150px;
   top: 145px;
 
   font-family: "Work Sans";
@@ -58,7 +63,7 @@
   text-align: center;
   letter-spacing: -0.02em;
 
-  color: #ffffff;
+  color: #faf8f8;
 }
 .edit-profile-title {
   /* Edit Profile */
@@ -66,7 +71,7 @@
   position: absolute;
   width: 122px;
   height: 23px;
-  left: 39px;
+  left: 167px;
   top: 384px;
 
   font-family: "Work Sans";
@@ -87,7 +92,7 @@
   position: absolute;
   width: 122px;
   height: 23px;
-  left: 689px;
+  left: 880px;
   top: 145px;
 
   font-family: "Work Sans";
@@ -108,7 +113,7 @@
   position: absolute;
   width: 122px;
   height: 23px;
-  left: 390px;
+  left: 520px;
   top: 145px;
 
   font-family: "Work Sans";
@@ -129,9 +134,9 @@
   position: absolute;
   width: 129px;
   height: 129px;
-  left: 51px;
-  top: 175px;
-
+  left: 151px;
+  top: 185px;
+  
   background: rgba(196, 196, 196, 0.42);
 }
 .employees-div {
@@ -140,7 +145,7 @@
   position: absolute;
   width: 129px;
   height: 129px;
-  left: 404px;
+  left: 500px;
   top: 175px;
 
   background: rgba(196, 196, 196, 0.42);
@@ -151,7 +156,7 @@
   position: absolute;
   width: 129px;
   height: 129px;
-  left: 697px;
+  left: 840px;
   top: 175px;
 
   background: rgba(196, 196, 196, 0.42);
@@ -162,7 +167,7 @@
   position: absolute;
   width: 129px;
   height: 129px;
-  left: 40px;
+  left: 151px;
   top: 414px;
 
   background: rgba(196, 196, 196, 0.42);
@@ -177,7 +182,7 @@
   top: 25%;
   bottom: 0%;
 }
-.manager-dashboard-employees{
+.manager-dashboard-employees {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -185,7 +190,7 @@
   bottom: 0%;
 }
 
-.manager-dashboard-item{
+.manager-dashboard-item {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -193,80 +198,68 @@
   bottom: 0%;
 }
 
-.pencil-dashboard{
+.pencil-dashboard {
   /* Rectangle 46 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 842px;
-top: 175px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 1052px;
+  top: 175px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
 
-.pen-dashboard{
+.pen-dashboard {
   /* Rectangle 47 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 909px;
-top: 175px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 985px;
+  top: 175px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
-.primary-dashboard{
+.primary-dashboard {
   /* Rectangle 48 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 842px;
-top: 245px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 985px;
+  top: 245px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
-.exercisebook-dashboard{
+.exercisebook-dashboard {
   /* Rectangle 49 */
 
-position: absolute;
-width: 57px;
-height: 59px;
-left: 909px;
-top: 245px;
+  position: absolute;
+  width: 57px;
+  height: 59px;
+  left: 1052px;
+  top: 245px;
 
-background: rgba(232, 72, 72, 0.45);
-
+  background: rgba(232, 72, 72, 0.45);
 }
 
-.btn{
-
+.btn {
   /* Rectangle 6 */
 
-position: absolute;
-width: 87px;
-height: 50px;
-left: 909px;
-top: 76px;
-
-background: rgba(96, 102, 180, 0.1);
-border-radius: 15px;
-
-  /* Rectangle 6 */
-/* 
-position: absolute;
-width: 67px;
-height: 60px;
-left: 909px;
-top: 76px;
-
-background: rgba(133, 120, 120, 0.1);
-border-radius: 15px; */
-
+  position: absolute;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 15px;
+  width: 87px;
+  height: 50px;
+  left: 1077px;
+  top: 46px;
+   border: none;
+  background: rgba(96, 102, 180, 0.1);
+  border-radius: 15px;
+color: #ffffff;
+ 
 }
 .manager-dashboard div p {
   color: beige;
