@@ -17,7 +17,7 @@ export default function Registration() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("", {
+    fetch("/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
