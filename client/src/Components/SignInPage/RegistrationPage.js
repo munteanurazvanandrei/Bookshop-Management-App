@@ -34,6 +34,8 @@ export default function Registration() {
   }
   return (
     <div className="registration">
+      <h2>PIONEER BOOKSHOP MANAGERS</h2>
+      <h3>Join Us</h3>
       <div className="manager-login-form">
         <form onSubmit={handleSubmit} autoComplete="off">
           <div className="login-inputs-container">
@@ -76,7 +78,7 @@ export default function Registration() {
           </div>
 
           <div className="logins-button-form">
-            <button onClick={() => navigate("/login")}>Signup</button>
+            <button onClick={() => navigate("/login")}>Continue</button>
           </div>
         </form>
       </div>
