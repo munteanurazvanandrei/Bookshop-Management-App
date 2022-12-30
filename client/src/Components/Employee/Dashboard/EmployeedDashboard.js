@@ -37,6 +37,9 @@ export default function EmployeeDashboard() {
           </svg>
         </div>
       </div>
+      <button type="button" className="button">
+        LOG OUT
+      </button>
     </div>
   );
 }
