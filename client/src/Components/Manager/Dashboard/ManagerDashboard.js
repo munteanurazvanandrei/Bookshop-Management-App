@@ -70,7 +70,7 @@ export default function ManagerDashboard() {
       <div className="exercisebook-dashboard"></div>
        
       <button type="button" className="btn">
-        LOG OUT
+        LOGOUT
       </button>
     </div>
   );

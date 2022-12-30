@@ -38,7 +38,7 @@ export default function EmployeeDashboard() {
         </div>
       </div>
       <button type="button" className="button">
-        LOG OUT
+        LOGOUT
       </button>
     </div>
   );

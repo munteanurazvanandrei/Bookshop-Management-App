@@ -30,30 +30,29 @@ export default function EditManagerProfile() {
   return (
     <div className="add-or-edit-manager">
       <div className="managerheading"> Bookshop Manager </div>
-      <div className="button">
-        <button type="button" className="btn">
-          LOGOUT
-        </button>
-      </div>
+
+      <button type="button" className="btn">
+        LOGOUT
+      </button>
+
       <div className="form">
         <form>
           <label>
             Username: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Email:{" "}
-            <input type="email" name="email" onChange={handleChange} />
+            Email: <input type="email" name="email" onChange={handleChange} />
           </label>
           <label>
             Password:{" "}
             <input type="password" name="password" onChange={handleChange} />
           </label>
           <label>
-          Bookshop: <input type="text" name="bookshop" onChange={handleChange} />
+            Bookshop:{" "}
+            <input type="text" name="bookshop" onChange={handleChange} />
           </label>
           <label>
-           Limit:{" "}
-            <input type="number" name="limit" onChange={handleChange} />
+            Limit: <input type="number" name="limit" onChange={handleChange} />
           </label>
         </form>
         <button type="add" onClick={handleSubmit} className="add">

@@ -5,7 +5,7 @@ export default function AddOrEditEmployee() {
   const [details, setDetails] = useState({
     name: "",
     password: "",
-    email: ""
+    email: "",
   });
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,41 +19,44 @@ export default function AddOrEditEmployee() {
     console.log(details);
   };
 
-  const handleClick = (e) => {
-    setDetails("");
+  const handleDelete = (id) => {
+    const newDetails = [...details];
+    newDetails.splice(id, 1);
+    setDetails(newDetails);
   };
   // Add or edit an employee form
-  return(
+  return (
     <div className="add-or-edit-employee">
       <div className="employeeheading"> Bookshop Manager </div>
-      <div className="employee-button">
-        <button type="button" className="employee-btn">
-          LOGOUT
-        </button>
-      </div>
+
+      <button type="button" className="employee-btn">
+        LOGOUT
+      </button>
+
       <div className="employee-form">
         <form>
           <label>
             Name: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Email:{" "}
-            <input type="email" name="email" onChange={handleChange} />
+            Email: <input type="email" name="email" onChange={handleChange} />
           </label>
           <label>
             Password:{" "}
             <input type="password" name="password" onChange={handleChange} />
           </label>
-          
-          
         </form>
         <button type="add" onClick={handleSubmit} className="employee-add">
-           Add/Edit
+          Add/Edit
         </button>
-        <button type="cancel" onClick={handleClick} className=" employee-cancel">
+        <button
+          type="cancel"
+          onClick={handleDelete}
+          className=" employee-cancel"
+        >
           Cancel
         </button>
       </div>
     </div>
-    );
+  );
 }

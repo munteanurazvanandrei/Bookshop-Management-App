@@ -29,11 +29,11 @@ export default function AddOrEditItem() {
   return (
     <div className="add-or-edit-item">
       <div className="itemheading"> Bookshop Manager </div>
-      <div className="item-button">
+      
         <button type="button" className="item-btn">
           LOGOUT
         </button>
-      </div>
+      
       <div className="item-form">
         <form>
           <label>
