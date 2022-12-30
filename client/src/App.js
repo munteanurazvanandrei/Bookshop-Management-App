@@ -5,6 +5,7 @@ import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
 import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
+import Registration from './Components/SignInPage/RegistrationPage';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route path="/employee/make_sale" element={<MakeASale/>}/>
         <Route path="/manager" element={<ManagerDashboard/>}/>
         <Route path="/manager/*" element={<ManagerDesktop/>}/>
+        <Route path='/signup' element={<Registration />} />
       </Routes>
     </div>
   );
