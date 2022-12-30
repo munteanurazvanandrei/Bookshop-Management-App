@@ -1,7 +1,7 @@
 class ManagersController < ApplicationController
 rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     before_action :authorized, except: [:create]
-    before_action :is_manager?, except: [:index]
+    before_action :is_manager?, except: [:index, :create]
     # GET /managers
     def index
         render json: Manager.all
