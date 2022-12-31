@@ -44,7 +44,7 @@
 
   color: #faf8f8;
 }
-.sales-transaction-title {
+.manager-dashboard  .sales-transaction-title {
   /* Sales & Transactions */
 
   position: absolute;
@@ -65,7 +65,7 @@
 
   color: #faf8f8;
 }
-.edit-profile-title {
+.manager-dashboard   .edit-profile-title {
   /* Edit Profile */
 
   position: absolute;
@@ -86,7 +86,7 @@
 
   color: #ffffff;
 }
-.items-title {
+.manager-dashboard  .items-title {
   /* Items */
 
   position: absolute;
@@ -107,7 +107,7 @@
 
   color: #ffffff;
 }
-.employees-title {
+.manager-dashboard   .employees-title {
   /* Employees */
 
   position: absolute;
@@ -128,7 +128,7 @@
 
   color: #ffffff;
 }
-.sales-div {
+.manager-dashboard  .sales-div {
   /* Rectangle 33 */
 
   position: absolute;
@@ -139,7 +139,7 @@
   
   background: rgba(196, 196, 196, 0.42);
 }
-.employees-div {
+ .manager-dashboard  .employees-div {
   /* Rectangle 36 */
 
   position: absolute;
@@ -150,7 +150,7 @@
 
   background: rgba(196, 196, 196, 0.42);
 }
-.items-div {
+.manager-dashboard  .items-div {
   /* Rectangle 40 */
 
   position: absolute;
@@ -173,7 +173,7 @@
   background: rgba(196, 196, 196, 0.42);
 }
 
-.manager-dashboard-transactions {
+.manager-dashboard .manager-dashboard-transactions {
   /* Vector */
 
   position: absolute;
@@ -182,7 +182,7 @@
   top: 25%;
   bottom: 0%;
 }
-.manager-dashboard-employees {
+.manager-dashboard  .manager-dashboard-employees {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -190,7 +190,7 @@
   bottom: 0%;
 }
 
-.manager-dashboard-item {
+.manager-dashboard .manager-dashboard-item {
   position: absolute;
   left: 25%;
   right: 0%;
@@ -198,7 +198,7 @@
   bottom: 0%;
 }
 
-.pencil-dashboard {
+.manager-dashboard .pencil-dashboard {
   /* Rectangle 46 */
 
   position: absolute;
@@ -210,7 +210,7 @@
   background: rgba(232, 72, 72, 0.45);
 }
 
-.pen-dashboard {
+.manager-dashboard  .pen-dashboard {
   /* Rectangle 47 */
 
   position: absolute;
@@ -221,7 +221,7 @@
 
   background: rgba(232, 72, 72, 0.45);
 }
-.primary-dashboard {
+.manager-dashboard  .primary-dashboard {
   /* Rectangle 48 */
 
   position: absolute;
@@ -232,7 +232,7 @@
 
   background: rgba(232, 72, 72, 0.45);
 }
-.exercisebook-dashboard {
+.manager-dashboard  .exercisebook-dashboard {
   /* Rectangle 49 */
 
   position: absolute;
@@ -244,7 +244,7 @@
   background: rgba(232, 72, 72, 0.45);
 }
 
-.btn {
+.manager-dashboard  .btn {
   /* Rectangle 6 */
 
   position: absolute;
@@ -258,7 +258,7 @@
    border: none;
   background: rgba(96, 102, 180, 0.1);
   border-radius: 15px;
-color: #ffffff;
+  color: #ffffff;
  
 }
 .manager-dashboard div p {
