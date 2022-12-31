@@ -69,7 +69,7 @@
 
   background: rgba(211, 205, 205, 0.8);
 }
-.sales-history {
+.employee-dashboard  .sales-history {
   /* Rectangle 32 */
 
   position: absolute;
@@ -80,7 +80,7 @@
 
   background: rgba(196, 196, 196, 0.8);
 }
-.make-sale-telephone {
+.employee-dashboard  .make-sale-telephone {
   /* Vector */
 
   position: absolute;
@@ -90,14 +90,14 @@
   bottom: 29.46%;
 }
 
-.sales-history-svg {
+.employee-dashboard .sales-history-svg {
   position: absolute;
   left: 34%;
   right: 41%;
   top: 28.68%;
   bottom: 29.46%;
 }
-.button {
+.employee-dashboard  .button {
   /* Rectangle 7 */
   font-weight: 700;
   position: absolute;
