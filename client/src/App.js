@@ -16,7 +16,7 @@ function App() {
         <Route path="/manager" element={<ManagerDashboard/>}/>
       </Routes>
     </div>
-  <ManagerDashboard/>
+  <EmployeeDashboard/>
     </>
   );
 }

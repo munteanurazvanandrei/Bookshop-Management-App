@@ -101,8 +101,10 @@
   /* Rectangle 7 */
   font-weight: 700;
   position: absolute;
-  width: 85px;
+  font-style: normal;
+  width: 100px;
   height: 50px;
+  font-size: 16px;
   left: 1131px;
   top: 39px;
   color: rgb(245, 247, 248);
