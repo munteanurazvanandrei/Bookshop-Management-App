@@ -26,14 +26,14 @@ export default function AddOrEditEmployee() {
   };
   // Add or edit an employee form
   return (
-    <div className="add-or-edit-employee">
-      <div className="employeeheading"> Bookshop Manager </div>
+    <div className="add-or-edit-form">
+      <div className="heading"> Bookshop Manager </div>
 
-      <button type="button" className="employee-btn">
+      <button type="button" className="btn">
         LOGOUT
       </button>
 
-      <div className="employee-form">
+      <div className="form">
         <form>
           <label>
             Name: <input type="text" name="name" onChange={handleChange} />

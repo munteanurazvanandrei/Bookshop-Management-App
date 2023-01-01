@@ -28,8 +28,8 @@ export default function EditManagerProfile() {
 
   // Edit the manager's profile form
   return (
-    <div className="add-or-edit-manager">
-      <div className="managerheading"> Bookshop Manager </div>
+    <div className="add-or-edit-form">
+      <div className="heading"> Bookshop Manager </div>
 
       <button type="button" className="btn">
         LOGOUT

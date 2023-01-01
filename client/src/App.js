@@ -1,7 +1,12 @@
 import './App.css';
 import LandingPage from './Components/LandingPage/LandingPage';
 import { Route,Routes } from 'react-router-dom';
-import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
+import AddOrEditItem from './Components/Manager/AddOrEdit/AddOrEditItem';
+
+
+
+
+
 
 
 
@@ -17,7 +22,7 @@ function App() {
         <Route path="*" element={<LandingPage/>}/>
       </Routes>
     </div>
-  <EmployeeDashboard/>
+  <AddOrEditItem/>
     </>
   );
 }

@@ -27,26 +27,24 @@ export default function AddOrEditItem() {
   };
   // Add or edit an item form
   return (
-    <div className="add-or-edit-item">
-      <div className="itemheading"> Bookshop Manager </div>
+    <div className="add-or-edit-form">
+      <div className="heading"> Bookshop Manager </div>
       
-        <button type="button" className="item-btn">
+        <button type="button" className="btn">
           LOGOUT
         </button>
       
-      <div className="item-form">
+      <div className="form">
         <form>
           <label>
             Name: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
-            Publisher:{" "}
+            Publisher:
             <input type="text" name="publisher" onChange={handleChange} />
           </label>
-          <label>
-            Img_url:{" "}
-            <input type="img_url" name="img_url" onChange={handleChange} />
-          </label>
+          <label>Img_url:
+          <input type="img_url" name="img_url" onChange={handleChange} /></label>
           <label>
             Price: <input type="number" name="price" onChange={handleChange} />
           </label>
@@ -60,7 +58,7 @@ export default function AddOrEditItem() {
           </label>
         </form>
         <button type="add" onClick={handleSubmit} className="add">
-          Add
+        Add
         </button>
         <button type="cancel" onClick={handleClick} className="cancel">
           Cancel
