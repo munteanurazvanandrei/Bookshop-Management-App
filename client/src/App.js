@@ -1,17 +1,7 @@
 import './App.css';
 import LandingPage from './Components/LandingPage/LandingPage';
 import { Route,Routes } from 'react-router-dom';
-import AddOrEditItem from './Components/Manager/AddOrEdit/AddOrEditItem';
-
-
-
-
-
-
-
-
-
-
+import AddOrEditEmployee from './Components/Manager/AddOrEdit/AddOrEditEmployee';
 
 
 function App() {
@@ -22,7 +12,7 @@ function App() {
         <Route path="*" element={<LandingPage/>}/>
       </Routes>
     </div>
-  <AddOrEditItem/>
+    <AddOrEditEmployee/>
     </>
   );
 }
