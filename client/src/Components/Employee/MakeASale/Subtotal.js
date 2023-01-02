@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 // TODO: create subtotal states and return data from makeASale componennt
-const Subtotal = () => {
+const Subtotal = ({totalCartPrice}) => {
     return (
         <>
             <div>Subtotal</div>
