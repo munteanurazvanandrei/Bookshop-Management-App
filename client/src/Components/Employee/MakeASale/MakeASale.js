@@ -33,15 +33,20 @@ const Table = (props) => {
     )
 }
 
-export default function MakeASale({ employeeName }) {
+
+export default function MakeASale({ employeeName, items }) {
     // point of sale navigation pane
     console.log("constructor()")
     // Redirects user to set-page e.g. home, login
     const nav = useNavigate()
 
-    // Sample data
-    // eslint-disable-next-line
-    const [rows, setRows] = useState(items) 
+    // Initialize cart state
+    const [cart, setCart] = useState([])
+    var totalCartPrice = 0
+
+    // TODO: write decrement and increment functions for the cart
+
+
     return (
         <div className="point-of-sale">
             <div className="pos-sidebar">
@@ -75,10 +80,47 @@ export default function MakeASale({ employeeName }) {
             </div>
             <div className='product-table'>
                 <Search />
-                <Table data={rows} />
-                <Subtotal />
-            </div>
+                {/* TODO: create table for the products */}
 
+                <div className="table-responsive">
+                    <table className="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>{name}</th>
+                                <th>{publisher}</th>
+                                <th className="text-center">{qty}</th>
+                                <th className="text-center">{price}</th>
+                                <th className="text-center">Total Price</th>
+                                <th>Remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {items.map((item, index) => {
+                                totalCartPrice += item.price * item.qty
+                                return (
+                                    <tr key={index}>
+                                        <td width="10%">
+                                            <img src={"/path_to_image"} alt="message" />
+                                        </td>
+                                        <td>{item.name}</td>
+                                        <td>{item.publisher}</td>
+                                        <td>
+                                            <div className='input-group'>
+                                                <button type='button' onClick={() => handleDecrement(item.id)} className="input-group-text">-</button>
+                                                <div className="form-control text-center">{item.qty}</div>
+                                                <button type='button' onClick={() => handleIncrement(item.id)} className="input-group-text">+</button>
+                                            </div>
+                                        </td>
+                                        <td>{item.name}</td>
+                                    </tr>
+                                )
+                            })}
+                        </tbody>
+                    </table>
+                    <Subtotal />
+                </div>
+
+            </div>
         </div>
     )
 }
