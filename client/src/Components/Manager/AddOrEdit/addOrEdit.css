@@ -1,7 +1,9 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "add-or-edit" */
-.add-or-edit div{
-    display: flex;
+.add-or-edit{
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
     /* ...more css */
 }
 
