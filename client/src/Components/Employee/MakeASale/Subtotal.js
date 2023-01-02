@@ -20,6 +20,7 @@ const Subtotal = () => {
                             <span className='float-end'>{totalCartPrice}</span>
                         </h4>
                         <hr />
+                        {/* TODO:change Link to NavLink */}
                         {/* Navigates to checkout page for a successfull sale */}
                         <Link to="/checkout" className='btn btn-primary'>checkout</Link>
                     </div>
