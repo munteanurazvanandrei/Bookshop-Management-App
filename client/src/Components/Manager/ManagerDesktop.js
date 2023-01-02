@@ -4,6 +4,7 @@ import Employees from "./Employees/Employees";
 import Items from "./Items/Items";
 import ManagerSideBar from "./ManagerSidebar/ManagerSidebar";
 import { Route, Routes } from "react-router-dom";
+import "./managerDesktop.css";
 
 export default function ManagerDesktop(){
     // manager's view for all desktops with the side bar
