@@ -86,7 +86,7 @@ export default function MakeASale({ employeeName, items }) {
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>{name}</th>
+                                <th>{itemname}</th>
                                 <th>{publisher}</th>
                                 <th className="text-center">{qty}</th>
                                 <th className="text-center">{price}</th>
@@ -122,7 +122,7 @@ export default function MakeASale({ employeeName, items }) {
                             })}
                         </tbody>
                     </table>
-                    <Subtotal />
+                    <Subtotal totalCartPrice={totalCartPrice}/>
                 </div>
 
             </div>
