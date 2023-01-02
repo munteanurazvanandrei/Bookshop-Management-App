@@ -1,15 +1,63 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "registration" */
+body{
+    background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%);
+    background-repeat: no-repeat;
+}
 .registration div{
     display: flex;
     /* ...more css */
 }
-
 .registration div p{
     color: beige;
     /* ...more css */
 }
 
-.registration div span{
+.registration {
     /* ...more css */
+
 }
+.registration-nav{
+    display: flex;
+    justify-content:space-around;
+    flex-direction: row;
+    padding-bottom: 100px;
+    color: white;
+}
+.registration-nav h2{
+    width: 20%;
+}
+/* .registration_app_name{
+flex-direction: column;
+height: 50px;
+} */
+.registration-container{
+    display: flex;
+    justify-content: center;
+    height: 400px;
+    width: 100vw;
+
+}
+.registration-inputs-container{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+
+}
+.registration-signup-form{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    background: white;
+    border-radius: 10px;
+}
+.registration-welcome-message{
+    display: flex;
+    justify-content: center;
+    color: black;
+    flex-direction: column;
+    background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%);
+}
+
+
+
