@@ -13,6 +13,6 @@ export default function ManagerDesktop(){
             <Route path="/employees" element={<Employees/>}/>
             <Route path="/employees" element={<Items/>}/>
             <Route path="/add_or_edit_employee" element={<AddOrEditEmployee/>}/>
-            <Route path="/add_or_edit_employee" element={<AddOrEditItem/>}/>
+            <Route path="/add_or_edit_item" element={<AddOrEditItem/>}/>
         </Routes></div>)
 }
