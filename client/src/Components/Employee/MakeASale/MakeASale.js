@@ -90,8 +90,8 @@ export default function MakeASale({ employeeName, items }) {
                                 <th>{publisher}</th>
                                 <th className="text-center">{qty}</th>
                                 <th className="text-center">{price}</th>
-                                <th className="text-center">Total Price</th>
-                                <th>Remove</th>
+                                {/* <th className="text-center">Total Price</th>
+                                <th>Remove</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -106,12 +106,17 @@ export default function MakeASale({ employeeName, items }) {
                                         <td>{item.publisher}</td>
                                         <td>
                                             <div className='input-group'>
+                                                {/* This perfoms the increment and decrement of item quantity before getting the total */}
                                                 <button type='button' onClick={() => handleDecrement(item.id)} className="input-group-text">-</button>
                                                 <div className="form-control text-center">{item.qty}</div>
                                                 <button type='button' onClick={() => handleIncrement(item.id)} className="input-group-text">+</button>
                                             </div>
                                         </td>
-                                        <td>{item.name}</td>
+                                        <td className='text-center'>{totalCartPrice}</td>
+                                        <td>
+                                            {/* When the button is clicked, the deleteItem function is triggered */}
+                                            <button type='button' onClick={(e)=> deleteItem(e, item.id)} className="btn btn-danger btn-sm">Remove</button>
+                                        </td>
                                     </tr>
                                 )
                             })}
