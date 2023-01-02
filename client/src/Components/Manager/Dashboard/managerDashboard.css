@@ -4,8 +4,8 @@
 /* Emphasis on using the "super" parent class, ie. "manager-dashboard" */
 .manager-dashboard {
   /* Manager Dashboard */
-
-  display: flex;
+  background: url("./background.svg");
+  /* display: flex;
   position: relative;
   width: 100vw;
   height: 100vh;
@@ -17,8 +17,8 @@
     rgba(40, 57, 119, 1) 30%,
     rgba(63, 69, 125, 1) 50%,
     rgba(40, 57, 119, 1) 70%,
-    rgba(20, 36, 93, 1) 100%
-  );
+    rgba(20, 36, 93, 1) 100% */
+  /* ); */
   /* ...more css */
   /* background: url(gradient.jpg); */
 }
