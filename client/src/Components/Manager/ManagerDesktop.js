@@ -14,7 +14,7 @@ export default function ManagerDesktop(){
         <Routes>
             <Route path="/employees" element={<Employees/>}/>
             <Route path="/employees_sales" element={<EmployeeSales/>}/>
-            <Route path="/employees" element={<Items/>}/>
+            <Route path="/items" element={<Items/>}/>
             <Route path="/add_or_edit_employee" element={<AddOrEditEmployee/>}/>
             <Route path="/add_or_edit_item" element={<AddOrEditItem/>}/>
         </Routes></div>)
