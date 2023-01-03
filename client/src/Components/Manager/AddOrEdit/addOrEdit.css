@@ -1,0 +1,17 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "add-or-edit" */
+.add-or-edit{
+    width: 100vw;
+    height: 100vh;
+    background-color: aqua;
+    /* ...more css */
+}
+
+.add-or-edit div p{
+    color: beige;
+    /* ...more css */
+}
+
+.add-or-edit div span{
+    /* ...more css */
+}

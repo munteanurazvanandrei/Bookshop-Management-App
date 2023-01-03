@@ -1,0 +1,15 @@
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "items" */
+.items div{
+    display: flex;
+    /* ...more css */
+}
+
+.items div p{
+    color: beige;
+    /* ...more css */
+}
+
+.items div span{
+    /* ...more css */
+}

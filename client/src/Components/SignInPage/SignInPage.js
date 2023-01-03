@@ -1,4 +1,4 @@
 export default function SiginIn(){
     // The signIn page
-    return (<></>)
+    return (<div className="sign-in"></div>)
 }
