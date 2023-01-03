@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function SignIn(handleLogin, action = "") {
   // The signIn page
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
+  const navigate = useNavigate()
 
   function handleInput(e) {
     const key = e.target.name;
@@ -16,7 +17,7 @@ export default function SignIn(handleLogin, action = "") {
     e.preventDefault();
 
     action
-      ? fetch("http://localhost:3000/:id", {
+      ? fetch("http://localhost:4000/managers/", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -27,6 +28,9 @@ export default function SignIn(handleLogin, action = "") {
             return r.json().then((user) => {
               console.log(user)
               handleLogin.handleManagerLogin(user);
+              localStorage.setItem('managers-token', user.jwt)
+              localStorage.setItem('managers', user.manager.id)
+              navigate(`/managers/${user.manager.id}/manager`)
             });
           }
         })
