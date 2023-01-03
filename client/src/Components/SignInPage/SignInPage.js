@@ -1,6 +1,17 @@
+import React, {useState} from "react"
+
 export default function SignIn(){
     // The signIn page
+    const [formData, setFormData] = useState({})
+    const [errors, setErrors] = useState("")
 
+     function handleInput(e){
+        const key = e.target.name
+        const value = e.target.value
+        
+        setErrors("")
+        setFormData({...formData, [key]: value})
+     }
 
     return (<div className="sign-in">
         <div className="registration">
