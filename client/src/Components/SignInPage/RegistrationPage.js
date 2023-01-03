@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import "./registration.css"
-import logo from "./download.jpeg"
+import "./registration.css";
+import logo from "./download.jpeg";
 export default function Registration() {
   // the registration for the manager;
   // also for the bookshop
@@ -9,7 +9,7 @@ export default function Registration() {
   const [formState, setFormState] = useState({});
   const navigate = useNavigate();
   const myRouteLocation = window.location.pathname;
-  
+
   function formChange(e) {
     const value = e.target.value;
     const name = e.target.name;
@@ -34,7 +34,6 @@ export default function Registration() {
       .then((data) => data);
   }
   return (
-
     <div className="registration">
       <div className="registration-nav">
         <h2>PIONEER BOOKSHOP MANAGERS</h2>
@@ -54,7 +53,7 @@ export default function Registration() {
                 onChange={(e) => formChange(e)}
                 required
               />
-              <br/>
+              <br />
               <input
                 id="email"
                 type="email"
@@ -64,7 +63,7 @@ export default function Registration() {
                 onChange={(e) => formChange(e)}
                 required
               />
-                            <br/>
+              <br />
               <input
                 id="password"
                 type="password"
@@ -74,7 +73,7 @@ export default function Registration() {
                 onChange={(e) => formChange(e)}
                 required
               />
-                            <br/>
+              <br />
               <input
                 id="passwordConfirm"
                 type="password"
@@ -85,7 +84,7 @@ export default function Registration() {
                 required
               />
             </div>
-            <br/>
+            <br />
             <div className="registration-button-form">
               <button onClick={() => navigate("/signin")}>Continue</button>
             </div>
@@ -110,8 +109,8 @@ export default function Registration() {
           </div> */}
         </div>
         <div className="registration-welcome-message">
-          <img  src={logo} alt="#"/>
-          <h5>Welcome aboard my friend</h5>
+          <img src={logo} alt="#" />
+          <h4>Welcome aboard my friend</h4>
           <p>just a couple of clicks and we start</p>
         </div>
       </div>
