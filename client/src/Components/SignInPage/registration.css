@@ -1,8 +1,12 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "registration" */
 body{
-    background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%);
+    /* background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%); */
+    background: url(./backround-photo.png);
     background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+    backdrop-filter: blur(15px);
+
 }
 .registration div{
     display: flex;
@@ -27,6 +31,11 @@ body{
 .registration-nav h2{
     width: 20%;
 }
+.registration-nav button{
+    height: 20px;
+    margin-left: 300px;
+    margin-top: 20px;
+}
 /* .registration_app_name{
 flex-direction: column;
 height: 50px;
@@ -42,6 +51,8 @@ height: 50px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
+    width: 70%;
+    margin-left: 30px;
 
 }
 .registration-signup-form{
@@ -49,7 +60,8 @@ height: 50px;
     justify-content: space-evenly;
     flex-direction: column;
     background: white;
-    border-radius: 10px;
+    border-radius: 10px 0 0 10px;
+    width: 30%;
 }
 .registration-welcome-message{
     display: flex;
@@ -57,6 +69,8 @@ height: 50px;
     color: black;
     flex-direction: column;
     background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%);
+    border-radius: 0px 10px 10px 0px;
+    width: 30%;
 }
 
 
