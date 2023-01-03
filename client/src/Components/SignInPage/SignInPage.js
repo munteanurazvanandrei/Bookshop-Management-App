@@ -3,14 +3,14 @@ import { useNavigate } from "react-router-dom";
 export default function SignIn(handleLogin, action = "") {
   // The signIn page
   const [formData, setFormData] = useState({});
-  const [errors, setErrors] = useState("");
-  const navigate = useNavigate()
+  // const [errors, setErrors] = useState("");
+  const navigate = useNavigate();
 
   function handleInput(e) {
     const key = e.target.name;
     const value = e.target.value;
 
-    setErrors("");
+    // setErrors("");
     setFormData({ ...formData, [key]: value });
   }
   function handleSubmit(e) {
@@ -26,11 +26,11 @@ export default function SignIn(handleLogin, action = "") {
         }).then((r) => {
           if (r.ok) {
             return r.json().then((user) => {
-              console.log(user)
+              console.log(user);
               handleLogin.handleManagerLogin(user);
-              localStorage.setItem('managers-token', user.jwt)
-              localStorage.setItem('managers', user.manager.id)
-              navigate(`/managers/${user.manager.id}/manager`)
+              localStorage.setItem("managers-token", user.jwt);
+              localStorage.setItem("managers", user.manager.id);
+              navigate(`/managers/${user.manager.id}/manager`);
             });
           }
         })
