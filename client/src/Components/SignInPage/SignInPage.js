@@ -16,7 +16,7 @@ export default function SignIn(handleLogin, action = "") {
     e.preventDefault();
 
     action
-      ? fetch("/managers", {
+      ? fetch("http://localhost:3000/:id", {
           method: "POST",
           headers: {
             "Content-type": "application/json",
@@ -25,7 +25,7 @@ export default function SignIn(handleLogin, action = "") {
         }).then((r) => {
           if (r.ok) {
             return r.json().then((user) => {
-              // console.log(user)
+              console.log(user)
               handleLogin.handleManagerLogin(user);
             });
           }
