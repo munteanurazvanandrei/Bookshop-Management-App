@@ -87,7 +87,7 @@ export default function Registration() {
             </div>
             <br/>
             <div className="registration-button-form">
-              <button onClick={() => navigate("/login")}>Continue</button>
+              <button onClick={() => navigate("/signin")}>Continue</button>
             </div>
           </form>
         </div>
