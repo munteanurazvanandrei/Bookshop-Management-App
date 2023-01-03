@@ -7,6 +7,7 @@ import EmployeeSales from "./EmployeeSales/EmployeeSales";
 import { Route, Routes } from "react-router-dom";
 import "./managerDesktop.css";
 
+
 export default function ManagerDesktop(){
     // manager's view for all desktops with the side bar
     return(<div className="manager-desktop">

@@ -1,15 +1,69 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "employee-sales" */
-.employee-sales div{
-    display: flex;
+
+.employee-sales{
+     background: #5650A473;
+    ;
+}
+.employee-sales h1{
+    color: white;
+    font-size: 42px;
+    background:rgba(86, 80, 164, 0.45) ;
+    font-family: 'Lato';
+    /* line-height: 50px; */
+    align-items: center;
+   text-align: center;
+   font-weight: 400;
+
+
+    
+
+/* font-family: 'Lato'; 
+font-style: normal;
+font-weight: 400;
+font-size: 42px;
+line-height: 50px;
+display: flex;
+align-items: center;
+text-align: center;
+      */
+
+
+
     /* ...more css */
 }
 
-.employee-sales div p{
-    color: beige;
+.employee-sales  table{
+    margin: auto;
+    color:white;
+    background:rgba(86, 80, 164, 0.45) ;
+    /* border:solid white 26px; */
+    /* width: 733px;
+   height: 26px;
+   left: 258px;
+   top: 270px; */
+
+
+
     /* ...more css */
 }
 
-.employee-sales div span{
-    /* ...more css */
+.employee-sales  table th{
+    /* position:absolute; */
+width: 602px;
+height: 15px;
+left: 332px;
+top: 221px;
 }
+.employee-sales  table td{
+    border:solid white 1lspx;
+
+width: 733px;
+height: 26px;
+left: 258px;
+top: 270px;
+
+
+}
+
+

@@ -5,6 +5,7 @@ import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
 import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
+import EmployeeSales from './Components/Manager/EmployeeSales/EmployeeSales';
 
 function App() {
   return (
@@ -16,6 +17,8 @@ function App() {
         <Route path="/manager" element={<ManagerDashboard/>}/>
         <Route path="/manager/*" element={<ManagerDesktop/>}/>
       </Routes>
+      
+      <EmployeeSales></EmployeeSales>
     </div>
   );
 }
