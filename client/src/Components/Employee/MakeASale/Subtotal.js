@@ -13,11 +13,11 @@ const Subtotal = ({totalCartPrice}) => {
                     <div className='card card-body mt-3'>
                         <h4>Sub Total:
                             {/* Gets the total item price into the cart */}
-                            <span className='float-end'>{totalCartPrice}</span>
+                            <span className='float-end'>{totalCartPrice.toLocaleString()}</span>
                         </h4>
-                        <h4>Grand Total
+                        <h4>Grand Total:
                             {/* Matches the subtotal if no discount or change is made */}
-                            <span className='float-end'>{totalCartPrice}</span>
+                            <span className='float-end'>{totalCartPrice.toLocaleString()}</span>
                         </h4>
                         <hr />
                         {/* TODO:change Link to NavLink */}
@@ -30,4 +30,4 @@ const Subtotal = ({totalCartPrice}) => {
     )
 }
 
-export default Subtotal 
+export default Subtotal;
