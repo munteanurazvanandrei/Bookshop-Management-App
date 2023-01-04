@@ -1,48 +1,26 @@
 import { NavLink, useNavigate } from 'react-router-dom'
 import './styling/sale.css'
 import './styling/search.css'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Search from './Search'
 import Subtotal from './Subtotal'
 
-const items = [{ name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }]
-
-const Row = (props) => {
-    const { name, publisher, qty, price } = props
-    return (
-        <tr>
-            <td>{name}</td>
-            <td>{publisher}</td>
-            <td>{qty}</td>
-            <td>{price}</td>
-        </tr>
-    )
-}
-
-const Table = (props) => {
-    const { data } = props
-    console.log(data)
-    return (
-        <table>
-            <tbody>
-                {data.map((row, index) =>
-                    <Row key={`key-${index}`} name={row.name} publisher={row.publisher} qty={row.qty} price={row.price} />
-                )}
-            </tbody>
-        </table>
-    )
-}
-
-
-export default function MakeASale({ employeeName, items }) {
+export default function MakeASale() {
     // point of sale navigation pane
     console.log("constructor()")
     // Redirects user to set-page e.g. home, login
     const nav = useNavigate()
 
+    const [items, setItems] = useState([])
+    
+    useEffect(()=>{
+        fetch(`/items`)
+        .then((r)=> r.json())
+        .then(items=>setItems(items))
+    },[])
+
     // Initialize cart state
-    const [cart, setCart] = useState([])
-    var totalCartPrice = 0
+    const [totalCartPrice, setTotalCartPrice] = useState(0)
 
     // TODO: write decrement and increment functions for the cart
 
@@ -52,7 +30,7 @@ export default function MakeASale({ employeeName, items }) {
             <div className="pos-sidebar">
                 <h3>Make a Sale</h3>
                 <img src='/svgs/employees.svg' alt='employee' />
-                <p>{employeeName}</p>
+                {/* <p>{employeeName}</p> */}
                 <hr />
                 <NavLink to="/dashboard">
                     <button className='input-btn' type="submit">
@@ -80,49 +58,52 @@ export default function MakeASale({ employeeName, items }) {
             </div>
             <div className='product-table'>
                 <Search />
-                {/* TODO: create table for the products */}
+                {/* TODO: #21 #20 create table for the products */}
 
                 <div className="table-responsive">
                     <table className="table table-bordered">
                         <thead>
                             <tr>
-                                <th>{itemname}</th>
-                                <th>{publisher}</th>
-                                <th className="text-center">{qty}</th>
-                                <th className="text-center">{price}</th>
-                                {/* <th className="text-center">Total Price</th>
-                                <th>Remove</th> */}
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th className="text-center">Qty</th>
+                                <th className="text-center">Unit Price</th>
+                                {/* <th className="text-center">Total Price</th> */}
+                                <th>Remove</th>
                             </tr>
                         </thead>
                         <tbody>
                             {items.map((item, index) => {
-                                totalCartPrice += item.price * item.qty
+                                // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
+
                                 return (
                                     <tr key={index}>
                                         <td width="10%">
-                                            <img src={"/path_to_image"} alt="message" />
+                                            <img src={"items"} alt="message" />
                                         </td>
-                                        <td>{item.name}</td>
-                                        <td>{item.publisher}</td>
+                                        <td>{item.name_or_title}</td>
+                                        <td>{item.manufacturer_or_author}</td>
                                         <td>
                                             <div className='input-group'>
                                                 {/* This perfoms the increment and decrement of item quantity before getting the total */}
-                                                <button type='button' onClick={() => handleDecrement(item.id)} className="input-group-text">-</button>
+                                                <button type='button' className="input-group-text">-</button>
                                                 <div className="form-control text-center">{item.qty}</div>
-                                                <button type='button' onClick={() => handleIncrement(item.id)} className="input-group-text">+</button>
+                                                {/* <button type='button' onClick={() => handleIncrement(item.id)} className="input-group-text">+</button> */}
                                             </div>
                                         </td>
-                                        <td className='text-center'>{totalCartPrice}</td>
+                                        <td>{item.price_per_item}</td>
+                                        {/* <td className='text-center'>{totalCartPrice}</td> */}
                                         <td>
                                             {/* When the button is clicked, the deleteItem function is triggered */}
-                                            <button type='button' onClick={(e)=> deleteItem(e, item.id)} className="btn btn-danger btn-sm">Remove</button>
+                                            {/* <button type='button' onClick={(e)=> deleteItem(e, item.id)} className="btn btn-danger btn-sm">Remove</button> */}
                                         </td>
                                     </tr>
                                 )
                             })}
                         </tbody>
                     </table>
-                    <Subtotal totalCartPrice={totalCartPrice}/>
+                    <Subtotal totalCartPrice={items.reduce((total,item)=> total + (item.price_per_item * item.qty),0)}/>
                 </div>
 
             </div>
