@@ -6,14 +6,17 @@
   height: 100vh;
   left: 253px;
   top: 3px;
-  background: linear-gradient(
+  background: url(AddorEditbackground.svg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background: linear-gradient(
     180deg,
     rgb(167, 132, 81) 0%,
     rgba(40, 57, 119, 1) 30%,
     rgba(63, 69, 125, 1) 50%,
     rgb(152, 155, 167) 70%,
     rgb(92, 116, 204) 100%
-  );
+  ); */
   display: flex;
 }
 .btn {
@@ -78,7 +81,7 @@ label {
   font-family: "Work Sans";
   font-style: normal;
   font-weight: 700;
-  font-size: 44px;
+  font-size: 29px;
   line-height: 40px;
   display: flex;
   align-items: center;
