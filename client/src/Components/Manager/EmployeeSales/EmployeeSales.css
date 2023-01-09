@@ -3,7 +3,7 @@
 
 .employee-sales{
      background: #5650A473;
-    ;
+    width: 82%;
 }
 .employee-sales h1{
     color: white;
@@ -34,11 +34,13 @@ text-align: center;
 }
 
 .employee-sales  table{
+    width: 100%;
+    border-collapse: collapse;
     margin: auto;
     color:white;
     background:rgba(86, 80, 164, 0.45) ;
     /* border:solid white 26px; */
-    /* width: 733px;
+    /* width:max-content;
    height: 26px;
    left: 258px;
    top: 270px; */
@@ -47,18 +49,21 @@ text-align: center;
 
     /* ...more css */
 }
-
 .employee-sales  table th{
     /* position:absolute; */
-width: 602px;
+    border-bottom:solid white 2px;
+width:max-content;
 height: 15px;
 left: 332px;
 top: 221px;
 }
 .employee-sales  table td{
-    border:solid white 1px;
+    /* border:solid white 1px; */
+    border: none;
+    border-bottom:solid white 2px;
 
-width: 733px;
+
+width:max-content;
 height: 26px;
 left: 258px;
 top: 270px;
