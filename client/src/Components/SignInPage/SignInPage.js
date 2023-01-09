@@ -1,12 +1,19 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import {
+  HiOutlineMail,
+  HiOutlineEye,
+  HiOutlineLockClosed,
+} from "react-icons/hi";
 import "./sigin.css";
 
-export default function SignIn(handleLogin, action = "") {
+export default function SignIn() {
   // The signIn page
+  let action = false;
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
+  const [checked, setChecked] = useState(false);
 
   function handleInput(e) {
     const key = e.target.name;
@@ -17,51 +24,29 @@ export default function SignIn(handleLogin, action = "") {
   }
   function handleSubmit(e) {
     e.preventDefault();
-
-    action
-      ? fetch("http://localhost:4000/managers/", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }).then((r) => {
-          if (r.ok) {
-            return r.json().then((user) => {
-              console.log(user);
-              handleLogin.handleManagerLogin(user);
-              localStorage.setItem("manager-token", user.jwt);
-              localStorage.setItem("manager", user.manager.id);
-              navigate(`/manager/${user.manager.id}/manager`);
-            });
-          } else {
-            r.json().then((err) => {
-              setErrors(err.errors);
-            });
-          }
-        })
-      : fetch("http://localhost:4000/employees", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        })
-          .then((res) => {
-            if (res.ok) {
-              res.json().then((user) => {
-                handleLogin(user);
-                localStorage.setItem("jwt", user.jwt);
-                localStorage.setItem("user", `${user.employee.id}`);
-                navigate("/sales_employee");
-              });
-            } else {
-              res.json().then((err) => {
-                setErrors(err.errors);
-              });
-            }
-          })
-          .catch((err) => err);
+    console.log("hello");
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        role: action ? "" : "manager",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            console.log(user);
+            localStorage.setItem("token", user.jwt);
+            navigate(`${action ? "/employee/make_sale" : "/manager"}`);
+          });
+        } else {
+          r.json().then((err) => {
+            setErrors(err.errors);
+          });
+        }
+      })
+      .catch((err) => err);
   }
 
   return (
@@ -78,6 +63,7 @@ export default function SignIn(handleLogin, action = "") {
             <h3>Welcome back</h3>
             <form onSubmit={handleSubmit} autoComplete="off">
               <div className="login-inputs-container">
+                <HiOutlineMail />
                 <input
                   id="email"
                   type="email"
@@ -88,7 +74,7 @@ export default function SignIn(handleLogin, action = "") {
                     handleInput(e);
                   }}
                 />
-                {/* <br /> */}
+                <HiOutlineLockClosed />
                 <input
                   id="password"
                   type="password"
@@ -99,6 +85,7 @@ export default function SignIn(handleLogin, action = "") {
                     handleInput(e);
                   }}
                 />
+                <HiOutlineEye />
               </div>
               <br />
               <div className="login-button-form">
@@ -112,6 +99,16 @@ export default function SignIn(handleLogin, action = "") {
             <p style={{ color: "red", fontStyle: "italic" }}>
               {errors && `${errors}!`}
             </p>
+            <div>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={() => setChecked(action)}
+                />
+                Access Point of Sale
+              </label>
+            </div>
           </div>
           <div className="registration-welcome-message">
             <img src="/svgs/login-svg.svg" alt="#" />
