@@ -14,7 +14,7 @@ puts "Seeding begins here..."
         Item.create(manager_id: i+1, name_or_title:Faker::Book.title , manufacturer_or_author:Faker::Name.name, price_per_item:100, qty: 50, total_sold:20)
     end
     2.times do |j|
-        Employee.create(manager_id: i+1, name:Faker::Name.name, email:Faker::Internet.email, password:"password")
+        Employee.create(name:Faker::Name.name, manager_id: i+1, name:Faker::Name.name, email:Faker::Internet.email, password:"password")
         2.times do |k|
             SalesTransaction.create(amount: 1000, recieved: 1000,change:0, employee_id:j+1+(i*2))
             2.times do
