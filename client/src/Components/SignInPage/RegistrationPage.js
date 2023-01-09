@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import "./registration.css";
-import logo from "./download.jpeg";
 export default function Registration() {
   // the registration for the manager;
   // also for the bookshop
