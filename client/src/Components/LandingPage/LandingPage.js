@@ -13,7 +13,7 @@ export default function LandingPage() {
       </div>
       <div className="landing-page-message">
         <h1>The companion app to manage your bookshop</h1>
-        <img src="#" alt="Books logo"></img>
+        <img src="/svgs/landing-books.svg" alt="Books logo"></img>
       </div>
       <div className="landing-page-message">
         <h5>Make sales , Track orders, track cash in any device at any time.</h5>
