@@ -1,13 +1,18 @@
+import React from "react";
 import "./landingPage.css"
+import { useNavigate } from "react-router-dom";
+
 
 export default function LandingPage() {
   // Landing page
+  const navigate = useNavigate();
+
   return (
     <div className="landing-page">
       <div className="landing-page-nav">
         <h2>PIONEER BOOKSHOP MANAGERS</h2>
             <div className="landing-button">
-            <button>Login</button>
+            <button onClick={() => navigate("/signin")}>Login</button>
             <button>Discover</button>
             </div>
       </div>
@@ -19,7 +24,7 @@ export default function LandingPage() {
         <h5>Make sales , Track orders, track cash in any device at any time.</h5>
       </div>
       <div className="landing-button">
-        <button id="landing-join-us-button">Join Us</button>
+        <button id="landing-join-us-button" onClick={() => navigate("/signup")}>Join Us</button>
       </div>
     </div>
   );
