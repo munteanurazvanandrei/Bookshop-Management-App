@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Search = () => {
+const Search = ({items, setItems, allItems}) => {
     
     // initialize state for user input during search
     const [searchInput, setSearchInput] = useState("");
@@ -8,14 +8,14 @@ const Search = () => {
     // function to handle any change while user is searching
     const handleChange = (e) => {
         e.preventDefault();
-        setSearchInput(e.target.value)
+        setSearchInput(()=>e.target.value)
+        setItems(()=>searchInput.length > 0 ? items.filter((item)=> item.name_or_title.toLowerCase().includes(searchInput.toLowerCase())) : allItems)
     }
 
     // checks if search input field recieves any character and filters to match name of entity entered
-    (searchInput.length > 0) ? items.filter((item)=> item.name.match(searchInput)) : null
 
     return (
-    <div>
+    <div style={{ position:"fixed" }}>
         {/* Returns search as an input type */}
         <input type="search" placeholder='Search here' onChange={handleChange} value={searchInput} />
     </div>
