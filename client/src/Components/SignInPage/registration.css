@@ -1,6 +1,6 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "registration" */
-body {
+.registration {
   /* background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%); */
   background: url(./backround-photo.png);
   background-repeat: no-repeat;

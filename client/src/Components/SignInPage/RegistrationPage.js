@@ -8,7 +8,7 @@ export default function Registration() {
 
   const [formState, setFormState] = useState({});
   const navigate = useNavigate();
-  const myRouteLocation = window.location.pathname;
+  // const myRouteLocation = window.location.pathname;
 
   function formChange(e) {
     const value = e.target.value;
@@ -109,7 +109,7 @@ export default function Registration() {
           </div> */}
         </div>
         <div className="registration-welcome-message">
-          <img src={logo} alt="#" />
+          <img src="/svgs/registration-img.svg" alt="#" />
           <h4>Welcome aboard my friend</h4>
           <p>just a couple of clicks and we start</p>
         </div>
