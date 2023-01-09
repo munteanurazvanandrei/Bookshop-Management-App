@@ -36,7 +36,9 @@ export default function Registration() {
     <div className="registration">
       <div className="registration-nav">
         <h2>PIONEER BOOKSHOP MANAGERS</h2>
-        <button>Home</button>
+        <button>
+          <Link to="*">Home</Link>
+        </button>
       </div>
       <div className="registration-container">
         <div className="registration-signup-form">
