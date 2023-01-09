@@ -109,7 +109,7 @@ export default function SignIn(handleLogin, action = "") {
             </p>
           </div>
           <div className="registration-welcome-message">
-            {/* <img  src={logo} alt="#"/> */}
+            <img  src='/svgs/login-svg.svg' alt="#"/>
             <h5>Hey, welcome back</h5>
             <p>Good to see you again</p>
           </div>
