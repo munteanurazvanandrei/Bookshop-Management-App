@@ -12,11 +12,12 @@ export default function MakeASale() {
     const nav = useNavigate()
 
     const [items, setItems] = useState([])
+    const [allItems, setAllItems] = useState([])
     
     useEffect(()=>{
         fetch(`/items`)
         .then((r)=> r.json())
-        .then(items=>setItems(items))
+        .then(items=>{setItems(items);setAllItems(items)})
     },[])
 
     // Initialize cart state
@@ -57,7 +58,7 @@ export default function MakeASale() {
                 </div>
             </div>
             <div className='product-table'>
-                <Search />
+                <Search items={items} setItems={setItems} allItems={allItems}/>
                 {/* TODO: #21 #20 create table for the products */}
 
                 <div className="table-responsive">
