@@ -17,7 +17,7 @@ export default function Registration() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("/signup", {
+    fetch("http://localhost:3000/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -45,7 +45,8 @@ export default function Registration() {
           <h3>Join Us</h3>
           <form onSubmit={handleSubmit} autoComplete="off">
             <div className="registration-inputs-container">
-              <input
+             <div>
+             <input
                 id="name"
                 type="text"
                 name="name"
@@ -54,6 +55,7 @@ export default function Registration() {
                 onChange={(e) => formChange(e)}
                 required
               />
+             </div> 
               <br />
               <input
                 id="email"
