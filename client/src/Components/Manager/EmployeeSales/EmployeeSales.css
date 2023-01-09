@@ -56,19 +56,26 @@ width:max-content;
 height: 15px;
 left: 332px;
 top: 221px;
+
 }
+
 .employee-sales  table td{
     /* border:solid white 1px; */
     border: none;
     border-bottom:solid white 2px;
 
 
-width:max-content;
-height: 26px;
-left: 258px;
-top: 270px;
+    width:max-content;
+    height: 26px;
+    left: 258px;
+    top: 270px;
+  padding-top: 30px;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  padding-left: 50px; 
+} 
 
 
-}
+
 
 
