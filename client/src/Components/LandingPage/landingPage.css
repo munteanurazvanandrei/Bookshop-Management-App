@@ -25,10 +25,11 @@
 }
 .landing-page-nav {
   display: inline;
+  
 }
 .landing-page-nav h2 {
   width: 20%;
-  margin-left: 20px;
+  margin-left: 50px;
 }
 .landing-button {
   margin-left: 50%;
@@ -47,14 +48,19 @@
   font-weight: 350;
   font-size: 50px;
   margin-top: 70px;
+  margin-left: 30px;
 }
 .landing-page-message img {
+    margin-top: 50px;
+    margin-left: 70px;
 }
 .landing-page-message h5 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 24px;
+  margin-left: 50px;
+
 }
 #landing-join-us-button {
   position: absolute;
