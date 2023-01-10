@@ -27,7 +27,7 @@ export default function AddOrEditEmployee() {
   // Add or edit an employee form
   return (
     <div className="add-or-edit-form">
-      <div className="heading"> Bookshop Manager </div>
+      <div className="add-or-edit-employee-heading"> Bookshop Manager </div>
 
       <button type="button" className="btn">
         Logout <span></span>
@@ -46,7 +46,7 @@ export default function AddOrEditEmployee() {
         </svg>
       </button>
 
-      <div className="form">
+      <div className="employee_form">
         <form>
           <label>
             Name: <input type="text" name="name" onChange={handleChange} />

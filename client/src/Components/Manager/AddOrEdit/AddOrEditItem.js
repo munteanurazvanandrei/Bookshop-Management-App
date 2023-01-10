@@ -28,9 +28,9 @@ export default function AddOrEditItem() {
   // Add or edit an item form
   return (
     <div className="add-or-edit-form">
-      <div className="heading"> Bookshop Manager </div>
+      <div className="add-or-edit-item-heading"> Bookshop Manager </div>
       
-        <button type="button" className="btn"> Logout <span></span>
+        <button type="button" className=" add-or-edit-item-btn"> Logout <span></span>
         <svg
         width="18"
         height="18"
@@ -46,7 +46,7 @@ export default function AddOrEditItem() {
       </svg>
         </button>
       
-      <div className="form">
+      <div className="item_form">
         <form>
           <label>
             Name: <input type="text" name="name" onChange={handleChange} />
@@ -69,10 +69,10 @@ export default function AddOrEditItem() {
             <input type="number" name="quantity" onChange={handleChange} />
           </label>
         </form>
-        <button type="add" onClick={handleSubmit} className="add">
+        <button type="add" onClick={handleSubmit} className="item_add">
         Add
         </button>
-        <button type="cancel" onClick={handleClick} className="cancel">
+        <button type="cancel" onClick={handleClick} className="item_cancel">
           Cancel
         </button>
       </div>
