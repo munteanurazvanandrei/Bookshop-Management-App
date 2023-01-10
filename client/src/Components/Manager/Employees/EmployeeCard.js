@@ -1,7 +1,7 @@
 import React from "react";
-import { AiOutlineEye } from "react-icons/fa";
-import { SlNote } from "react-icons/fa";
-import { RiDeleteBinLine } from "react-icons/fa";
+import { FiEye } from "react-icons/fi";
+import { SlNote } from "react-icons/sl";
+import { RiDeleteBinLine } from "react-icons/ri";
 
 
 function EmployeeCard({ employee, removeEmployee, onSelectEmployee }) {
@@ -16,12 +16,12 @@ function EmployeeCard({ employee, removeEmployee, onSelectEmployee }) {
       </div>
       <div>{employee.name}</div>
       <div className="image">
-        <img alt="employee's picture" src={employee.avatar_url} />
+        <img alt="" src={employee.avatar_url} />
       </div>
       <div>{employee.sales}</div>
       <div className="icons">
         <button className="eye outline">
-          <AiOutlineEye />
+          <FiEye />
         </button>
         <button className="slnote">
           <SlNote />
