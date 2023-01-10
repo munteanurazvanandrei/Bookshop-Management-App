@@ -51,3 +51,9 @@
     /* left: 0; */
     /* right: 0; */
 }
+.login-checkbox label{
+    display: inline;
+    margin: auto;
+    margin-bottom: 40px;
+    color: blue;
+}
