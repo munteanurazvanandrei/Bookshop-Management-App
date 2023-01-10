@@ -1,26 +1,29 @@
 import "./EmployeeSales.css";
-import React,{useState,useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
+export default function EmployeeSales() {
+  // Display all transactions
+  // "Employee Sales" desktop on figma (distinction : under Manager)
+  // Heading "Bookshop-name"
+  // Table
+  // Table columns:
+  // Table rows > contain the sale details
 
-export default function EmployeeSales(){
-    // Display all transactions
-    // "Employee Sales" desktop on figma (distinction : under Manager)
-    // Heading "Bookshop-name"
-    // Table 
-    // Table columns: 
-    // Table rows > contain the sale details
-	function sells(){
-		const[employeeSales,setemployeeSales] = useState([]);
+  const [employeeSales, setemployeeSales] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/sales_transactions")
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data)
+        setemployeeSales(data);});
+	}, []);
 
-		useEffect(() =>{
-			fetch("")
+  // return <div>{employeeSales.map((sales)=>sales.employee_name)}</div>;
+  return (
+    <div className="employee-sales">
+      <h1>Bookshop manager</h1>
 
-		})
-	}
-    return(<div className="employee-sales">
-        <h1>Bookshop manager</h1>
-
-	<table>
+       <table>
 		<tr>
 		<th>Date</th>
 		<th>employee</th>
@@ -28,38 +31,14 @@ export default function EmployeeSales(){
 		<th>Recieved</th>
 		<th>Change</th>
 		</tr>
-		<tr>
-		<td>dd/mm/yy hh:mm</td>
-		<td>john Doe</td>
-		<td>ksh 3500</td>
-		<td>ksh 3500</td>
-		<td>ksh 0</td>
-		</tr>
-		<tr>
-		<td>dd/mm/yy hh:mm</td>
-		<td>john Doe</td>
-		<td>ksh 3500</td>
-		<td>ksh 3500</td>
-		<td>ksh 0</td>
-		</tr>
-		<tr>
-		<td>dd/mm/yy hh:mm</td>
-		<td>john Doe</td>
-		<td>ksh 3500</td>
-		<td>ksh 3500</td>
-		<td>ksh 0</td>
-		</tr>
-		<tr>
-		<td>dd/mm/yy hh:mm</td>
-		<td>john Doe</td>
-		<td>ksh 3500</td>
-		<td>ksh 3500</td>
-		<td>ksh 0</td>
-		</tr>
-		
+		{employeeSales.map(sale=><tr>
+			<td>{sale.created_at}</td>
+			<td>{sale.employee_name}</td>
+			<td>{sale.amount}</td>
+			<td>{sale.recieved}</td>
+			<td>{sale.change}</td>
+			</tr>)}
 	</table>
-
-
-
-    </div>)
+	</div>
+		);
 }
