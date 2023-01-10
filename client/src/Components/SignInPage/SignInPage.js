@@ -9,11 +9,11 @@ import "./sigin.css";
 
 export default function SignIn() {
   // The signIn page
-  let action = false;
+  // let  = false;
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
-  const [checked, setChecked] = useState(false);
+  const [action, setAction] = useState(false);
 
   function handleInput(e) {
     const key = e.target.name;
@@ -63,7 +63,7 @@ export default function SignIn() {
             <h3>Welcome back</h3>
             <form onSubmit={handleSubmit} autoComplete="off">
               <div className="login-inputs-container">
-                <HiOutlineMail />
+                <HiOutlineMail/>
                 <input
                   id="email"
                   type="email"
@@ -99,12 +99,12 @@ export default function SignIn() {
             <p style={{ color: "red", fontStyle: "italic" }}>
               {errors && `${errors}!`}
             </p>
-            <div>
+            <div className="login-checkbox">
               <label>
                 <input
                   type="checkbox"
-                  checked={checked}
-                  onChange={() => setChecked(action)}
+                  checked={action}
+                  onChange={() => setAction(!action)}
                 />
                 Access Point of Sale
               </label>
