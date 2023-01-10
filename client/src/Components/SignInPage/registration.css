@@ -1,27 +1,20 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "registration" */
 .registration {
-  /* background: linear-gradient(0deg, rgba(157, 165, 184, 0) 0%, #311996 100%); */
   background: url(./backround-photo.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  /* backdrop-filter: blur(15px); */
   height: 100vh;
   width: 100vw;
 }
 .registration div {
   display: flex;
-  /* ...more css */
 }
 .registration div p {
   color: beige;
-  /* ...more css */
 }
 
-.registration {
-  /* ...more css */
-}
 .registration-nav {
   display: flex;
   justify-content: space-around;
@@ -33,11 +26,10 @@
 .registration-nav h2 {
   width: 20%;
   margin-left: 70px;
-  /* height: 50px; */
 }
 .registration-nav button {
   height: 35px;
-  width: 80px;
+  width: 110px;
   color: white;
   border-color: #e0c8ac;
   border-radius: 10px;
@@ -45,10 +37,7 @@
   margin-top: 20px;
   background: rgba(76, 175, 80, 0.1);
 }
-/* .registration_app_name{
-flex-direction: column;
-height: 50px;
-} */
+
 .registration-container {
   display: flex;
   justify-content: center;
@@ -66,17 +55,18 @@ height: 50px;
 .registration-inputs-container input {
   border-radius: 6px;
   padding: 10px;
+  padding-left: 40px;
   opacity: 0.7;
-  height: 27px;
   border: 1.5px solid #ccc;
   resize: vertical;
-
+  width: 70%;
+  height: 27px;
 
 }
 .registration-button-form button {
-  margin-top: 10px;
+  margin-top: 30px;
   height: 30px;
-  width: 70%;
+  width: 60%;
   margin-left: 15%;
   background: white;
   color: blue;
@@ -116,4 +106,16 @@ height: 50px;
 .registration-welcome-message p {
   font-weight: 300;
   font-size: 12px;
+}
+.home_icon{
+  font-size: 1.2rem;
+  color: #ccc;
+  position: fixed;
+}
+.home_link{
+  color: #ccc;
+  font-size: 16px;
+  font-weight: 550;
+  text-decoration: none;
+  padding-right: 10px;
 }
