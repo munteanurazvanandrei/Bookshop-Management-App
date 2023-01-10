@@ -8,9 +8,12 @@ import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
 
 
+
+
 function App() {
   return (
     <>
+    
     <div className="App">
       <Routes>
         <Route path="*" element={<LandingPage/>}/>
