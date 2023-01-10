@@ -11,17 +11,14 @@
 }
 .landing-page div {
   display: flex;
-  /* ...more css */
   color: white;
 }
 
 .landing-page div p {
   color: beige;
-  /* ...more css */
 }
 
 .landing-page div span {
-  /* ...more css */
 }
 .landing-page-nav {
   display: inline;
@@ -37,6 +34,7 @@
 .landing-button button {
   height: 35px;
   width: 120px;
+  padding-right: 30px;
   color: white;
   border-color: #e0c8ac;
   border-radius: 18px;
@@ -67,4 +65,12 @@
   margin: auto;
   left: 0;
   right: 0;
+}
+.landing_page_icon{
+  font-size: 1.5rem;
+  color: #ccc;
+  position: fixed;
+  /* margin: 0.rem ; */
+  margin-left: 105px;
+  margin-top: 25px;
 }
