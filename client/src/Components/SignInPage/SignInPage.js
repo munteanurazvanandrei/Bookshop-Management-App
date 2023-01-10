@@ -4,12 +4,12 @@ import {
   HiOutlineMail,
   HiOutlineEye,
   HiOutlineLockClosed,
+  HiOutlineHome
 } from "react-icons/hi";
 import "./sigin.css";
 
 export default function SignIn() {
   // The signIn page
-  // let  = false;
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
@@ -55,37 +55,41 @@ export default function SignIn() {
         <div className="registration-nav">
           <h2>PIONEER BOOKSHOP MANAGERS</h2>
           <button>
-            <Link to="*">Home</Link>
-          </button>
+          <Link to="*" className="home_link">Home</Link>
+          <HiOutlineHome className="home_icon"/>          </button>
         </div>
         <div className="registration-container">
           <div className="registration-signup-form">
             <h3>Welcome back</h3>
             <form onSubmit={handleSubmit} autoComplete="off">
               <div className="login-inputs-container">
-                <HiOutlineMail/>
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  required
-                  onChange={(e) => {
-                    handleInput(e);
-                  }}
-                />
-                <HiOutlineLockClosed />
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                  onChange={(e) => {
-                    handleInput(e);
-                  }}
-                />
-                <HiOutlineEye />
+                <div className="login_mail">
+                  <HiOutlineMail  className="login_left_icon"/>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    required
+                    onChange={(e) => {
+                      handleInput(e);
+                    }}
+                  />
+                </div>
+                <div className="login_pass">
+                  <HiOutlineLockClosed className="login_left_icon"/>
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    onChange={(e) => {
+                      handleInput(e);
+                    }}
+                  />
+                  <HiOutlineEye id="login_view_pass" />
+                </div>
               </div>
               <br />
               <div className="login-button-form">
