@@ -1,4 +1,5 @@
 import "./EmployeeSales.css";
+import React,{useState,useEffect} from "react";
 
 
 export default function EmployeeSales(){
@@ -8,6 +9,14 @@ export default function EmployeeSales(){
     // Table 
     // Table columns: 
     // Table rows > contain the sale details
+	function sells(){
+		const[employeeSales,setemployeeSales] = useState([]);
+
+		useEffect(() =>{
+			fetch("")
+
+		})
+	}
     return(<div className="employee-sales">
         <h1>Bookshop manager</h1>
 
