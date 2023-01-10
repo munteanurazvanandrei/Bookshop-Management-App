@@ -20,18 +20,14 @@ function EmployeeCard({ employee, removeEmployee, onSelectEmployee }) {
       </div>
       <div>{employee.sales}</div>
       <div className="icons">
-        <button className="eye outline">
-          <FiEye />
-        </button>
-        <button className="slnote">
-          <SlNote />
-        </button>
+        <button className="eye outline"> <FiEye /> </button>
+        <button className="slnote"> <SlNote />  </button>
         <button
             className="delete button"
             onClick={() => removeEmployee(employee.id)}
           >
             <RiDeleteBinLine />
-          </button>
+        </button>
       </div>
     </div>
   );
