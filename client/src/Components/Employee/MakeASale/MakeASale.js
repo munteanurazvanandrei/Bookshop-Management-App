@@ -12,13 +12,20 @@ export default function MakeASale() {
     const nav = useNavigate()
 
     const [items, setItems] = useState([])
-    const [allItems, setAllItems] = useState([])
-    
-    useEffect(()=>{
+    const [searchInput, setSearchInput] = useState("");
+    const filteredItems=searchInput.length > 0 ? items.filter((item)=> item.name_or_title.toLowerCase().includes(searchInput.toLowerCase())) : items;
+
+    // function to handle any change while user is searching
+    const handleChange = (e) => {
+        // e.preventDefault();
+        setSearchInput(()=>e.target.value)
+    }
+
+    useEffect(() => {
         fetch(`/items`)
-        .then((r)=> r.json())
-        .then(items=>{setItems(items);setAllItems(items)})
-    },[])
+            .then((r) => r.json())
+            .then(items => { setItems(items)})
+    }, [])
 
     // Initialize cart state
     const [totalCartPrice, setTotalCartPrice] = useState(0)
@@ -58,7 +65,7 @@ export default function MakeASale() {
                 </div>
             </div>
             <div className='product-table'>
-                <Search items={items} setItems={setItems} allItems={allItems}/>
+                <Search handleChange={handleChange} />
                 {/* TODO: #21 #20 create table for the products */}
 
                 <div className="table-responsive">
@@ -75,13 +82,12 @@ export default function MakeASale() {
                             </tr>
                         </thead>
                         <tbody>
-                            {items.map((item, index) => {
+                            {filteredItems.map((item, index) => {
                                 // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
-
                                 return (
                                     <tr key={index}>
                                         <td width="10%">
-                                            <img src={"items"} alt="message" />
+                                            <img src={item.img_url} alt="message" />
                                         </td>
                                         <td>{item.name_or_title}</td>
                                         <td>{item.manufacturer_or_author}</td>
@@ -104,7 +110,7 @@ export default function MakeASale() {
                             })}
                         </tbody>
                     </table>
-                    <Subtotal totalCartPrice={items.reduce((total,item)=> total + (item.price_per_item * item.qty),0)}/>
+                    <Subtotal totalCartPrice={items.reduce((total, item) => total + (item.price_per_item * item.qty), 0)} />
                 </div>
 
             </div>
