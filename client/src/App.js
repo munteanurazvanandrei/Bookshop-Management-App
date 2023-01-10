@@ -3,6 +3,7 @@ import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboar
 import LandingPage from './Components/LandingPage/LandingPage';
 import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
+import Employees from './Components/Manager/Employees/Employees';
 
 function App() {
   return (
