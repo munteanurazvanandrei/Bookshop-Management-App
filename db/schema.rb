@@ -23,6 +23,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_161310) do
   create_table "items", force: :cascade do |t|
     t.integer "manager_id"
     t.string "name_or_title"
+    t.string "img_url"
     t.string "manufacturer_or_author"
     t.integer "price_per_item", default: 0
     t.integer "qty", default: 0

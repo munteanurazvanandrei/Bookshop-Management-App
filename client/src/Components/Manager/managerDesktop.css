@@ -1,8 +1,11 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "manager-desktop" */
-.manager-desktop div{
+.manager-desktop{
     display: flex;
-    /* ...more css */
+    background: url("./ManagerSidebar/styling/background.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .manager-desktop div p{
