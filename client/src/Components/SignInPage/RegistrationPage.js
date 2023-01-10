@@ -10,6 +10,7 @@ import {
 export default function Registration() {
   // the registration for the manager;
   // also for the bookshop
+  const [next, setNext]= useState(false);
 
   const [formState, setFormState] = useState({});
   const navigate = useNavigate();
@@ -49,6 +50,8 @@ export default function Registration() {
       <div className="registration-container">
         <div className="registration-signup-form">
           <h3>Join Us</h3>
+          {next?
+          <form></form>:
           <form onSubmit={handleSubmit} autoComplete="off">
             <div className="registration-inputs-container">
              <div>
@@ -102,9 +105,12 @@ export default function Registration() {
             </div>
             <br />
             <div className="registration-button-form">
-              <button onClick={() => navigate("/signin")}>Continue</button>
+              <button onClick={(e) => {
+                e.preventDefault();
+                // TODO: check if all input are filled
+                setNext(!next)}}>Continue</button>
             </div>
-          </form>
+          </form>}
         </div>
         <div className="registration-footer">
         </div>
