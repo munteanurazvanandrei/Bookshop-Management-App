@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./sigin.css"
+import { useNavigate, Link } from "react-router-dom";
+import {
+  HiOutlineMail,
+  HiOutlineEye,
+  HiOutlineLockClosed,
+  HiOutlineHome
+} from "react-icons/hi";
+import "./sigin.css";
 
-export default function SignIn(handleLogin, action = "") {
+export default function SignIn() {
   // The signIn page
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
   const navigate = useNavigate();
+  const [action, setAction] = useState(false);
 
   function handleInput(e) {
     const key = e.target.name;
@@ -17,48 +24,29 @@ export default function SignIn(handleLogin, action = "") {
   }
   function handleSubmit(e) {
     e.preventDefault();
-
-    action
-      ? fetch("http://localhost:4000/managers/", {
-          method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }).then((r) => {
-          if (r.ok) {
-            return r.json().then((user) => {
-              console.log(user);
-              handleLogin.handleManagerLogin(user);
-              localStorage.setItem("manager-token", user.jwt);
-              localStorage.setItem("manager", user.manager.id);
-              navigate(`/manager/${user.manager.id}/manager`);
-            });
-          } else{
-            r.json().then((err)=>{setErrors(err.errors)})
-          }
-        })
-      : fetch("http://localhost:4000/employees", {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      .then((res)=>{
-        if (res.ok) {
-          res.json().then((user)=>{
-            handleLogin(user)
-            localStorage.setItem('jwt', user.jwt)
-            localStorage.setItem('user', `${user.employee.id}`)
-            navigate('/sales_employee')
-          })
-        } else{
-          res.json().then((err)=>{setErrors(err.errors)})
-
+    console.log("hello");
+    fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        role: action ? "" : "manager",
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((r) => {
+        if (r.ok) {
+          r.json().then((user) => {
+            console.log(user);
+            localStorage.setItem("token", user.jwt);
+            navigate(`${action ? "/employee/make_sale" : "/manager"}`);
+          });
+        } else {
+          r.json().then((err) => {
+            setErrors(err.errors);
+          });
         }
       })
-      .catch((err)=> err)
+      .catch((err) => err);
   }
 
   return (
@@ -66,50 +54,68 @@ export default function SignIn(handleLogin, action = "") {
       <div className="registration">
         <div className="registration-nav">
           <h2>PIONEER BOOKSHOP MANAGERS</h2>
-          <button>Home</button>
+          <button>
+          <Link to="*" className="home_link">Home</Link>
+          <HiOutlineHome className="home_icon"/>          </button>
         </div>
         <div className="registration-container">
           <div className="registration-signup-form">
             <h3>Welcome back</h3>
             <form onSubmit={handleSubmit} autoComplete="off">
               <div className="login-inputs-container">
-                <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="Email address"
-                  required
-                  onChange={(e) => {
-                    handleInput(e);
-                  }}
-                />
-                {/* <br /> */}
-                <input
-                  id="password"
-                  type="password"
-                  name="password"
-                  placeholder="Password"
-                  required
-                  onChange={(e) => {
-                    handleInput(e);
-                  }}
-                />
+                <div className="login_mail">
+                  <HiOutlineMail  className="login_left_icon"/>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    placeholder="Email address"
+                    required
+                    onChange={(e) => {
+                      handleInput(e);
+                    }}
+                  />
+                </div>
+                <div className="login_pass">
+                  <HiOutlineLockClosed className="login_left_icon"/>
+                  <input
+                    id="password"
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                    onChange={(e) => {
+                      handleInput(e);
+                    }}
+                  />
+                  <HiOutlineEye id="login_view_pass" />
+                </div>
               </div>
               <br />
               <div className="login-button-form">
-                <button type='submit'>Login</button>
+                <button type="submit">Login</button>
                 <button>Register</button>
               </div>
               <div className="login_forgot_password">
                 <span>Forgot password?</span>
               </div>
             </form>
-            <p style={{ color: 'red', fontStyle: 'italic' }}>
+            <p style={{ color: "red", fontStyle: "italic" }}>
               {errors && `${errors}!`}
             </p>
+            <div className="login-checkbox">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={action}
+                  onChange={() => setAction(!action)}
+                />
+                Access Point of Sale
+              </label>
+            </div>
           </div>
           <div className="registration-welcome-message">
-            {/* <img  src={logo} alt="#"/> */}
+            <img src="/svgs/login-svg.svg" alt="#" />
             <h5>Hey, welcome back</h5>
             <p>Good to see you again</p>
           </div>
