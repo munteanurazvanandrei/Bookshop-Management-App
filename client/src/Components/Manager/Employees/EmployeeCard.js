@@ -7,14 +7,7 @@ import { RiDeleteBinLine } from "react-icons/ri";
 function EmployeeCard({ employee, removeEmployee }) {
   return (
     <div className="employee card">
-      {/* <div
-        className="ui card"
-        key={employee.id}
-        onClick={() => {
-          onSelectEmployee(employee);
-        }}>
-      </div> */}
-
+ 
       <h4>{employee.name}</h4>
 
       <div className="image">
@@ -25,14 +18,14 @@ function EmployeeCard({ employee, removeEmployee }) {
 
       <div className="icons">
 
-        <button className="eye outline"> <FiEye /> </button>
-        <button className="slnote"> <SlNote />  </button>
-        <button
-            className="delete button"
+        <h3 className="eye outline"> <FiEye /> </h3>
+        <h3 className="slnote"> <SlNote />  </h3>
+        <h3
+            className="delete h3"
             onClick={() => removeEmployee(employee.id)}
           >
             <RiDeleteBinLine />
-        </button>
+        </h3>
       </div>
     </div>
   );
