@@ -6,8 +6,8 @@ class JwtController < ApplicationController
     def create
         # byebug
         user = manager_access? ? 
-            Manager.find_by!(email: params[:email]) : 
-            Employee.find_by!(email: params[:email])
+            Manager.find_by(email: params[:email]) : 
+            Employee.find_by(email: params[:email])
         # checks if the user is valid and then proceeds to encode
         if user&.authenticate(params[:password])
             token = encode_token(user_id: user.id)
