@@ -13,6 +13,8 @@ export default function Registration() {
   const [next, setNext]= useState(false);
 
   const [formState, setFormState] = useState({});
+  console.log(formState)
+
   const navigate = useNavigate();
 
   function formChange(e) {
@@ -20,7 +22,6 @@ export default function Registration() {
     const name = e.target.name;
     setFormState({ ...formState, [name]: value });
   }
-
   function handleSubmit(e) {
     e.preventDefault();
     fetch("http://localhost:3000/signup", {
@@ -33,10 +34,12 @@ export default function Registration() {
         email: formState.email,
         password: formState.password,
         password_confirmation: formState.password_confirmation,
+        bookshop_name: formState.bookshop_name,
+        quantity: formState.quantity
       }),
     })
       .then((r) => r.json())
-      .then((data) => data);
+      .then((data) => console.log(data));
   }
   return (
     <div className="registration">
@@ -51,7 +54,31 @@ export default function Registration() {
         <div className="registration-signup-form">
           <h3>Join Us</h3>
           {next?
-          <form></form>:
+          <form onSubmit={handleSubmit} autoComplete="off">
+            <div className="registration-inputs-container">
+            <input
+                id="name"
+                type="text"
+                name="bookshop_name"
+                placeholder="Bookshop Name"
+                onChange={(e) => formChange(e)}
+                required
+              />
+              <input
+                id="quantity"
+                type="integer"
+                name="quantity"
+                min="100"
+                max='1000'
+                placeholder="Items limit Alert"
+                onChange={(e) => formChange(e)}
+                required
+              />
+            </div>
+            <div className="registration-button-form">
+                  <button>Register</button>
+            </div>
+          </form>:
           <form onSubmit={handleSubmit} autoComplete="off">
             <div className="registration-inputs-container">
              <div>
