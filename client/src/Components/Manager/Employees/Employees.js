@@ -1,21 +1,29 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import EmployeeCard from "./EmployeeCard";
 
-function Employee({ employees, selectEmployee }) {
-	
+export default function Employees() {
+	//Render the employees  (employee-cards)
+	const [employees, setEmployees] = useState([]);
+
+	useEffect(() => {
+	  fetch("http://localhost:3000/employees")
+		.then((response) => response.json())
+		.then((data) => {
+		  console.log(data);
+		  setEmployees(data);
+		});
+	}, []);
+
+
 	return (
-		<div className="ui four column grid">
+		<div className="employyees">
 			<div className="row">
 				{employees.map((employee) => (
-					<EmployeeCard key={employee.id} employee={employee} onSelectEmployee={selectEmployee} />
+					<EmployeeCard key={employee.id} employee={employee}  />
 				))}
 			</div>
 		</div>
 	);
 }
-
-export default Employee;
-
-
 
 

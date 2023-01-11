@@ -16,7 +16,7 @@ function App() {
         <Route path= "employee" element= {<Employees/>}/>
         <Route path="/employeecard" elemnt={<EmployeeCard/>}/>
       </Routes>
-      {/* <Employees></Employees> */}
+      <Employees></Employees>
     </div>
   );
 }

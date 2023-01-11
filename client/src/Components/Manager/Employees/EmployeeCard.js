@@ -4,22 +4,27 @@ import { SlNote } from "react-icons/sl";
 import { RiDeleteBinLine } from "react-icons/ri";
 
 
-function EmployeeCard({ employee, removeEmployee, onSelectEmployee }) {
+function EmployeeCard({ employee, removeEmployee }) {
   return (
     <div className="employee card">
-      <div
+      {/* <div
         className="ui card"
         key={employee.id}
         onClick={() => {
           onSelectEmployee(employee);
         }}>
-      </div>
-      <div>{employee.name}</div>
+      </div> */}
+
+      <h4>{employee.name}</h4>
+
       <div className="image">
         <img alt="" src={employee.avatar_url} />
       </div>
-      <div>{employee.sales}</div>
+
+      <h4>{employee.sales}</h4>
+
       <div className="icons">
+
         <button className="eye outline"> <FiEye /> </button>
         <button className="slnote"> <SlNote />  </button>
         <button
