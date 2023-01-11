@@ -42,6 +42,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
         params.permit(:name, :email, :password, :confirm_password, :bookshop_name, :bookshop_items_alert_limit)
     end
     def record_not_found
-        render json: { error: "Manager not found" }, status: :no_found        
+        render json: { error: "Manager not found" }, status: :not_found        
     end
 end
