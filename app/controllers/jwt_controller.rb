@@ -17,7 +17,7 @@ class JwtController < ApplicationController
                     ["salesTransactions.sales"] 
         else
             # Invalid response returned if wrong credentials are provided
-            render json: { errors: "Invalid email or password" }, status: :unauthorized
+            render json: { error: "Invalid email or password" }, status: :unauthorized
         end
     end
 
