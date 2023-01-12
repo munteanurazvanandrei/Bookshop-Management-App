@@ -1,3 +1,11 @@
-.product-table {
-  display: flex;
+.search {
+  width: 49%;
+  padding-top: 2rem;
+}
+
+input {
+  width: 55%;
+  border-radius: 15px;
+  height: 30px;
+  text-align: center;
 }/*# sourceMappingURL=search.css.map */
