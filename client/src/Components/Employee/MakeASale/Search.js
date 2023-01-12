@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 const Search = ({handleChange}) => {
     
@@ -8,9 +8,9 @@ const Search = ({handleChange}) => {
     // checks if search input field recieves any character and filters to match name of entity entered
 
     return (
-    <div style={{ position:"fixed" }}>
+    <div className="search">
         {/* Returns search as an input type */}
-        <input type="search" placeholder='Search here' onChange={handleChange} />
+        <input type="search" placeholder='Enter To Start Search' onChange={handleChange} />
     </div>
   )
 }
