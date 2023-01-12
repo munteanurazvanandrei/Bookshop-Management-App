@@ -57,6 +57,7 @@ export default function EmployeeDashboard() {
         <div className="sales-history-text">Sales History</div>
       </div>
       <button type="button" className="button">
+
         {" "}
         Logout <span></span>
         <svg
@@ -72,6 +73,7 @@ export default function EmployeeDashboard() {
             fill-opacity="0.96"
           />
         </svg>
+
       </button>
     </div>
   );

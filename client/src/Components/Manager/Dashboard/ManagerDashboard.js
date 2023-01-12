@@ -101,6 +101,7 @@ export default function ManagerDashboard() {
       </div>
 
       <button type="button" className="btn">
+
         {" "}
         Logout <span></span>
         <svg
@@ -116,6 +117,7 @@ export default function ManagerDashboard() {
             fill-opacity="0.96"
           />
         </svg>
+
       </button>
     </div>
   );

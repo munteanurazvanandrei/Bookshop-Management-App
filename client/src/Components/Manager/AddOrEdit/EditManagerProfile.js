@@ -1,12 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import "./addOrEdit.css";
-export default function AddOrEditEmployee() {
+export default function EditManagerProfile() {
   const [details, setDetails] = useState({
-    name: "",
-    password: "",
+    username: "",
     email: "",
+    bookshop: "",
+    password: "",
+    limit: "",
   });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setDetails((prev) => {
@@ -19,23 +22,17 @@ export default function AddOrEditEmployee() {
     console.log(details);
   };
 
-  const handleDelete = (id) => {
-    // const newDetails = [...details];
-    // newDetails.splice(id, 1);
-    // setDetails(newDetails);
-    setDetails(details.filter((details) => details.id !== id))
+  const handleClick = (e) => {
+    setDetails("");
   };
-//const handleRemoveBook = (id) => {
- // setBooks(books.filter((book) => book.id !== id));};
 
-
-
-  // Add or edit an employee form
+  // Edit the manager's profile form
   return (
     <div className="add-or-edit-form">
-      <div className="add-or-edit-employee-heading"> Bookshop Manager </div>
+      <div className="manager-profile-heading"> Bookshop Manager </div>
 
-      <button type="button" className="btn">
+      <button type="button" className="edit-manager-profile-btn">
+        {" "}
         Logout <span></span>
         <svg
           width="18"
@@ -52,10 +49,10 @@ export default function AddOrEditEmployee() {
         </svg>
       </button>
 
-      <div className="employee_form">
+      <div className="manager_form">
         <form>
           <label>
-            Name: <input type="text" name="name" onChange={handleChange} />
+            Username: <input type="text" name="name" onChange={handleChange} />
           </label>
           <label>
             Email: <input type="email" name="email" onChange={handleChange} />
@@ -64,19 +61,29 @@ export default function AddOrEditEmployee() {
             Password:{" "}
             <input type="password" name="password" onChange={handleChange} />
           </label>
+          <label>
+            Bookshop:{" "}
+            <input type="text" name="bookshop" onChange={handleChange} />
+          </label>
+          <label>
+            Items Limit: <input type="number" name="limit" min="0" onChange={handleChange} />
+          </label>
         </form>
-        <button type="add" onClick={handleSubmit} className="employee-add">
-          Add/Edit
+        <button
+          type="add"
+          onClick={handleSubmit}
+          className=" manager-profile-add"
+        >
+          Update
         </button>
         <button
           type="cancel"
-          onClick={handleDelete}
-          className=" employee-cancel"
+          onClick={handleClick}
+          className="manager-profile-cancel"
         >
-          Cancel
+          Delete Profile
         </button>
       </div>
     </div>
   );
 }
-
