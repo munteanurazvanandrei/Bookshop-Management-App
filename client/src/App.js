@@ -17,8 +17,6 @@ function App() {
         <Route path="/manager" element={<ManagerDashboard/>}/>
         <Route path="/manager/*" element={<ManagerDesktop/>}/>
       </Routes>
-      
-      <EmployeeSales></EmployeeSales>
     </div>
   );
 }
