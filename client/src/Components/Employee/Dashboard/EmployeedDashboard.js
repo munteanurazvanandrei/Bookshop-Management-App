@@ -1,5 +1,8 @@
 import "./employeeDashboard.css";
+import { useState } from "react";
 export default function EmployeeDashboard() {
+  const [totalTransactions, setTotalTransactions] = useState(500);
+
   // Employee dashboard
   return (
     <div className="employee-dashboard">
@@ -20,7 +23,9 @@ export default function EmployeeDashboard() {
             />
           </svg>
         </div>
+        <div className="make-a-sale-text">Make a Sale</div>
       </div>
+
       <div className="sales-history">
         <div className="sales-history-svg">
           <svg
@@ -36,8 +41,12 @@ export default function EmployeeDashboard() {
             />
           </svg>
         </div>
+        <div className="total-transactions">totalTransactions</div>
+        <div className="sales-history-text">Sales History</div>
       </div>
-      <button type="button" className="button"> Logout <span></span>
+      <button type="button" className="button">
+        {" "}
+        Logout <span></span>
         <svg
           width="18"
           height="18"

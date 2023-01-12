@@ -20,7 +20,6 @@
   /* ...more css */
 }
 .employee-dashboard-heading {
-  
   position: absolute;
   width: 382px;
   height: 78px;
@@ -41,8 +40,6 @@
   color: #f0eaea;
 }
 .employee-dashboard .pointofsale-title {
-  
-
   position: absolute;
   width: 122px;
   height: 23px;
@@ -62,7 +59,6 @@
   color: #faf8f8;
 }
 .employee-dashboard .make-a-sale {
-  
   position: absolute;
   width: 156px;
   height: 129px;
@@ -71,7 +67,7 @@
 
   background: rgba(211, 205, 205, 0.8);
 }
-.employee-dashboard  .sales-history {
+.employee-dashboard .sales-history {
   /* Rectangle 32 */
 
   position: absolute;
@@ -82,7 +78,7 @@
 
   background: rgba(196, 196, 196, 0.8);
 }
-.employee-dashboard  .make-sale-telephone {
+.employee-dashboard .make-sale-telephone {
   /* Vector */
 
   position: absolute;
@@ -99,7 +95,7 @@
   top: 28.68%;
   bottom: 29.46%;
 }
-.employee-dashboard  .button {
+.employee-dashboard .button {
   /* Rectangle 7 */
   font-weight: 700;
   position: absolute;
@@ -115,4 +111,26 @@
   border: none;
 }
 
+.make-a-sale-text {
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 100px;
+  margin-left: 10px;
+}
+.sales-history-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 100px;
+  margin-left: 10px;
+}
+.total-transactions{
+position: absolute;
+width: 38px;
+height: 22px;
+left: 94px;
+top: 9px;
+background: rgba(45, 44, 50, 0.69);
+border-radius: 3px;
+color: #faf8f8;
 
+}
