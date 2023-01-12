@@ -1,4 +1,5 @@
 import './App.css';
+
 import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
 import LandingPage from './Components/LandingPage/LandingPage';
 import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
@@ -9,6 +10,8 @@ import Registration from './Components/SignInPage/RegistrationPage';
 import SignIn from './Components/SignInPage/SignInPage';
 function App() {
   return (
+    <>
+    
     <div className="App">
       <Routes>
         <Route path="*" element={<LandingPage/>}/>
@@ -20,6 +23,8 @@ function App() {
         <Route path='/signin' element={<SignIn />} />
       </Routes>
     </div>
+    
+    </>
   );
 }
 
