@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema[7.0].define(version: 2022_12_21_073348) do
+
   create_table "employees", force: :cascade do |t|
     t.integer "manager_id"
     t.string "name"
@@ -23,10 +25,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_073348) do
   create_table "items", force: :cascade do |t|
     t.integer "manager_id"
     t.string "name_or_title"
+
+    t.string "img_url"
     t.string "manufacturer_or_author"
-    t.integer "price_per_item"
-    t.integer "qty"
-    t.integer "total_sold"
+    t.integer "price_per_item", default: 0
+    t.integer "qty", default: 0
+    t.integer "total_sold", default: 0
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,20 +47,23 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_073348) do
   end
 
   create_table "sales", force: :cascade do |t|
-    t.integer "transaction_id"
-    t.string "item_id_integer"
+
+    t.integer "sales_transaction_id"
     t.integer "item_id"
-    t.integer "item_price_at_sale"
-    t.integer "employee_id"
-    t.integer "qty"
+    t.integer "item_price_at_sale", default: 0
+    t.integer "qty", default: 0
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "transactions", force: :cascade do |t|
+
+  create_table "sales_transactions", force: :cascade do |t|
     t.integer "amount"
     t.integer "recieved"
     t.integer "change"
+    t.integer "employee_id"
+
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
