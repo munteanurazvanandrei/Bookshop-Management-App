@@ -1,5 +1,15 @@
+import { useState } from "react";
 import "./managerDashboard.css";
 export default function ManagerDashboard() {
+  // eslint-disable-next-line
+  const [totalTransactions, setTotalTransactions] = useState(370);
+  const [totalItems, setTotalItems] = useState(30);
+  const [totalEmployees, setTotalEmployees] = useState(30);
+  const [totalPens, setTotalPens] = useState(70);
+  const [totalPencils, setTotalPencils] = useState(100);
+  const [totalExerciseBook, setTotalExerciseBook] = useState(100);
+  const [totalPrimary, setTotalPrimary] = useState(15);
+  
   // Manager's Dashboard
   return (
     <div className="manager-dashboard">
@@ -9,6 +19,7 @@ export default function ManagerDashboard() {
       <div className="employees-title">Employees</div>
       <div className="sales-transaction-title"> Sales & Transactions</div>
       <div className="sales-div">
+        <div className="transactions-display">totalTransactions</div>
         <div className="manager-dashboard-transactions">
           <svg
             width="52"
@@ -23,8 +34,11 @@ export default function ManagerDashboard() {
             />
           </svg>
         </div>
+        <div className="transactions-text"> Transactions</div>
       </div>
       <div className="employees-div">
+        <div className="employees-display">totalEmployees</div>
+        <div className="employee-list-text"> Employee List</div>
         <div className="manager-dashboard-employees">
           <svg
             width="53"
@@ -48,6 +62,8 @@ export default function ManagerDashboard() {
         </div>
       </div>
       <div className="items-div">
+        <div className="items-display">totalItems</div>
+        <div className="item-list-text"> Item List</div>
         <div className="manager-dashboard-item">
           <svg
             width="61"
@@ -63,14 +79,45 @@ export default function ManagerDashboard() {
           </svg>
         </div>
       </div>
-      <div className="edit-profile-div"></div>
-      <div className="pencil-dashboard"></div>
-      <div className="pen-dashboard"></div>
-      <div className="primary-dashboard"></div>
-      <div className="exercisebook-dashboard"></div>
-       
+      <div className="edit-profile-div">
+        <div className="frostbookshop-text">Frost Bookshop</div>
+        <div className="manager-q-text">Manager-Q</div>
+      </div>
+      <div className="pencil-dashboard">
+        <div className="pencil-text"> Pencils</div>
+        <div className="pencil-display">setTotalPencils </div>
+      </div>
+      <div className="pen-dashboard">
+        <div className="pen-text"> Pens</div>
+        <div className="pen-display">setTotalPens </div>
+      </div>
+      <div className="primary-dashboard">
+        <div className="primary-text">Primary </div>
+        <div className="primary-display"> setTotalPrimary</div>
+      </div>
+      <div className="exercisebook-dashboard">
+        <div className="exercisebook-text">Exercise</div>
+        <div className="exercisebook-display"> setTotalExerciseBook </div>
+      </div>
+
       <button type="button" className="btn">
-        LOGOUT
+
+        {" "}
+        Logout <span></span>
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 22C6.477 22 2 17.523 2 12C2 6.477 6.477 2 12 2C13.5527 1.99884 15.0842 2.35978 16.4729 3.05414C17.8617 3.74851 19.0693 4.75718 20 6H17.29C16.1352 4.98176 14.7112 4.31836 13.1887 4.0894C11.6663 3.86044 10.1101 4.07566 8.70689 4.70922C7.30371 5.34277 6.11315 6.36776 5.27807 7.66119C4.44299 8.95462 3.99887 10.4615 3.999 12.0011C3.99913 13.5407 4.4435 15.0475 5.27879 16.3408C6.11409 17.6341 7.30482 18.6589 8.7081 19.2922C10.1114 19.9255 11.6676 20.1405 13.19 19.9113C14.7125 19.6821 16.1364 19.0184 17.291 18H20.001C19.0702 19.243 17.8624 20.2517 16.4735 20.9461C15.0846 21.6405 13.5528 22.0013 12 22ZM19 16V13H11V11H19V8L24 12L19 16Z"
+            fill="white"
+            fill-opacity="0.96"
+          />
+        </svg>
+
       </button>
     </div>
   );
