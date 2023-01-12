@@ -4,6 +4,7 @@ import './styling/search.css'
 import { useEffect, useState } from 'react'
 import Search from './Search'
 import Subtotal from './Subtotal'
+import Pagination from './Pagination'
 
 export default function MakeASale() {
     // point of sale navigation pane
@@ -12,19 +13,23 @@ export default function MakeASale() {
     const nav = useNavigate()
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true);
     const [searchInput, setSearchInput] = useState("");
-    const filteredItems=searchInput.length > 0 ? items.filter((item)=> item.name_or_title.toLowerCase().includes(searchInput.toLowerCase())) : items;
+    const filteredItems = searchInput.length > 0 ? items.filter((item) => item.name_or_title.toLowerCase().includes(searchInput.toLowerCase())) : items;
 
     // function to handle any change while user is searching
     const handleChange = (e) => {
         // e.preventDefault();
-        setSearchInput(()=>e.target.value)
+        setSearchInput(() => e.target.value)
     }
 
     useEffect(() => {
         fetch(`/items`)
             .then((r) => r.json())
-            .then(items => { setItems(items)})
+            .then(items => { setItems(items); setLoading(false); })
+            .catch(() => {
+                alert('There was an error while retrieving the data')
+            })
     }, [])
 
     // Initialize cart state
@@ -69,7 +74,7 @@ export default function MakeASale() {
                 {/* TODO: #21 #20 create table for the products */}
 
                 <div className="table-responsive">
-                    <table className="table table-bordered">
+                    <table className="table-bordered">
                         <thead>
                             <tr>
                                 <th>Image</th>
@@ -86,7 +91,7 @@ export default function MakeASale() {
                                 // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
                                 return (
                                     <tr key={index}>
-                                        <td width="10%">
+                                        <td width="5%">
                                             <img src={item.img_url} alt="message" />
                                         </td>
                                         <td>{item.name_or_title}</td>
@@ -109,6 +114,12 @@ export default function MakeASale() {
                                 )
                             })}
                         </tbody>
+                        <Pagination
+                            filteredItems={filteredItems}
+                            nPages={nPages}
+                            currentPage={currentPage}
+                            setCurrentPage={setCurrentPage}
+                        />
                     </table>
                     <Subtotal totalCartPrice={items.reduce((total, item) => total + (item.price_per_item * item.qty), 0)} />
                 </div>
