@@ -9,7 +9,7 @@ export default function ManagerDashboard() {
   const [totalPencils, setTotalPencils] = useState(100);
   const [totalExerciseBook, setTotalExerciseBook] = useState(100);
   const [totalPrimary, setTotalPrimary] = useState(15);
-  console.log(totalItems);
+  
   // Manager's Dashboard
   return (
     <div className="manager-dashboard">
