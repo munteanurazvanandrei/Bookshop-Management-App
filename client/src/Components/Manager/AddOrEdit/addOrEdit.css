@@ -8,6 +8,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
+  
 }
 /*  item log out button */
 .add-or-edit-item-btn {
@@ -52,7 +53,7 @@
 }
 /* item form */
 .item_form {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 60%;
   right: 50px;
@@ -65,7 +66,7 @@
 }
 /* employee form */
 .employee_form {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 60%;
   left: 300px;
@@ -219,7 +220,7 @@
 }
 /* manager form */
 .manager_form {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 60%;
   right: 50px;

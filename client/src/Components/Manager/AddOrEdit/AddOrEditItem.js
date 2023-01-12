@@ -62,7 +62,7 @@ export default function AddOrEditItem() {
           </label>
           <label>
             Category:
-            <input type="number" name="category" onChange={handleChange} />
+            <input type="text" name="category" onChange={handleChange} />
           </label>
           <label>
             Quantity:

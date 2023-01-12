@@ -20,10 +20,16 @@ export default function AddOrEditEmployee() {
   };
 
   const handleDelete = (id) => {
-    const newDetails = [...details];
-    newDetails.splice(id, 1);
-    setDetails(newDetails);
+    // const newDetails = [...details];
+    // newDetails.splice(id, 1);
+    // setDetails(newDetails);
+    setDetails(details.filter((details) => details.id !== id))
   };
+//const handleRemoveBook = (id) => {
+ // setBooks(books.filter((book) => book.id !== id));};
+
+
+
   // Add or edit an employee form
   return (
     <div className="add-or-edit-form">
