@@ -1,15 +1,85 @@
-/* Example of css to prevent css overlap */
-/* Emphasis on using the "super" parent class, ie. "items" */
-.items div{
-    display: flex;
-    /* ...more css */
+.head {
+    color: white
+}
+.card {
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+    /* display: inline-block; */
+    background: white;
+    width: 270px;
+    height: 250px;  
 }
 
-.items div p{
-    color: beige;
-    /* ...more css */
+.items-container {
+  /* background-image: url(./background.svg); */
+  /* height: 100vh; */
+  height: fit-content;
+  height: 80vh;
+  display: grid;
+  margin: auto;
+  grid-template-columns: repeat(3, 350px);
+  grid-template-rows: auto;
+  column-gap: 2%; 
+  row-gap: 2%;
+  text-align: center;
+  flex-wrap: nowrap;
+   /* width: 1100px;  */
+  width: fit-content;
+  
+  margin-left: 60px;
+  margin-top: 10px;
 }
+.card img{
+    width: 150px;
+    height: 100px;
+}
+h6 {
+    color: blue;
+}
+.main-div {
+    background-image: url(./background.svg);
+    height: fit-content;
+    width: fit-content;
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+    
+}
+.search {
+    height: 30px;
+    width: 300px;
+    margin-left: 50px;
+    border: white;
+    border-radius: 20px;
+    background-color:rgb(209, 205, 205);
+    text-decoration: aliceblue;
+    margin-top: 5px;
+}
+.centered{
+    position: absolute;
+    top: 35%;
+    left: 25%;
 
-.items div span{
-    /* ...more css */
+}
+.view-more {
+    background-color: white;
+    cursor: pointer;
+    border: none;
+}
+.search-div{
+    background-color: rgb(83, 0, 156);
+    width: 800px;
+    margin-left: 70px;
+    height: 40px;
+    border-radius: 4px;
+}
+.add{
+    border-radius: 10px;
+    border: none;
+    margin-left: 270px;
+    cursor: pointer;
+    background-color: rgba(207, 0, 214, 0.596);
+    
 }

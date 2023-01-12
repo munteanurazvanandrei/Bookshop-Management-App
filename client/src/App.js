@@ -1,4 +1,4 @@
-import './App.css';
+// import './App.css';
 import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
 import LandingPage from './Components/LandingPage/LandingPage';
 import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
