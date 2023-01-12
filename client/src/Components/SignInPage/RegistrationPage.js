@@ -80,7 +80,7 @@ console.log(errors)
                 />
                 <input
                   id="quantity"
-                  type="integer"
+                  type="number"
                   name="bookshop_items_alert_limit"
                   min="100"
                   max="1000"
