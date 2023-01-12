@@ -4,22 +4,14 @@
 /* Emphasis on using the "super" parent class, ie. "manager-dashboard" */
 .manager-dashboard {
   /* Manager Dashboard */
-  /* background: url("./background.svg"); */
+
   display: flex;
   position: relative;
   width: 100vw;
   height: 100vh;
   margin: 0%;
 
-  /* background: linear-gradient(
-    180deg,
-    rgb(167, 132, 81) 0%,
-    rgba(40, 57, 119, 1) 30%,
-    rgba(63, 69, 125, 1) 50%,
-    rgba(40, 57, 119, 1) 70%,
-    rgba(20, 36, 93, 1) 100% 
-  ); */
-  /* ...more css */
+ 
   background: url(background.svg);
   background-repeat: no-repeat;
   background-size: cover;
@@ -178,26 +170,26 @@
 .manager-dashboard .manager-dashboard-transactions {
   /* Vector */
 
-  position: absolute;
-  left: 25%;
+  position: relative;
+  left: 4.5%;
   right: 0%;
   top: 25%;
   bottom: 0%;
 }
 .manager-dashboard .manager-dashboard-employees {
-  position: absolute;
-  left: 25%;
-  right: 0%;
-  top: 25%;
-  bottom: 0%;
+  position: relative;
+  left: 5%;
+  right: 5.0%;
+  top: -70%;
+  bottom: 50%;
 }
 
-.manager-dashboard .manager-dashboard-item {
-  position: absolute;
-  left: 25%;
-  right: 0%;
-  top: 25%;
-  bottom: 0%;
+.manager-dashboard  .manager-dashboard-item {
+  position: relative;
+  left: 5%;
+  right: 5.0%;
+  top: -70%;
+  bottom: 50%;
 }
 
 .manager-dashboard .pencil-dashboard {
@@ -262,11 +254,139 @@
   border-radius: 15px;
   color: #ffffff;
 }
-.manager-dashboard div p {
-  color: beige;
-  /* ...more css */
+.pen-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-left: 2px;
+  font-size:12px;
 }
+.pencil-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-left: 2px;
+  font-size: 12px;
 
-.manager-dashboard div span {
-  /* ...more css */
+}
+.primary-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-left: 2px;
+  font-size:12px;
+
+}
+.exercisebook-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 40px;
+  margin-left: 2px;
+  font-size:12px;
+}
+.frostbookshop-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 110px;
+  margin-left: 2px;
+  font-size:12px;
+}
+.manager-q-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: -35px;
+  margin-left: 2px;
+  font-size:12px;
+}
+.transactions-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 50px;
+  margin-left: 2px;
+  font-size:12px;
+}
+.item-list-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 110px;
+  margin-left: 2px;
+  font-size:12px;
+
+}
+.employee-list-text{
+  color: #f0eaea;
+  font-weight: 700;
+  margin-top: 110px;
+  margin-left: 2px;
+  font-size:13px;
+}
+.transactions-display{
+  position: absolute;
+  width: 38px;
+  height: 22px;
+  left: 84px;
+  top: 9px;
+  background: rgba(214, 213, 219, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.employees-display{
+  position: absolute;
+  width: 38px;
+  height: 22px;
+  left: 84px;
+  top: 9px;
+  background: rgba(210, 208, 219, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.items-display{
+  position: absolute;
+  width: 38px;
+  height: 22px;
+  left: 84px;
+  top: 9px;
+  background: rgba(211, 210, 218, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.pencil-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.pen-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.primary-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.exercisebook-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
 }

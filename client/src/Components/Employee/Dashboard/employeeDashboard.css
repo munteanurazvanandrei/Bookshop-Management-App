@@ -9,15 +9,7 @@
   background: url(background.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  /* background: linear-gradient(
-    180deg,
-    rgb(167, 132, 81) 0%,
-    rgba(40, 57, 119, 1) 30%,
-    rgba(63, 69, 125, 1) 50%,
-    rgba(40, 57, 119, 1) 70%,
-    rgba(20, 36, 93, 1) 100%
-  ); */
-  /* ...more css */
+  
 }
 .employee-dashboard-heading {
   position: absolute;

@@ -1,14 +1,17 @@
 import "./employeeDashboard.css";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 export default function EmployeeDashboard() {
+  // eslint-disable-next-line
   const [totalTransactions, setTotalTransactions] = useState(500);
+  const nav = useNavigate();
 
   // Employee dashboard
   return (
     <div className="employee-dashboard">
       <div className="employee-dashboard-heading">FROST BOOKSHOP</div>
       <div className="pointofsale-title"> Point of Sale </div>
-      <div className="make-a-sale">
+      <div className="make-a-sale" onClick={()=>nav("/make-a-sale")}>
         <div className="make-sale-telephone">
           <svg
             width="44"
