@@ -16,7 +16,7 @@ export default function LandingPage() {
         <h2>PIONEER BOOKSHOP MANAGERS</h2>
         <div className="landing-button">
           <div>
-            <button onClick={() => navigate("/signin")} className='home_link'>Login</button>
+            <button onClick={() => navigate("/signin")} className='home_link'>Log In</button>
               <HiOutlineLogout className="landing_page_icon"/>
           </div>
           <div>
