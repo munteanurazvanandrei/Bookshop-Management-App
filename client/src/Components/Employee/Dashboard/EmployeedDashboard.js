@@ -1,10 +1,19 @@
 import "./employeeDashboard.css";
-import { useState } from "react";
+import { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 export default function EmployeeDashboard() {
   // eslint-disable-next-line
-  const [totalTransactions, setTotalTransactions] = useState(500);
+  const [totalTransactions, setTotalTransactions] = useState(0);
   const nav = useNavigate();
+  useEffect(() => { 
+    fetch ("http://localhost:3000/sales_transactions")
+    .then((r)=>{
+    if (r.ok){
+      r.json().then(body =>setTotalTransactions (body.length))
+    }
+    })
+  },[])
+    
 
   // Employee dashboard
   return (
@@ -44,7 +53,7 @@ export default function EmployeeDashboard() {
             />
           </svg>
         </div>
-        <div className="total-transactions">totalTransactions</div>
+        <div className="total-transactions">{totalTransactions}</div>
         <div className="sales-history-text">Sales History</div>
       </div>
       <button type="button" className="button">
