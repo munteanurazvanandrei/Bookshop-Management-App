@@ -4,7 +4,6 @@ import './styling/search.css'
 import { useEffect, useState } from 'react'
 import Search from './Search'
 import Subtotal from './Subtotal'
-import Pagination from './Pagination'
 
 export default function MakeASale() {
     // point of sale navigation pane
@@ -71,7 +70,6 @@ export default function MakeASale() {
             </div>
             <div className='product-table'>
                 <Search handleChange={handleChange} />
-                {/* TODO: #21 #20 create table for the products */}
 
                 <div className="table-responsive">
                     <table className="table-bordered">
@@ -91,8 +89,8 @@ export default function MakeASale() {
                                 // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
                                 return (
                                     <tr key={index}>
-                                        <td width="5%">
-                                            <img src={item.img_url} alt="message" />
+                                        <td>
+                                            <img src={item.img_url} alt="message" height={100}/>
                                         </td>
                                         <td>{item.name_or_title}</td>
                                         <td>{item.manufacturer_or_author}</td>
@@ -101,7 +99,7 @@ export default function MakeASale() {
                                                 {/* This perfoms the increment and decrement of item quantity before getting the total */}
                                                 <button type='button' className="input-group-text">-</button>
                                                 <div className="form-control text-center">{item.qty}</div>
-                                                {/* <button type='button' onClick={() => handleIncrement(item.id)} className="input-group-text">+</button> */}
+                                                <button type='button' className="input-group-text">+</button>
                                             </div>
                                         </td>
                                         <td>{item.price_per_item}</td>
@@ -114,12 +112,6 @@ export default function MakeASale() {
                                 )
                             })}
                         </tbody>
-                        <Pagination
-                            filteredItems={filteredItems}
-                            nPages={nPages}
-                            currentPage={currentPage}
-                            setCurrentPage={setCurrentPage}
-                        />
                     </table>
                     <Subtotal totalCartPrice={items.reduce((total, item) => total + (item.price_per_item * item.qty), 0)} />
                 </div>

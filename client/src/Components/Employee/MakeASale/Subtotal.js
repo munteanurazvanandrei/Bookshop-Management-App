@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-// TODO: create subtotal states and return data from makeASale componennt
+
 const Subtotal = ({totalCartPrice}) => {
     return (
         <>
@@ -20,7 +20,6 @@ const Subtotal = ({totalCartPrice}) => {
                             <span className='float-end'>{totalCartPrice.toLocaleString()}</span>
                         </h4>
                         <hr />
-                        {/* TODO:change Link to NavLink */}
                         {/* Navigates to checkout page for a successfull sale */}
                         <Link to="/checkout" className='btn btn-primary'>checkout</Link>
                     </div>
