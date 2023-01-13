@@ -1,4 +1,5 @@
 class Sale < ApplicationRecord
     belongs_to :item
-    belongs_to :transaction
+    delegate :salesTransaction, to: :item
+    validates :sales_transaction_id, presence: true
 end
