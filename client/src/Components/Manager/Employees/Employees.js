@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import EmployeeCard from "./EmployeeCard";
 import SearchBar from "./SearchBar";
+import "./employees.css"
 
 function Employees() {
   //Render the employees  (employee-cards)
@@ -12,7 +13,10 @@ function Employees() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await fetch("http://localhost:3000/employees");
+      const res = await fetch("http://localhost:3000/employees",{
+        headers: {'Authorization': `Bearer ${localStorage.getItem('token')}`,
+      "role": "manager"}
+      });
       const data = await res.json();
       setEmployees(data);
     } catch (error) {
@@ -55,7 +59,7 @@ function Employees() {
   
 
   return (
-    <div className="employyees">
+    <div className="employees">
       <SearchBar handleSearch={handleSearch} />
       <div className="row">
         {employees.map((employee) => (
