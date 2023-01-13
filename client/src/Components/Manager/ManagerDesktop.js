@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 
 import EditManagerProfile from "./AddOrEdit/EditManagerProfile";
 
+
 export default function ManagerDesktop(){
     // manager's view for all desktops with the side bar
     return(<div className="manager-desktop">
