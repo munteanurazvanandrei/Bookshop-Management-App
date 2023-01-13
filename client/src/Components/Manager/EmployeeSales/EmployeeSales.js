@@ -6,7 +6,7 @@ export default function EmployeeSales() {
   const [employeeSales, setemployeeSales] = useState()
   useEffect(() => {
     fetch('http://localhost:3000/sales_transactions',{
-      headers:{"Authorization":`Bearer ${localStorage.getItem("jwt")}`,
+      headers:{"Authorization":`Bearer ${localStorage.getItem("token")}`,
             "role":"manager"
     }
     })
