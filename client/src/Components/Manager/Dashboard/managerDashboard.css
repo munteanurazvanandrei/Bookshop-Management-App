@@ -178,7 +178,7 @@
 }
 .manager-dashboard-employees{
   position: absolute;
-  left: 25%;
+  left: 5%;
   right: 0%;
   top: 25%;
   bottom: 0%;
@@ -186,7 +186,7 @@
 
 .manager-dashboard-item{
   position: absolute;
-  left: 25%;
+  left: 5%;
   right: 0%;
   top: 25%;
   bottom: 0%;
@@ -337,6 +337,16 @@ border-radius: 15px;
   top: 9px;
   background: rgba(241, 240, 245, 0.69);
   border-radius: 3px;
+  color: #faf8f8;
+}
+.manager-q-text{
+  top: 59px;
+  position: relative;
+  color: #faf8f8;
+}
+.frostbookshop-text{
+  top: 99px;
+  position: relative;
   color: #faf8f8;
 }
 /* .pencil-text{

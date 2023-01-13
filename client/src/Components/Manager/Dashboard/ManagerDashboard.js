@@ -84,19 +84,19 @@ export default function ManagerDashboard() {
         <div className="manager-q-text">Manager-Q</div>
       </div>
       <div className="pencil-dashboard">
-        <div className="pencil-text"> Pencils</div>
+        
         <div className="pencil-display">{totalPencils} </div>
       </div>
       <div className="pen-dashboard">
-        <div className="pen-text"> Pens</div>
+        
         <div className="pen-display">{totalPens} </div>
       </div>
       <div className="primary-dashboard">
-        <div className="primary-text">Primary </div>
+        
         <div className="primary-display"> {totalPrimary}</div>
       </div>
       <div className="exercisebook-dashboard">
-        <div className="exercisebook-text">Exercise</div>
+        
         <div className="exercisebook-display"> {totalExerciseBook} </div>
       </div>
 
