@@ -24,7 +24,7 @@ export default function MakeASale() {
     }
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage] = useState(2);
+    const [productsPerPage] = useState(3);
 
     // Get current products for pagination
     const indexOfLastProduct = currentPage * productsPerPage;
@@ -49,8 +49,18 @@ export default function MakeASale() {
     // Initialize cart state
     const [totalCartPrice, setTotalCartPrice] = useState(0)
 
-    // TODO: write decrement and increment functions for the cart
-
+    const [] = useState()
+    
+    const handleIncrement = (id) =>{
+        setItems((prev)=>prev.map(item=> item.id === id ? {...item, qty: item.qty + 1} : item))
+    }
+    const handleDecrement = (id) =>{
+        setItems((prev)=>prev.map(item=> item.id === id ? {...item, qty: item.qty - 1} : item))
+    }
+    
+    const handleDelete = (id) =>{
+        setItems((prev)=>prev.filter(item=>item.id !== id))
+    }
 
     return (
         <div className="point-of-sale">
@@ -112,16 +122,16 @@ export default function MakeASale() {
                                         <td>
                                             <div className='input-group'>
                                                 {/* This perfoms the increment and decrement of item quantity before getting the total */}
-                                                <button type='button' className="input-group-text">-</button>
+                                                <button type='button' onClick={()=>handleIncrement(item.id)} className="input-group-text">+</button>
                                                 <div className="form-control text-center">{item.qty}</div>
-                                                <button type='button' className="input-group-text">+</button>
+                                                <button type='button' onClick={()=>handleDecrement(item.id)} className="input-group-text">-</button>
                                             </div>
                                         </td>
                                         <td>{item.price_per_item}</td>
                                         {/* <td className='text-center'>{totalCartPrice}</td> */}
                                         <td>
                                             {/* When the button is clicked, the deleteItem function is triggered */}
-                                            {/* <button type='button' onClick={(e)=> deleteItem(e, item.id)} className="btn btn-danger btn-sm">Remove</button> */}
+                                            <button type='button' onClick={()=> handleDelete(item.id)} className="btn btn-danger btn-sm">Remove</button>
                                         </td>
                                     </tr>
                                 )
