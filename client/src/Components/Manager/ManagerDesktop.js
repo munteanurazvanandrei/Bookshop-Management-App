@@ -5,9 +5,8 @@ import Items from "./Items/Items";
 import ManagerSideBar from "./ManagerSidebar/ManagerSidebar";
 import EmployeeSales from "./EmployeeSales/EmployeeSales";
 import { Route, Routes } from "react-router-dom";
-
 import EditManagerProfile from "./AddOrEdit/EditManagerProfile";
-
+import "./managerDesktop.css";
 
 export default function ManagerDesktop(){
     // manager's view for all desktops with the side bar
