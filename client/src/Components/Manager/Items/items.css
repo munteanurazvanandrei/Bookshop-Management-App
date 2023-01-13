@@ -1,7 +1,7 @@
 .head {
     color: white
-}
-.card {
+  }
+  .item-card {
     text-align: center;
     position: relative;
     border-radius: 20px;
@@ -9,9 +9,9 @@
     background: white;
     width: 270px;
     height: 250px;  
-}
-
-.items-container {
+  }
+  
+  .items-container {
   /* background-image: url(./background.svg); */
   /* height: 100vh; */
   height: fit-content;
@@ -29,36 +29,36 @@
   
   margin-left: 60px;
   margin-top: 10px;
-}
-.card img{
+  }
+  .item-card img{
     width: 150px;
     height: 100px;
-}
-h6 {
+  }
+  h6 {
     color: blue;
-}
-.main-div {
+  }
+  .main-div {
     background-image: url(./background.svg);
     height: fit-content;
     width: fit-content;
-}
-h1{
+  }
+  h1{
     color: aliceblue;
     text-align: center;
     
-}
-/* Example of css to prevent css overlap */
-/* Emphasis on using the "super" parent class, ie. "items" */
-
-
-
-/* ...more css */
-.items div p {
+  }
+  /* Example of css to prevent css overlap */
+  /* Emphasis on using the "super" parent class, ie. "items" */
+  
+  
+  
+  /* ...more css */
+  .items div p {
   color: beige;
   /* ...more css */
-
-}
-.search {
+  
+  }
+  .item-search {
     height: 30px;
     width: 300px;
     margin-left: 50px;
@@ -67,33 +67,31 @@ h1{
     background-color:rgb(209, 205, 205);
     text-decoration: aliceblue;
     margin-top: 5px;
-}
-.centered{
+  }
+  .item-centered{
     position: absolute;
     top: 35%;
     left: 25%;
-
-
-}
-.view-more {
+  
+  
+  }
+  .item-view-more {
     background-color: white;
     cursor: pointer;
     border: none;
-}
-.search-div{
+  }
+  .item-search-div{
     background-color: rgb(83, 0, 156);
     width: 800px;
     margin-left: 70px;
     height: 40px;
     border-radius: 4px;
-}
-.add{
+  }
+  .item-add{
     border-radius: 10px;
     border: none;
     margin-left: 270px;
     cursor: pointer;
     background-color: rgba(207, 0, 214, 0.596);
     
-}
-
-
+  }
