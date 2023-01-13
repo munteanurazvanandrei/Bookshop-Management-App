@@ -43,7 +43,7 @@ function Items() {
       </div>
   ));
   return (
-    <div className="main-div">
+    <div className="main-items-div">
       <h1>Bookshop Manager</h1>
       <div className="item-search-div">
         
