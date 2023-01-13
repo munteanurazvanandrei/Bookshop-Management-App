@@ -24,7 +24,7 @@ export default function MakeASale() {
     }
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage] = useState(12);
+    const [productsPerPage] = useState(2);
 
     // Get current products for pagination
     const indexOfLastProduct = currentPage * productsPerPage;
@@ -100,7 +100,7 @@ export default function MakeASale() {
                             </tr>
                         </thead>
                         <tbody>
-                            {filteredItems.map((item, index) => {
+                            {currentProducts.map((item, index) => {
                                 // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
                                 return (
                                     <tr key={index}>
