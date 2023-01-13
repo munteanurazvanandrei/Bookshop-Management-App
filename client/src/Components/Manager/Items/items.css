@@ -47,6 +47,17 @@ h1{
     text-align: center;
     
 }
+/* Example of css to prevent css overlap */
+/* Emphasis on using the "super" parent class, ie. "items" */
+
+
+
+/* ...more css */
+.items div p {
+  color: beige;
+  /* ...more css */
+
+}
 .search {
     height: 30px;
     width: 300px;
@@ -61,6 +72,7 @@ h1{
     position: absolute;
     top: 35%;
     left: 25%;
+
 
 }
 .view-more {
@@ -83,3 +95,5 @@ h1{
     background-color: rgba(207, 0, 214, 0.596);
     
 }
+
+

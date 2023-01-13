@@ -1,13 +1,17 @@
-// import './App.css';
+import './App.css';
+
 import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
 import LandingPage from './Components/LandingPage/LandingPage';
 import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
 import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
-
+import Registration from './Components/SignInPage/RegistrationPage';
+import SignIn from './Components/SignInPage/SignInPage';
 function App() {
   return (
+    <>
+    
     <div className="App">
       <Routes>
         <Route path="*" element={<LandingPage/>}/>
@@ -15,8 +19,12 @@ function App() {
         <Route path="/employee/make_sale" element={<MakeASale/>}/>
         <Route path="/manager" element={<ManagerDashboard/>}/>
         <Route path="/manager/*" element={<ManagerDesktop/>}/>
+        <Route path='/signup' element={<Registration />} />
+        <Route path='/signin' element={<SignIn />} />
       </Routes>
     </div>
+    
+    </>
   );
 }
 

@@ -6,7 +6,8 @@ class CreateEmployees < ActiveRecord::Migration[7.0]
       t.string :email
       t.string :password_digest
 
-      t.timestamps
+      t.timestamps 
     end
+    add_column :employees, :active, :boolean, default: true
   end
 end
