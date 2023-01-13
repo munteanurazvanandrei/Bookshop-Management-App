@@ -4,6 +4,7 @@ import './styling/search.css'
 import { useEffect, useState } from 'react'
 import Search from './Search'
 import Subtotal from './Subtotal'
+import Pagination from './Pagination'
 
 export default function MakeASale() {
     // point of sale navigation pane
@@ -21,6 +22,20 @@ export default function MakeASale() {
         // e.preventDefault();
         setSearchInput(() => e.target.value)
     }
+
+    const [currentPage, setCurrentPage] = useState(1);
+    const [productsPerPage] = useState(12);
+
+    // Get current products for pagination
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredItems.slice(
+        indexOfFirstProduct,
+        indexOfLastProduct
+    );
+
+    // Change Pagination Pages
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     useEffect(() => {
         fetch(`/items`)
@@ -90,7 +105,7 @@ export default function MakeASale() {
                                 return (
                                     <tr key={index}>
                                         <td>
-                                            <img src={item.img_url} alt="message" height={100}/>
+                                            <img src={item.img_url} alt="message" height={100} />
                                         </td>
                                         <td>{item.name_or_title}</td>
                                         <td>{item.manufacturer_or_author}</td>
@@ -112,6 +127,11 @@ export default function MakeASale() {
                                 )
                             })}
                         </tbody>
+                        <Pagination
+                            productsPerPage={productsPerPage}
+                            filteredItems={filteredItems}
+                            paginate={paginate}
+                            currentPage={currentPage} />
                     </table>
                     <Subtotal totalCartPrice={items.reduce((total, item) => total + (item.price_per_item * item.qty), 0)} />
                 </div>
