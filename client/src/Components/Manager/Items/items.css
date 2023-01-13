@@ -3,11 +3,13 @@
 }
 .items-container .item-card {
   text-align: center;
-  position: relative;
   border-radius: 20px;
   background: white;
   width: 270px;
   height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .items-container {
@@ -27,31 +29,12 @@
   margin-top: 10px;
 }
 .items-container .item-card img {
-  width: 150px;
-  height: 100px;
-}
-.items-container h6 {
-  color: blue;
-}
-.main-items-div {
-  background-image: url(./background.svg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: fit-content;
-  width: fit-content;
+  width: 160px;
+  height: 90px;
+  object-fit: contain;
 }
 .main-items-div h1 {
   color: aliceblue;
-  text-align: center;
-}
-/* Example of css to prevent css overlap */
-/* Emphasis on using the "super" parent class, ie. "items" */
-
-/* ...more css */
-.main-items-div .items div p {
-  color: beige;
-  /* ...more css */
 }
 .main-items-div .item-search {
   height: 30px;
@@ -62,16 +45,6 @@
   background-color: rgb(209, 205, 205);
   text-decoration: aliceblue;
   margin-top: 5px;
-}
-.main-items-div .item-centered {
-  position: absolute;
-  top: 35%;
-  left: 25%;
-}
-.main-items-div .item-view-more {
-  background-color: white;
-  cursor: pointer;
-  border: none;
 }
 .main-items-div .item-search-div {
   background-color: rgb(83, 0, 156);
@@ -86,4 +59,16 @@
   margin-left: 270px;
   cursor: pointer;
   background-color: rgba(207, 0, 214, 0.596);
+}
+.main-items-div .item-card .item-centered h6{
+  display: inline-block;
+}
+.main-items-div .item-card .item-centered  .item-buttons *{
+ padding: 0 1rem;
+}
+.main-items-div .item-card .item-centered  .item-buttons .delete{
+  color: red;
+}
+.main-items-div .item-card .item-centered  .item-buttons .edit{
+  color: green;
 }
