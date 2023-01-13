@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   resources :sales_transactions
-  resources :sales
   resources :items
   resources :employees
   resources :managers
@@ -11,7 +10,7 @@ Rails.application.routes.draw do
 
 
   post "/login", to: "jwt#create"
-  post "/logout", to: "jwt#delete"
+  delete "/logout", to: "jwt#destroy"
   post "/signup", to: "managers#create"
 
 

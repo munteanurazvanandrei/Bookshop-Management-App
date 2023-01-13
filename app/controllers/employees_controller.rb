@@ -44,6 +44,6 @@ class EmployeesController < ApplicationController
 
     # error validation for when an employee is not found within the database records
     def record_not_found
-        render json: { error: "Employee not found" }, status: :no_found        
+        render json: { error: "Employee not found" }, status: :not_found        
     end
 end
