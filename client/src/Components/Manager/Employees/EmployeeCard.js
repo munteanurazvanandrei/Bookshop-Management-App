@@ -3,31 +3,29 @@ import { FiEye } from "react-icons/fi";
 import { SlNote } from "react-icons/sl";
 import { RiDeleteBinLine } from "react-icons/ri";
 
-
-function EmployeeCard({ employee, removeEmployee }) {
+function EmployeeCard({ employee, deleteEmployee }) {
   return (
-    <div className="employee card">
- 
-      <h4>{employee.name}</h4>
-
-      <div className="image">
+    <>
+      <div className="employee card">
+        <p>{employee.name}</p>
         <img alt="" src={employee.avatar_url} />
+        <p>{employee.sales}</p>
+        <button className="eye outline">
+          {" "}
+          <FiEye />{" "}
+        </button>
+        <button className="slnote">
+          {" "}
+          <SlNote />{" "}
+        </button>
+        <button
+          className="delete button"
+          onClick={() => deleteEmployee(employee.id)}
+        >
+          <RiDeleteBinLine />
+        </button>
       </div>
-
-      <h4>{employee.sales}</h4>
-
-      <div className="icons">
-
-        <h3 className="eye outline"> <FiEye /> </h3>
-        <h3 className="slnote"> <SlNote />  </h3>
-        <h3
-            className="delete h3"
-            onClick={() => removeEmployee(employee.id)}
-          >
-            <RiDeleteBinLine />
-        </h3>
-      </div>
-    </div>
+    </>
   );
 }
 

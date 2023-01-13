@@ -1,44 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 
-const searchBar = () => {
-  const [searchInput, setSearchInput] = useState("");
+function SearchBar({ handleSearch }) {
+	return (
+		<div className="search-bar">
+			<input
+				type="text"
+				placeholder="Search..."
+				onChange={(e) => {
+					console.log("Searching...");
+					handleSearch(e.target.value);
+				}}
+			/>
+			
+		</div>
+	);
+}
 
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
-
-  if (searchInput.length > 0) {
-    employees.filter((employee) => {
-      return employee.name.match(searchInput);
-    });
-  }
-
-  return (
-    <div>
-      <input
-        type="search"
-        placeholder="Search here"
-        onChange={handleChange}
-        value={searchInput}
-      />
-
-      <table>
-        <tr>
-          <th>employee</th>
-        </tr>
-
-        {employees.map((employee) => {
-          <div>
-            <tr>
-              <td>{employee.name}</td>
-            </tr>
-          </div>;
-        })}
-      </table>
-    </div>
-  );
-};
-
-export default searchBar;
-
+export default SearchBar;

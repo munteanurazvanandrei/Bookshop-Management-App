@@ -1,29 +1,75 @@
-import React, { useState, useEffect} from "react";
+import React, { useEffect, useState } from "react";
 import EmployeeCard from "./EmployeeCard";
+import SearchBar from "./SearchBar";
 
-export default function Employees() {
-	//Render the employees  (employee-cards)
-	const [employees, setEmployees] = useState([]);
+function Employees() {
+  //Render the employees  (employee-cards)
+  const [employees, setEmployees] = useState([]);
 
-	useEffect(() => {
-	  fetch("http://localhost:3000/employees")
-		.then((response) => response.json())
-		.then((data) => {
-		  console.log(data);
-		  setEmployees(data);
-		});
-	}, []);
+  useEffect(() => {
+    fetchEmployees();
+  }, []);
 
+  const fetchEmployees = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/employees");
+      const data = await res.json();
+      setEmployees(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-	return (
-		<div className="employyees">
-			<div className="row">
-				{employees.map((employee) => (
-					<EmployeeCard key={employee.id} employee={employee}  />
-				))}
-			</div>
-		</div>
-	);
+  const handleDeleteEmployee = (empsId) => {
+    const filterEmployees = employees.filter((emps) => emps.id !== empsId);
+
+    setEmployees(filterEmployees);
+  };
+
+  const handleSearch = (searchTerm) => {
+    if (searchTerm) {
+      const filteredEmployees = employees.filter((emps) => {
+        if (emps.name.toLowerCase().match(searchTerm.toLowerCase())) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+      setEmployees(filteredEmployees);
+    } else {
+      fetchEmployees();
+    }
+  };
+
+  const deleteEmployee = async (empsId) => {
+    console.log(empsId);
+    try {
+      const res = await fetch("http://localhost:3000/employees/" + empsId, {
+        method: "DELETE",
+      });
+      handleDeleteEmployee(empsId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
+
+  return (
+    <div className="employyees">
+      <SearchBar handleSearch={handleSearch} />
+      <div className="row">
+        {employees.map((employee) => (
+          <EmployeeCard
+            key={employee.id}
+            employee={employee}
+            deleteEmployee={deleteEmployee}
+			handleDeleteEmployee={handleDeleteEmployee}
+          />
+        ))}
+      </div>
+    </div>
+  );
+
 }
 
-
+export default Employees;
