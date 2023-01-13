@@ -2,12 +2,6 @@ import './EmployeeSales.css'
 import React, { useState, useEffect } from 'react'
 
 export default function EmployeeSales() {
-  // Display all transactions
-  // "Employee Sales" desktop on figma (distinction : under Manager)
-  // Heading "Bookshop-name"
-  // Table
-  // Table columns:
-  // Table rows > contain the sale details
 
   const [employeeSales, setemployeeSales] = useState()
   useEffect(() => {

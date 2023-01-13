@@ -5,7 +5,6 @@ import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
 import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
-import EmployeeSales from './Components/Manager/EmployeeSales/EmployeeSales';
 
 function App() {
   return (
