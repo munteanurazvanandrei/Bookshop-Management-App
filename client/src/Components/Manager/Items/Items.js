@@ -10,7 +10,10 @@ function Items() {
   const [query, setQuery] = useState("");
     
   useEffect(() => {
-    fetch("http://localhost:3000/items")
+    fetch("http://localhost:3000/items",{
+      headers:{"role":"manager",
+      "Authorization": `Bearer ${localStorage.getItem("token")}`}
+    })
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
