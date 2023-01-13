@@ -2,13 +2,13 @@ import { useState } from "react";
 import "./managerDashboard.css";
 export default function ManagerDashboard() {
   // eslint-disable-next-line
-  const [totalTransactions, setTotalTransactions] = useState(370);
-  const [totalItems, setTotalItems] = useState(30);
-  const [totalEmployees, setTotalEmployees] = useState(30);
-  const [totalPens, setTotalPens] = useState(70);
-  const [totalPencils, setTotalPencils] = useState(100);
-  const [totalExerciseBook, setTotalExerciseBook] = useState(100);
-  const [totalPrimary, setTotalPrimary] = useState(15);
+  const [totalTransactions, setTotalTransactions] = useState(0);
+  const [totalItems, setTotalItems] = useState(0);
+  const [totalEmployees, setTotalEmployees] = useState(0);
+  const [totalPens, setTotalPens] = useState(0);
+  const [totalPencils, setTotalPencils] = useState(0);
+  const [totalExerciseBook, setTotalExerciseBook] = useState(0);
+  const [totalPrimary, setTotalPrimary] = useState(0);
   
   // Manager's Dashboard
   return (
@@ -19,7 +19,7 @@ export default function ManagerDashboard() {
       <div className="employees-title">Employees</div>
       <div className="sales-transaction-title"> Sales & Transactions</div>
       <div className="sales-div">
-        <div className="transactions-display">totalTransactions</div>
+        <div className="transactions-display">{totalTransactions}</div>
         <div className="manager-dashboard-transactions">
           <svg
             width="52"
@@ -37,7 +37,7 @@ export default function ManagerDashboard() {
         <div className="transactions-text"> Transactions</div>
       </div>
       <div className="employees-div">
-        <div className="employees-display">totalEmployees</div>
+        <div className="employees-display">{totalEmployees}</div>
         <div className="employee-list-text"> Employee List</div>
         <div className="manager-dashboard-employees">
           <svg
@@ -62,7 +62,7 @@ export default function ManagerDashboard() {
         </div>
       </div>
       <div className="items-div">
-        <div className="items-display">totalItems</div>
+        <div className="items-display">{totalItems}</div>
         <div className="item-list-text"> Item List</div>
         <div className="manager-dashboard-item">
           <svg
@@ -85,19 +85,19 @@ export default function ManagerDashboard() {
       </div>
       <div className="pencil-dashboard">
         <div className="pencil-text"> Pencils</div>
-        <div className="pencil-display">setTotalPencils </div>
+        <div className="pencil-display">{totalPencils} </div>
       </div>
       <div className="pen-dashboard">
         <div className="pen-text"> Pens</div>
-        <div className="pen-display">setTotalPens </div>
+        <div className="pen-display">{totalPens} </div>
       </div>
       <div className="primary-dashboard">
         <div className="primary-text">Primary </div>
-        <div className="primary-display"> setTotalPrimary</div>
+        <div className="primary-display"> {totalPrimary}</div>
       </div>
       <div className="exercisebook-dashboard">
         <div className="exercisebook-text">Exercise</div>
-        <div className="exercisebook-display"> setTotalExerciseBook </div>
+        <div className="exercisebook-display"> {totalExerciseBook} </div>
       </div>
 
       <button type="button" className="btn">
