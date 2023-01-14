@@ -38,7 +38,7 @@ export default function EmployeeDashboard() {
         <div className="make-a-sale-text">Make a Sale</div>
       </div>
 
-      <div className="sales-history">
+      <div className="sales-history" onClick={()=>nav("/employee-sales")}>
         <div className="sales-history-svg">
           <svg
             width="52"
@@ -56,10 +56,9 @@ export default function EmployeeDashboard() {
         <div className="total-transactions">{totalTransactions}</div>
         <div className="sales-history-text">Sales History</div>
       </div>
-      <button type="button" className="button">
+      <button type="button" className="button" onClick={()=>nav("/")} >
 
-        {" "}
-        Logout <span></span>
+        <span>  Logout </span>
         <svg
           width="18"
           height="18"
