@@ -1,152 +1,79 @@
-import { NavLink, useNavigate } from 'react-router-dom'
 import './styling/sale.css'
-import './styling/search.css'
-import { useEffect, useState } from 'react'
-import Search from './Search'
-import Subtotal from './Subtotal'
-import Pagination from './Pagination'
+import { useState, useEffect } from 'react'
+import PosSidebar from './PosSidebar'
+import SaleItems from './SaleItems'
+import { useNavigate } from 'react-router-dom'
 
-export default function MakeASale() {
-    // point of sale navigation pane
-    console.log("constructor()")
-    // Redirects user to set-page e.g. home, login
-    const nav = useNavigate()
+export default function MakeASale({ employeeName }) {
+  const [items, setItems] = useState()
+  const [loading, setLoading] = useState(true)
+  const [searchInput, setSearchInput] = useState('')
+  const [change, setChange] = useState(0);
+  const nav = useNavigate();
 
-    const [items, setItems] = useState([])
-    const [loading, setLoading] = useState(true);
-    const [searchInput, setSearchInput] = useState("");
-    const filteredItems = searchInput.length > 0 ? items.filter((item) => item.name_or_title.toLowerCase().includes(searchInput.toLowerCase())) : items;
-
-    // function to handle any change while user is searching
-    const handleChange = (e) => {
-        // e.preventDefault();
-        setSearchInput(() => e.target.value)
-    }
-
-    const [currentPage, setCurrentPage] = useState(1);
-    const [productsPerPage] = useState(3);
-
-    // Get current products for pagination
-    const indexOfLastProduct = currentPage * productsPerPage;
-    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-    const currentProducts = filteredItems.slice(
-        indexOfFirstProduct,
-        indexOfLastProduct
-    );
-
-    // Change Pagination Pages
-    const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-    useEffect(() => {
-        fetch(`/items`)
-            .then((r) => r.json())
-            .then(items => { setItems(items); setLoading(false); })
-            .catch(() => {
-                alert('There was an error while retrieving the data')
-            })
-    }, [])
-
-    // Initialize cart state
-    const [totalCartPrice, setTotalCartPrice] = useState(0)
-
-    const [] = useState()
-    
-    const handleIncrement = (id) =>{
-        setItems((prev)=>prev.map(item=> item.id === id ? {...item, qty: item.qty + 1} : item))
-    }
-    const handleDecrement = (id) =>{
-        setItems((prev)=>prev.map(item=> item.id === id ? {...item, qty: item.qty - 1} : item))
-    }
-    
-    const handleDelete = (id) =>{
-        setItems((prev)=>prev.filter(item=>item.id !== id))
-    }
-
-    return (
-        <div className="point-of-sale">
-            <div className="pos-sidebar">
-                <h3>Make a Sale</h3>
-                <img src='/svgs/employees.svg' alt='employee' />
-                {/* <p>{employeeName}</p> */}
-                <hr />
-                <NavLink to="/dashboard">
-                    <button className='input-btn' type="submit">
-                        Back to Dashboard
-                    </button>
-                </NavLink>
-                <NavLink to="/cancel">
-                    <button className='input-btn' type="submit">
-                        Cancel
-                    </button>
-                </NavLink>
-                <NavLink to="/complete">
-                    <button className='input-btn' type="submit">
-                        Complete
-                    </button>
-                </NavLink>
-                {/* Footer */}
-                <div className='bottom'>
-                    <hr />
-                    <div onClick={/*Logout and navigate to landing page */ () => { nav("/") }}>
-                        <img src='/svgs/logout.svg' alt="logout" />
-                        <span>Logout</span>
-                    </div>
-                </div>
-            </div>
-            <div className='product-table'>
-                <Search handleChange={handleChange} />
-
-                <div className="table-responsive">
-                    <table className="table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Image</th>
-                                <th>Title</th>
-                                <th>Author</th>
-                                <th className="text-center">Qty</th>
-                                <th className="text-center">Unit Price</th>
-                                {/* <th className="text-center">Total Price</th> */}
-                                <th>Remove</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {currentProducts.map((item, index) => {
-                                // setTotalCartPrice(prev => prev + (item.price_per_item * item.qty))
-                                return (
-                                    <tr key={index}>
-                                        <td>
-                                            <img src={item.img_url} alt="message" height={100} />
-                                        </td>
-                                        <td>{item.name_or_title}</td>
-                                        <td>{item.manufacturer_or_author}</td>
-                                        <td>
-                                            <div className='input-group'>
-                                                {/* This perfoms the increment and decrement of item quantity before getting the total */}
-                                                <button type='button' onClick={()=>handleIncrement(item.id)} className="input-group-text">+</button>
-                                                <div className="form-control text-center">{item.qty}</div>
-                                                <button type='button' onClick={()=>handleDecrement(item.id)} className="input-group-text">-</button>
-                                            </div>
-                                        </td>
-                                        <td>{item.price_per_item}</td>
-                                        {/* <td className='text-center'>{totalCartPrice}</td> */}
-                                        <td>
-                                            {/* When the button is clicked, the deleteItem function is triggered */}
-                                            <button type='button' onClick={()=> handleDelete(item.id)} className="btn btn-danger btn-sm">Remove</button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                        </tbody>
-                        <Pagination
-                            productsPerPage={productsPerPage}
-                            filteredItems={filteredItems}
-                            paginate={paginate}
-                            currentPage={currentPage} />
-                    </table>
-                    <Subtotal totalCartPrice={items.reduce((total, item) => total + (item.price_per_item * item.qty), 0)} />
-                </div>
-
-            </div>
-        </div>
+  const filteredItems = items
+    ? items.filter((item) =>
+      item.name_or_title.toLowerCase().includes(searchInput.toLowerCase()),
     )
+    : null
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/items`, {
+      headers: {
+        role: 'manager',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((r) => r.json())
+      .then((json) => {
+        console.log(json)
+        setItems(
+          json.map((item) => ({ ...item, isCartItem: false, sell_qty: 1 }))
+        )
+        setLoading(false)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }, [2])
+
+  function handleCalc(e) {
+    const total = items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0)
+    setChange(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value) - total)
+  }
+
+  return (
+    <div className="point-of-sale">
+      <PosSidebar setItems={setItems} items={items} isSearching={searchInput.length > 0} setSearchInput={setSearchInput} />
+      <div className="sale-items-div">
+        <div className='search-div'>
+          <input
+            className="search-in-all-items"
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          /><img src="/svgs/black-logout.svg" alt="logout" onClick={() => { localStorage.clear(); nav("/"); }} />
+        </div>
+        <SaleItems isNotSearching={searchInput.length === 0}
+          items={items} setItems={setItems} filteredItems={filteredItems} />
+        <div className='sale-calc-main'>
+          <div className='flex-main'>
+            <div className='total-h4s'>
+              <h4>Total Qty sold</h4>
+              <h4>Total amount</h4>
+              <h4>Recieved</h4>
+              <h4 className='change'>Change</h4>
+            </div>
+            <div className='total-text'>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty + total : total, 0).toLocaleString()}</h4>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0).toLocaleString()}</h4>
+              <input type="number" onChange={handleCalc} />
+              <h4 className='change' style={change < 0 ? { color: "red" } : { color: "#0368FF" }}>{change.toLocaleString()}</h4>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  )
 }
