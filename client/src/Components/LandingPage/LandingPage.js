@@ -34,7 +34,7 @@ export default function LandingPage() {
           Make sales , Track orders, track cash in any device at any time.
         </h5>
       </div>
-      <div className="landing-button">
+      <div className="landing-button-join">
         <button id="landing-join-us-button" onClick={() => navigate("/signup")}>
           Join Us
         </button>

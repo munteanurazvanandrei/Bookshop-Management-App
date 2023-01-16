@@ -6,7 +6,8 @@
   background-position: center;
   background-size: cover;
   width: 100vw;
-  height: 100vh;
+  min-width:1060px;
+  min-height: 100vh;
   background-repeat: no-repeat;
 }
 .landing-page div {
@@ -31,7 +32,7 @@
 .landing-button {
   margin-left: 50%;
 }
-.landing-button button {
+.landing-button button,#landing-join-us-button {
   height: 35px;
   width: 120px;
   padding-right: 30px;
@@ -47,7 +48,8 @@
   font-weight: 350;
   font-size: 50px;
   margin-top: 70px;
-  margin-left: 30px;
+  text-align: left;
+  margin-left: 3%;
 }
 .landing-page-message img {
     margin-top: 70px;
@@ -60,10 +62,11 @@
   font-size: 24px;
   margin-left: 50px;
   width: 27%;
+  text-align: left;
   
 }
 #landing-join-us-button {
-  position: absolute;
+  position: relative;
   margin: auto;
   left: 0;
   right: 0;
@@ -73,8 +76,8 @@
 .landing_page_icon{
   font-size: 1.5rem;
   color: #ccc;
-  position: fixed;
-  /* margin: 0.rem ; */
+  position: absolute;
+  margin: 0rem ;
   margin-left: 105px;
   margin-top: 25px;
 }
