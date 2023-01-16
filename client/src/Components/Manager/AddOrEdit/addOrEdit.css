@@ -1,17 +1,295 @@
 /* Example of css to prevent css overlap */
 /* Emphasis on using the "super" parent class, ie. "add-or-edit" */
-.add-or-edit{
-    width: 100vw;
-    height: 100vh;
-    background-color: aqua;
-    /* ...more css */
+
+
+.add-or-edit-form {
+  width: 100vw;
+  height: 100vh;
+  background: url(AddorEditbackground.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  
+}
+/*  item log out button */
+.add-or-edit-item-btn {
+  font-weight: 700;
+  position: absolute;
+  width: 107px;
+  height: 50px;
+  left: 1100px;
+  font-size: 15px;
+  top: 36px;
+  color: #ffffff;
+  background: rgba(96, 102, 180, 0.1);
+  border-radius: 15px;
+  border: none;
+}
+/* edit manager logout button */
+.edit-manager-profile-btn {
+  font-weight: 700;
+  position: absolute;
+  width: 87px;
+  height: 50px;
+  left: 1100px;
+  font-size: 15px;
+  border: none;
+  top: 36px;
+  color: #ffffff;
+  background: rgba(96, 102, 180, 0.1);
+  border-radius: 15px;
+}
+/* log out button employee */
+.add-or-edit-employee-btn {
+  font-weight: 700;
+  position: absolute;
+  width: 87px;
+  height: 50px;
+  left: 1100px;
+  font-size: 15px;
+  top: 36px;
+  color: #ffffff;
+  background: rgba(96, 102, 180, 0.1);
+  border-radius: 15px;
+}
+/* item form */
+.item_form {
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  right: 50px;
+  top: 105px;
+  line-height: 38px;
+  align-items: center;
+  padding-top: 50px;
+  display: flex;
+  margin-bottom: 10px;
+}
+/* employee form */
+.employee_form {
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  left: 300px;
+  top: 105px;
+  line-height: 38px;
+  align-items: center;
+  padding-top: 50px;
+  display: flex;
+  margin-bottom: 10px;
+}
+/* item form input */
+.item_form input {
+  border: none;
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  flex-direction: row-reverse;
+  margin-left: 5px;
+  outline: none;
+  line-height: 56px;
+}
+/* item form label */
+.item_form label {
+  display: inline-block;
+  width: 60%;
+  color: #faf7f7;
+  text-align: right;
+  line-height: 56px;
+}
+/* employee form label */
+.employee_form label {
+  display: inline-block;
+  width: 60%;
+  color: #faf7f7;
+  text-align: right;
+  line-height: 56px;
+
 }
 
-.add-or-edit div p{
-    color: beige;
-    /* ...more css */
+/* employee form inputs */
+
+.employee_form input {
+  border: none;
+  width: 76%;
+  height: 25px;
+  border-radius: 5px;
+  line-height: 56px;
+  border: none;
+  flex-direction: row-reverse;
+  margin-left: 5px;
+  outline: none;
+}
+/* item heading */
+.add-or-edit-item-heading {
+  position: relative;
+  width: 382px;
+  height: 78px;
+  left: 99px;
+  top: 34px;
+  line-height: 80px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+/* cancel button item form */
+.item_cancel {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  left: 920px;
+  font-size: medium;
+  top: 426px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(238, 48, 48, 0.808);
+  border-color: rgba(15, 15, 15, 0.1);
+}
+/* add button item form */
+.item_add {
+  position: absolute;
+  width: 104px;
+  height: 35px;
+  right: 540px;
+  font-size: medium;
+  top: 426px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(74, 5, 235, 0.808);
+  border: none;
+}
+/* manager profile add button */
+.manager-profile-add {
+  position: absolute;
+  width: 104px;
+  height: 35px;
+  right: 540px;
+  font-size: medium;
+  top: 426px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(74, 5, 235, 0.808);
+  border: none;
+}
+/* manager profile cancel button */
+.manager-profile-cancel {
+  position: absolute;
+  width: 115px;
+  height: 35px;
+  left: 900px;
+  font-size: medium;
+  top: 426px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(238, 48, 48, 0.808);
+  border-color: rgba(15, 15, 15, 0.1);
+}
+/* employee add button */
+.employee-add {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  left: 250px;
+  top: 350px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(56, 31, 196, 0.808);
+  border: none;
+  text-align: center;
 }
 
-.add-or-edit div span{
-    /* ...more css */
+/* employee cancel button */
+.employee-cancel {
+  position: absolute;
+  width: 100px;
+  height: 35px;
+  left: 480px;
+  top: 350px;
+  color: #ffffff;
+  border-radius: 15px;
+  background: rgba(238, 48, 48, 0.808);
+  border: none;
+  text-align: center;
+}
+/* manager form */
+.manager_form {
+  position: fixed;
+  width: 100%;
+  height: 60%;
+  right: 50px;
+  top: 105px;
+  line-height: 38px;
+  align-items: center;
+  padding-top: 50px;
+  display: flex;
+  margin-bottom: 10px;
+}
+/* manager form input */
+.manager_form input {
+  border: none;
+  width: 50%;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
+  flex-direction: row-reverse;
+  margin-left: 5px;
+  outline: none;
+  line-height: 56px;
+}
+/* manager form  label */
+.manager_form label {
+  display: inline-block;
+  width: 60%;
+  color: #faf7f7;
+  text-align: right;
+  line-height: 56px;
+}
+
+/* ,manager profile heading */
+.manager-profile-heading {
+  position: relative;
+  width: 382px;
+  height: 78px;
+  left: 99px;
+  top: 34px;
+  line-height: 80px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+
+  color: #ffffff;
+}
+/* employee heading */
+.add-or-edit-employee-heading {
+  position: relative;
+  width: 382px;
+  height: 78px;
+  left: 99px;
+  top: 34px;
+  line-height: 80px;
+  font-family: "Work Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 29px;
+  line-height: 40px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #ffffff;
 }

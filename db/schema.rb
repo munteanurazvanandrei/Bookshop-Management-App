@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_161310) do
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
   create_table "items", force: :cascade do |t|
@@ -30,6 +31,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_161310) do
     t.integer "total_sold", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "active", default: true
   end
 
   create_table "managers", force: :cascade do |t|

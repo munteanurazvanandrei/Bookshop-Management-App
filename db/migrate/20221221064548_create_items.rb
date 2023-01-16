@@ -11,5 +11,6 @@ class CreateItems < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+    add_column :items, :active, :boolean, default: true
   end
 end
