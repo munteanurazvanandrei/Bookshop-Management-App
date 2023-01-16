@@ -1,65 +1,57 @@
-import { useState, useEffect } from 'react'
-import './items.css'
-import { RiDeleteBin6Line } from 'react-icons/ri'
-import { FiEdit } from 'react-icons/fi'
-import { GrAddCircle } from 'react-icons/gr'
-import { Link } from 'react-router-dom'
+import { useEffect, useState } from "react"
+import ItemCard from "./ItemCard";
+import "./items.css"
+import { v4 } from "uuid";
+import { useNavigate } from "react-router-dom";
 
-function Items() {
-  const [myItems, setMyItems] = useState([])
-  const [query, setQuery] = useState('')
-
-  useEffect(() => {
-    fetch('http://localhost:3000/items', {
-      headers: {
-        role: 'manager',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data)
-        setMyItems(data)
-      })
-  }, [])
-  const myItem = myItems
-    .filter((items) => items.name_or_title.toLowerCase().includes(query))
-    .map((items) => (
-      <div className="item-card" key={items.id}>
-        <h6>{items.name_or_title}</h6>
-        <img src={items.img_url} alt={items.img_url} />
-        <div className="item-centered">
-          <h6>Price :{items.price_per_item}</h6>
-          <h6>Qty :{items.qty}</h6>
-          {/* 4000/manager/add_or_edit_item/${item.id} */}
-          {/* nav("/manager/add_or_edit_item/${item.id}") */}
-          <div className='item-buttons'>
-              <FiEdit className='edit'/>
-              <RiDeleteBin6Line className='delete'/>
-          </div>
+export default function Items(){
+    // render the items (item-cards)
+    // TODO add search and filter functionalities
+    // TODO add eye, edit and click item-icon redirects functionalities
+    const[reloadTimes,setReloadTimes] = useState(0);
+    const[searchItem, setSearchItem] = useState("");
+    const[items, setItems] = useState();
+    const nav = useNavigate();
+    useEffect(()=>{
+        fetch("http://localhost:3000/items",{
+          headers:{"role":"manager",
+          "Authorization": `Bearer ${localStorage.getItem("token")}`}
+        })
+        .then(r=>{
+            if(r.ok){
+                console.log("okay");
+                r.json().then(json=>{
+                    setItems(json)
+                })
+            }
+        })
+        .catch(()=>{setTimeout(()=>{setReloadTimes(prev=>prev+1)},5000)})
+    },[reloadTimes])
+    const filteredItems = items? items.filter(item=>item.name_or_title
+        .toLowerCase().includes(searchItem.toLowerCase())):[];
+    return(<div className="items">
+        <div className="search-main">
+            <div className="search-bar">
+                <input type="text" placeholder="Enter number or name" onChange={(e)=>setSearchItem(e.target.value)}/>
+                <img className="search-icon" src="/svgs/search-icon.svg" alt="search-icon"/>
+            </div>
+            <div className="add" onClick={()=>nav("/manager/add_or_edit_item")}><img className="add-icon" src="/svgs/add-icon.svg" alt="add"/></div>
         </div>
-      </div>
-    ))
-  return (
-    <div className="main-items-div">
-      <h1>Bookshop Manager</h1>
-      <div className="item-search-div">
-        <input
-          type="text"
-          placeholder="Search in lowercase"
-          className="item-search"
-          onChange={(e) => setQuery(e.target.value)}
-        />
-        <Link to={'/manager/add_or_edit_item'}>
-          <button className="item-add">
-            {' '}
-            <GrAddCircle />{' '}
-          </button>
-        </Link>
-      </div>
-      <div className="items-container">{myItem}</div>
-    </div>
-  )
+        <div className="item-cards">
+            {items ? filteredItems.map(item=><ItemCard key={v4()} item={item} setItems={setItems}/>)
+            :
+            <div className='item-loading'>
+                <div className="dot-spinner">
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                    <div className="dot-spinner__dot"></div>
+                </div>
+            </div>}
+        </div>
+    </div>)
 }
-
-export default Items
