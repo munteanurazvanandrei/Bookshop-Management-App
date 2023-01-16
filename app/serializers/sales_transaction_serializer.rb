@@ -1,5 +1,5 @@
 class SalesTransactionSerializer < ActiveModel::Serializer
-  attributes :employee_name, :amount, :change, :recieved
+  attributes :employee_name, :amount, :change, :recieved, :created_at
   has_many :sales
 
   def employee_name
