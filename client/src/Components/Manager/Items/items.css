@@ -1,86 +1,74 @@
-.head {
-    color: white
-  }
-  .item-card {
-    text-align: center;
-    position: relative;
-    border-radius: 20px;
-    /* display: inline-block; */
-    background: white;
-    width: 270px;
-    height: 250px;  
-  }
-  
-  .items-container {
-  /* background-image: url(./background.svg); */
-  /* height: 100vh; */
+.items-container .head {
+  color: white;
+}
+.items-container .item-card {
+  text-align: center;
+  border-radius: 20px;
+  background: white;
+  width: 270px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.items-container {
   height: fit-content;
   height: 80vh;
   display: grid;
   margin: auto;
   grid-template-columns: repeat(3, 350px);
   grid-template-rows: auto;
-  column-gap: 2%; 
+  column-gap: 2%;
   row-gap: 2%;
   text-align: center;
   flex-wrap: nowrap;
-   /* width: 1100px;  */
   width: fit-content;
-  
+
   margin-left: 60px;
   margin-top: 10px;
-  }
-  .item-card img{
-    width: 150px;
-    height: 100px;
-  }
-  h6 {
-    color: blue;
-  }
-  .main-div {
-    background-image: url(./background.svg);
-    height: fit-content;
-    width: fit-content;
-  }
-  h1{
-    color: aliceblue;
-    text-align: center;
-    
-  }
-
-  
-  .item-search {
-    height: 30px;
-    width: 300px;
-    margin-left: 50px;
-    border: white;
-    border-radius: 20px;
-    background-color:rgb(209, 205, 205);
-    text-decoration: aliceblue;
-    margin-top: 5px;
-  }
-  .item-centered{
-    position: absolute;
-    top: 35%;
-    left: 25%;
-  }
-  .item-view-more {
-    background-color: white;
-    cursor: pointer;
-    border: none;
-  }
-  .item-search-div{
-    background-color: rgb(83, 0, 156);
-    width: 800px;
-    margin-left: 70px;
-    height: 40px;
-    border-radius: 4px;
-  }
-  .item-add{
-    border-radius: 10px;
-    border: none;
-    margin-left: 270px;
-    cursor: pointer;
-    background-color: rgba(207, 0, 214, 0.596);
-    
-  }
+}
+.items-container .item-card img {
+  width: 160px;
+  height: 90px;
+  object-fit: contain;
+}
+.main-items-div h1 {
+  color: aliceblue;
+}
+.main-items-div .item-search {
+  height: 30px;
+  width: 300px;
+  margin-left: 50px;
+  border: white;
+  border-radius: 20px;
+  background-color: rgb(209, 205, 205);
+  text-decoration: aliceblue;
+  margin-top: 5px;
+}
+.main-items-div .item-search-div {
+  background-color: rgb(83, 0, 156);
+  width: 800px;
+  margin-left: 70px;
+  height: 40px;
+  border-radius: 4px;
+}
+.main-items-div .item-add {
+  border-radius: 10px;
+  border: none;
+  margin-left: 270px;
+  cursor: pointer;
+  background-color: rgba(207, 0, 214, 0.596);
+}
+.main-items-div .item-card .item-centered h6{
+  display: inline-block;
+}
+.main-items-div .item-card .item-centered  .item-buttons *{
+ padding: 0 1rem;
+}
+.main-items-div .item-card .item-centered  .item-buttons .delete{
+  color: red;
+}
+.main-items-div .item-card .item-centered  .item-buttons .edit{
+  color: green;
+}
