@@ -1,79 +1,79 @@
-import { NavLink, useNavigate } from 'react-router-dom'
 import './styling/sale.css'
-import { useState } from 'react'
-
-const items = [{ name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }, { name: "progressive english", publisher: "macmillan", qty: 1, price: 10.00 }]
-
-const Row = (props) => {
-    const { name, publisher, qty, price } = props
-    return (
-        <tr>
-            <td>{name}</td>
-            <td>{publisher}</td>
-            <td>{qty}</td>
-            <td>{price}</td>
-        </tr>
-    )
-}
-
-const Table = (props) => {
-    const { data } = props
-    console.log(data)
-    return (
-        <table>
-            <tbody>
-                {data.map((row, index) =>
-                    <Row key={`key-${index}`} name={row.name} publisher={row.publisher} qty={row.qty} price={row.price} />
-                )}
-            </tbody>
-        </table>
-    )
-}
+import { useState, useEffect } from 'react'
+import PosSidebar from './PosSidebar'
+import SaleItems from './SaleItems'
+import { useNavigate } from 'react-router-dom'
 
 export default function MakeASale({ employeeName }) {
-    // point of sale navigation pane
-    console.log("constructor()")
-    // Redirects user to set-page e.g. home, login
-    const nav = useNavigate()
+  const [items, setItems] = useState()
+  const [loading, setLoading] = useState(true)
+  const [searchInput, setSearchInput] = useState('')
+  const [change, setChange] = useState(0);
+  const nav = useNavigate();
 
-    // Sample data
-    // eslint-disable-next-line
-    const [rows, setRows] = useState(items) 
-    return (
-        <div className="point-of-sale">
-            <div className="pos-sidebar">
-                <h3>Make a Sale</h3>
-                <img src='/svgs/employees.svg' alt='employee' />
-                <p>{employeeName}</p>
-                <hr />
-                <NavLink to="/dashboard">
-                    <button className='input-btn' type="submit">
-                        Back to Dashboard
-                    </button>
-                </NavLink>
-                <NavLink to="/cancel">
-                    <button className='input-btn' type="submit">
-                        Cancel
-                    </button>
-                </NavLink>
-                <NavLink to="/complete">
-                    <button className='input-btn' type="submit">
-                        Complete
-                    </button>
-                </NavLink>
-                {/* Footer */}
-                <div className='bottom'>
-                    <hr />
-                    <div onClick={/*Logout and navigate to landing page */ () => { nav("/") }}>
-                        <img src='/svgs/logout.svg' alt="logout" />
-                        <span>Logout</span>
-                    </div>
-                </div>
-            </div>
-            <div className='product-table'>
-                <Table data={rows} />
-            </div>
-
-        </div>
+  const filteredItems = items
+    ? items.filter((item) =>
+      item.name_or_title.toLowerCase().includes(searchInput.toLowerCase()),
     )
+    : null
+
+  useEffect(() => {
+    fetch(`http://localhost:3000/items`, {
+      headers: {
+        role: 'manager',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then((r) => r.json())
+      .then((json) => {
+        console.log(json)
+        setItems(
+          json.map((item) => ({ ...item, isCartItem: false, sell_qty: 1 }))
+        )
+        setLoading(false)
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }, [2])
+
+  function handleCalc(e) {
+    const total = items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0)
+    setChange(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value) - total)
+  }
+
+  return (
+    <div className="point-of-sale">
+      <PosSidebar setItems={setItems} items={items} isSearching={searchInput.length > 0} setSearchInput={setSearchInput} />
+      <div className="sale-items-div">
+        <div className='search-div'>
+          <input
+            className="search-in-all-items"
+            type="text"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          /><img src="/svgs/black-logout.svg" alt="logout" onClick={() => { localStorage.clear(); nav("/"); }} />
+        </div>
+        <SaleItems isNotSearching={searchInput.length === 0}
+          items={items} setItems={setItems} filteredItems={filteredItems} />
+        <div className='sale-calc-main'>
+          <div className='flex-main'>
+            <div className='total-h4s'>
+              <h4>Total Qty sold</h4>
+              <h4>Total amount</h4>
+              <h4>Recieved</h4>
+              <h4 className='change'>Change</h4>
+            </div>
+            <div className='total-text'>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty + total : total, 0).toLocaleString()}</h4>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0).toLocaleString()}</h4>
+              <input type="number" onChange={handleCalc} />
+              <h4 className='change' style={change < 0 ? { color: "red" } : { color: "#0368FF" }}>{change.toLocaleString()}</h4>
+            </div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
+  )
 }
