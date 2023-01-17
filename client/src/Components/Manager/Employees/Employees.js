@@ -13,7 +13,7 @@ export default function Employees(){
     const[reloadTimes,setReloadTimes] = useState(0);
     const nav = useNavigate();
     useEffect(()=>{
-        fetch("http://localhost:3000/employees",{
+        fetch("https://bma-server-production.up.railway.app/employees",{
             headers:{
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 "role": "manager"}

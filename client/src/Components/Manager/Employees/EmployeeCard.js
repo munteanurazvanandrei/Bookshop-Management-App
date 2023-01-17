@@ -18,7 +18,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
 
   function handleDelete() {
     setLoading(true)
-    fetch(`http://localhost:3000/employees/${id}`,{
+    fetch(`https://bma-server-production.up.railway.app/employees/${id}`,{
         headers:{
             "Authorization": `Bearer ${localStorage.getItem("token")}`,
             "role": "manager"},
@@ -42,7 +42,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
   function handleActive(){
     console.log("Active")
     setLoading(true)
-    fetch(`http://localhost:3000/employees/${id}`,{
+    fetch(`https://bma-server-production.up.railway.app/employees/${id}`,{
         headers:{
             "Authorization": `Bearer ${localStorage.getItem("token")}`,
             "role": "manager"},

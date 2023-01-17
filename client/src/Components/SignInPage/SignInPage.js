@@ -25,7 +25,7 @@ export default function SignIn() {
   function handleSubmit(e) {
     e.preventDefault();
     console.log("hello");
-    fetch("http://localhost:3000/login", {
+    fetch("https://bma-server-production.up.railway.app/login", {
       method: "POST",
       headers: {
         role: action ? "" : "manager",

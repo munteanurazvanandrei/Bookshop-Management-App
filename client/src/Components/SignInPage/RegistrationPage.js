@@ -29,7 +29,7 @@ const [errors,setErrors] = useState(null)
 
   function handleRegister(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/signup", {
+    fetch("https://bma-server-production.up.railway.app/signup", {
       method: "POST",
       headers: {
         "Content-type": "application/json",

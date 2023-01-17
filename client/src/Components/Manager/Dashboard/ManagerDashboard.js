@@ -18,7 +18,7 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
   }
 
   useEffect(()=>{
-    fetch("http://localhost:3000/items",{
+    fetch("https://bma-server-production.up.railway.app/items",{
       headers:{"role":"manger",
     "Authorization": `Bearer ${localStorage.getItem("token")}`}
     })

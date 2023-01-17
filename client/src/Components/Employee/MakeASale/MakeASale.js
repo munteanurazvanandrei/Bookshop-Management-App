@@ -18,7 +18,7 @@ export default function MakeASale({ employeeName }) {
     : null
 
   useEffect(() => {
-    fetch(`http://localhost:3000/items`, {
+    fetch(`https://bma-server-production.up.railway.app/items`, {
       headers: {
         role: 'manager',
         Authorization: `Bearer ${localStorage.getItem('token')}`,

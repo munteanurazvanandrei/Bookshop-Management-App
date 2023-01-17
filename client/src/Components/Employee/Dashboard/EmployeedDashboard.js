@@ -6,7 +6,7 @@ export default function EmployeeDashboard() {
   const [totalTransactions, setTotalTransactions] = useState(0);
   const nav = useNavigate();
   useEffect(() => { 
-    fetch ("http://localhost:3000/sales_transactions")
+    fetch ("https://bma-server-production.up.railway.app/sales_transactions")
     .then((r)=>{
     if (r.ok){
       r.json().then(body =>setTotalTransactions (body.length))
