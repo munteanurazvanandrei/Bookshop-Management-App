@@ -8,12 +8,12 @@ export default function EmployeeCard({ employee, setEmployees }) {
     const { id, name, salesTransactions, active } = employee;
     const unknownError=()=>{
         setTimeout(()=>{setError(()=>({message:"Unknown Error.\nContact Support."}))},1250)
-        setTimeout(()=>{setLoading(false)},1000);
+        setTimeout(()=>{setLoading(false)},100);
     }
 
   const errorOccurred=(e)=>{
-    setTimeout(()=>{setError(()=>e)},1250)
-    setTimeout(()=>{setLoading(false);setError(()=>null);},3000);
+    setTimeout(()=>{setError(()=>e)},125)
+    setTimeout(()=>{setLoading(false);setError(()=>null);},300);
   }
 
   function handleDelete() {
@@ -25,10 +25,10 @@ export default function EmployeeCard({ employee, setEmployees }) {
         method:"DELETE"})
     .then(r=>{
         if(r.ok){
-            setTimeout(()=>{setLoaded(()=>true);setLoading(false);},1000)
+            setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
             setTimeout(()=>{
                 setEmployees(prev=>prev.filter(emp=>emp.id!==id))
-            },3000);
+            },300);
 
         }else{
             unknownError();
@@ -50,7 +50,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
         method:"PATCH"})
         .then(r=>{
             if(r.ok){
-                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},1000)
+                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                 setTimeout(()=>{
                     setEmployees(prev=>prev.map(employee=>employee.id===id?{...employee, active:!employee.active}:employee))
                 },3000);
