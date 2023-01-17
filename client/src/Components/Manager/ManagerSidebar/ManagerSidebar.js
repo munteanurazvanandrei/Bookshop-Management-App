@@ -9,7 +9,7 @@ export default function ManagerSideBar({ managerName }) {
       <img className='book-reader' src="/svgs/book-reader.svg" alt="book-reader" />
       <p>{managerName}</p>
       <hr />
-      <NavLink to="/dashboard">
+      <NavLink to="/manager">
         <img src="/svgs/dashboard.svg" alt="dashboard" />
         <span>Dashboard</span>
       </NavLink>
@@ -27,7 +27,7 @@ export default function ManagerSideBar({ managerName }) {
       </NavLink>
       <div className='bottom'>
         <hr/>
-        <div onClick={/*Logout and navigate to landing page */ ()=>{nav("/")}}>
+        <div onClick={/*Logout and navigate to landing page */ ()=>{localStorage.clear();nav("/")}}>
             <img src='/svgs/logout.svg' alt="logout"/>
             <span>Logout</span>
         </div>
