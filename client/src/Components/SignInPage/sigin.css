@@ -52,7 +52,7 @@
 .login_left_icon{
     font-size: 1.5rem;
     color: #ccc;
-    position: fixed;
+    position: absolute;
     margin: 0.7rem ;
 }
 
@@ -60,6 +60,6 @@
     font-size: 1.5rem;
     color: #ccc;
     margin: 0.7rem ;
-    position: fixed;
+    position: absolute;
     left: 35%;
 }
