@@ -37,9 +37,9 @@ a user can log in as an employee and can , view: the items to sell,previous tran
 
 ## Overview
 
-![My Image](./images/login.png)
+![My Image](./images/login%20.png)
 
-![My Image](./images/LANDINGPAGE.png)
+![My Image](./images/LANDING%20PAGE.png)
 
 ## Setup
 
