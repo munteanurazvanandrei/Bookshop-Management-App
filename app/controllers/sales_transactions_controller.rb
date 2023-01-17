@@ -7,6 +7,7 @@ class SalesTransactionsController < ApplicationController
         transaction = SalesTransaction.create(transaction_params)
         current_user.salesTransactions << transaction
         transaction.sales<< Sale.create(params[:items])
+        render json: transaction, status: :created
     end
 
     def index
