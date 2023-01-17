@@ -6,6 +6,8 @@
   background-size: cover;
   background-position: center;
   height: 100vh;
+  min-height: 500px;
+  min-width: 1050px;
   width: 100vw;
 }
 .registration div {
