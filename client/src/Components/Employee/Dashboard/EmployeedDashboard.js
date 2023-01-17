@@ -20,7 +20,7 @@ export default function EmployeeDashboard() {
     <div className="employee-dashboard">
       <div className="employee-dashboard-heading">FROST BOOKSHOP</div>
       <div className="pointofsale-title"> Point of Sale </div>
-      <div className="make-a-sale" onClick={()=>nav("/make-a-sale")}>
+      <div className="make-a-sale" onClick={()=>nav("/employee/make_sale")}>
         <div className="make-sale-telephone">
           <svg
             width="44"
@@ -38,7 +38,7 @@ export default function EmployeeDashboard() {
         <div className="make-a-sale-text">Make a Sale</div>
       </div>
 
-      <div className="sales-history">
+      <div className="sales-history" onClick={()=>nav("/employees_sales")}>
         <div className="sales-history-svg">
           <svg
             width="52"
@@ -56,10 +56,9 @@ export default function EmployeeDashboard() {
         <div className="total-transactions">{totalTransactions}</div>
         <div className="sales-history-text">Sales History</div>
       </div>
-      <button type="button" className="button">
+      <button type="button" className="button" onClick={()=>nav("/")} >
 
-        {" "}
-        Logout <span></span>
+        <span>  Logout </span>
         <svg
           width="18"
           height="18"
