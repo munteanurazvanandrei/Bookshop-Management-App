@@ -28,7 +28,7 @@ export default function MakeASale({ employeeName }) {
       .then((json) => {
         console.log(json)
         setItems(
-          json.map((item) => ({ ...item, isCartItem: false, sell_qty: 1 }))
+          json.map((item) => ({ ...item, isCartItem: false, total_sold: 1 }))
         )
         setLoading(false)
       })
@@ -38,7 +38,7 @@ export default function MakeASale({ employeeName }) {
   }, [2])
 
   function handleCalc(e) {
-    const total = items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0)
+    const total = items && items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0)
     setChange(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value) - total)
   }
 
@@ -65,8 +65,8 @@ export default function MakeASale({ employeeName }) {
               <h4 className='change'>Change</h4>
             </div>
             <div className='total-text'>
-              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty + total : total, 0).toLocaleString()}</h4>
-              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.sell_qty * item.price_per_item + total : total, 0).toLocaleString()}</h4>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.total_sold + total : total, 0).toLocaleString()}</h4>
+              <h4>{items && items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0).toLocaleString()}</h4>
               <input type="number" onChange={handleCalc} />
               <h4 className='change' style={change < 0 ? { color: "red" } : { color: "#0368FF" }}>{change.toLocaleString()}</h4>
             </div>
