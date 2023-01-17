@@ -34,7 +34,7 @@ class EmployeesController < ApplicationController
     private
     # employee details input during creation of account
     def employee_params
-        params.permit(:name, :email, :password)
+        params.permit(:name, :email, :password, :active)
     end
 
     # dynamically find an employee via :id
