@@ -13,8 +13,8 @@ export default function ItemCard({item, setItems}){
       }
     
       const errorOccurred=(e)=>{
-        setTimeout(()=>{setError(()=>e)},1250)
-        setTimeout(()=>{setLoading(false);setError(()=>null);},3000);
+        setTimeout(()=>{setError(()=>e)},125)
+        setTimeout(()=>{setLoading(false);setError(()=>null);},300);
       }
 
     function handleDelete(){
@@ -27,10 +27,10 @@ export default function ItemCard({item, setItems}){
         })
         .then(res=>{
             if(res.ok){
-                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},1000)
+                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                 setTimeout(()=>{
                     setItems(prev=>prev.filter(itm=>itm.id !== id))
-                },3000);
+                },300);
             }else{
                 unknownError();
             }
@@ -41,16 +41,16 @@ export default function ItemCard({item, setItems}){
     }
 
     function handleActive(){
-        console.log("Active")
         setAction("update")
         setLoading(true)
-        fetch(`http://localhost:3000/items/${id}`,{
+        fetch(`https://bma-server-production.up.railway.app/items/${id}`,{
             headers:{
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 "role": "manager"},
-            body:JSON.stringify({...item, active:!item.active}),
+            body:JSON.stringify({ "active":!active}),
             method:"PATCH"})
             .then(r=>{
+                r.json().then(json=>console.log(json));
                 if(r.ok){
                     setTimeout(()=>{setLoaded(()=>true);setLoading(false);},1000)
                     setTimeout(()=>{
