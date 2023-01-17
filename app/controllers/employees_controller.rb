@@ -3,7 +3,7 @@ class EmployeesController < ApplicationController
     before_action :authorized
     # GET /employees
     def index
-        render json: Employee.all
+        render json: current_user.employees
     end
 
     # GET /employees/:id

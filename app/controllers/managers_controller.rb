@@ -15,7 +15,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     # POST
     def create
         manager = Manager.create!(manager_params)
-        render json: manager, status: :created
+        token = encode_token(user_id: manager.id)
+        render json: {manager: manager, jwt: token}, status: :created
     end
 
     # DELETE /managers/:id
