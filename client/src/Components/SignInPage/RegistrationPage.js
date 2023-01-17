@@ -46,6 +46,7 @@ const [errors,setErrors] = useState(null)
       if (r.ok) {
         r.json().then((data) => {
           console.log(data);
+          localStorage.setItem("token", data.jwt);
           navigate("/manager");
         });
       } else {

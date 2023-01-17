@@ -5,6 +5,7 @@ class SalesTransactionsController < ApplicationController
 
     def create
         transaction = SalesTransaction.create(transaction_params)
+        current_user.salesTransactions << transaction
         transaction.sales<< Sale.create(params[:items])
     end
 
