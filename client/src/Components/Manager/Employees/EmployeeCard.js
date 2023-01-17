@@ -46,13 +46,13 @@ export default function EmployeeCard({ employee, setEmployees }) {
         headers:{
             "Authorization": `Bearer ${localStorage.getItem("token")}`,
             "role": "manager"},
-        body:JSON.stringify({...employee, active:!employee.active}),
+        body:JSON.stringify({active:!active}),
         method:"PATCH"})
         .then(r=>{
             if(r.ok){
                 setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                 setTimeout(()=>{
-                    setEmployees(prev=>prev.map(employee=>employee.id===id?{...employee, active:!employee.active}:employee))
+                    setEmployees(prev=>prev.map(employee=>employee.id===id?{...employee, active:!active}:employee))
                 },3000);
     
             }else{

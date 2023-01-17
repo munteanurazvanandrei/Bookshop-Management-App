@@ -6,8 +6,6 @@ import { useNavigate } from "react-router-dom";
 
 export default function Employees(){
     // Render the employees (employee-cards)
-    // TODO add search functionality
-    // TODO add eye, edit and click employee-icon redirects functionalities
     const[employees, setEmployees] = useState();
     const[searchItem, setSearchItem] = useState("");
     const[reloadTimes,setReloadTimes] = useState(0);
