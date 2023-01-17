@@ -59,7 +59,7 @@ console.log(errors)
       <div className="registration-nav">
         <h2>PIONEER BOOKSHOP MANAGERS</h2>
         <button className="home_button">
-          <Link to="*" className="home_link">
+          <Link to="/" className="home_link">
             Home
           </Link>
           <HiOutlineHome className="home_icon" />
