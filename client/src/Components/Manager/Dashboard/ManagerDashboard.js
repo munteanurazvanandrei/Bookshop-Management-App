@@ -53,7 +53,7 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
       <img src="/svgs/logout.svg" alt=""/>
     </div>
     <div className="dashboard-all-items">
-      <div onClick={()=>{nav("./employees_sales")}}>
+      <div onClick={()=>{nav("./transactions")}}>
         <h3>Sale & Transactions</h3>
         <div className="sales-and-transactions div-glass">
           <span>{itemAlertLimit}</span>
