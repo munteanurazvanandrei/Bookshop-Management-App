@@ -94,7 +94,7 @@ export default function SignIn() {
               <br />
               <div className="login-button-form">
                 <button type="submit">Login</button>
-                <button  onClick={() => navigate("/signup")}>Register</button>
+                <button> <Link to="/signup">Register</Link></button>
               </div>
               <div className="login_forgot_password">
                 <span>Forgot password?</span>
