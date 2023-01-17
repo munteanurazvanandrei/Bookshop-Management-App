@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   # root "articles#index"
 
 
-  # TODO: Add custom routes {Assignee=> Awadh}
   post "/login", to: "jwt#create"
   delete "/logout", to: "jwt#destroy"
   post "/signup", to: "managers#create"

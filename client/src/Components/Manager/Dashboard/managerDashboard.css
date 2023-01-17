@@ -1,24 +1,16 @@
-/* Example of css to prevent css overlap */
-/* Manager Dashboard */
-
-/* Emphasis on using the "super" parent class, ie. "manager-dashboard" */
 .manager-dashboard {
   /* Manager Dashboard */
 
   display: flex;
   position: relative;
-  width: 1024px;
-  height: 768px;
-  background: linear-gradient(
-    180deg,
-    rgb(167, 132, 81) 0%,
-    rgba(40, 57, 119, 1) 30%,
-    rgba(63, 69, 125, 1) 50%,
-    rgba(40, 57, 119, 1) 70%,
-    rgba(20, 36, 93, 1) 100%
-  );
+  width: 100vw;
+  height: 100vh;
+  margin: 0%;
 
-  /* background: url(gradient.jpg); */
+  background: url(background.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 .manager-dashboard-heading {
   /* FROST BOOKSHOP */
@@ -132,8 +124,8 @@
   position: absolute;
   width: 129px;
   height: 129px;
-  left: 51px;
-  top: 175px;
+  left: 151px;
+  top: 185px;
 
   background: rgba(196, 196, 196, 0.42);
 }
@@ -182,7 +174,7 @@
 }
 .manager-dashboard-employees{
   position: absolute;
-  left: 25%;
+  left: 5%;
   right: 0%;
   top: 25%;
   bottom: 0%;
@@ -190,7 +182,7 @@
 
 .manager-dashboard-item{
   position: absolute;
-  left: 25%;
+  left: 5%;
   right: 0%;
   top: 25%;
   bottom: 0%;
@@ -242,32 +234,63 @@
   background: rgba(232, 72, 72, 0.45);
 }
 
-.btn{
-
-  /* Rectangle 6 */
+.manager-dashboard .btn{
 
 position: absolute;
 width: 87px;
 height: 50px;
-left: 909px;
+right: 59px;
+font-weight: 400;
+font-size: medium;
 top: 76px;
-
-background: rgba(96, 102, 180, 0.1);
+color: #faf8f8;
+border: none;
+background: rgba(81, 88, 196, 0.1);
 border-radius: 15px;
 
-  /* Rectangle 6 */
-/* 
-position: absolute;
-width: 67px;
-height: 60px;
-left: 909px;
-top: 76px;
+ }
+ .employees-display{
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  right: 8px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+ }
+ .transactions-display{
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  right: 8px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+ }
+ .items-display{
+  position: absolute;
+  width: 35px;
+  height: 18px;
+  right: 8px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+ }
 
-background: rgba(133, 120, 120, 0.1);
-border-radius: 15px; */
-
-}
 .primary-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.pen-display{
   position: absolute;
   width: 30px;
   height: 18px;
@@ -287,3 +310,58 @@ border-radius: 15px; */
   border-radius: 3px;
   color: #faf8f8;
 }
+.item-list-text{
+  position: relative;
+  color: #faf8f8;
+  top: 99px;
+}
+.transactions-text{
+  position: relative;
+  color: #faf8f8;
+  top: 49px;
+}
+.employee-list-text{
+  position: relative;
+  color: #faf8f8;
+  top: 99px;
+}
+.pencil-display{
+  position: absolute;
+  width: 30px;
+  height: 18px;
+  left: 23px;
+  top: 9px;
+  background: rgba(241, 240, 245, 0.69);
+  border-radius: 3px;
+  color: #faf8f8;
+}
+.manager-q-text{
+  top: 59px;
+  position: relative;
+  color: #faf8f8;
+}
+.frostbookshop-text{
+  top: 99px;
+  position: relative;
+  color: #faf8f8;
+}
+/* .pencil-text{
+  color: #faf8f8;
+  position: relative;
+  top: 40px;
+}
+.pen-text{
+  color: #faf8f8;
+  position: relative;
+  top: 40px;
+}
+.primary-text{
+  color: #faf8f8;
+  position: relative;
+  top: 40px;
+}
+.exercisebook-text{
+  color: #faf8f8;
+  position: relative;
+  top: 40px; */
+/* } */
