@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   post "/login", to: "jwt#create"
   delete "/logout", to: "jwt#destroy"
   post "/signup", to: "managers#create"
+  delete "/me", to: "managers#destroy"
 
 
 end
