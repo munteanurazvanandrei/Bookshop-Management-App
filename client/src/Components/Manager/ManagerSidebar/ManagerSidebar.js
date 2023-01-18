@@ -9,7 +9,7 @@ export default function ManagerSideBar({ managerName, setLoggedIn }) {
       <img className='book-reader' src="/svgs/book-reader.svg" alt="book-reader" />
       <p>{managerName}</p>
       <hr />
-      <NavLink to="/manager">
+      <NavLink to="/dash">
         <img src="/svgs/dashboard.svg" alt="dashboard" />
         <span>Dashboard</span>
       </NavLink>

@@ -32,7 +32,7 @@ function App() {
         <Route path="/" element={<LandingPage/>}/>
         {role==="manager"?<>
           <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
-          <Route path="/manager/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+          <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
         </>:<>
           <Route path="/dash" element={loggedIn?<EmployeeDashboard setLoggedIn={setLoggedIn}/>:<>Kindly Login</>}/>
           <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
