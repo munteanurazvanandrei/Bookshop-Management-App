@@ -38,7 +38,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
         if current_user
             render json: current_user
         else
-            render {error: "User not found"}, status: :unauthorized
+            render json: {error: "User not found"}, status: :unauthorized
         end
     end
 
