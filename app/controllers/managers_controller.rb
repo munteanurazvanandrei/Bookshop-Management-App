@@ -21,8 +21,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     # DELETE /managers/:id
     def destroy
-        manager = find_manager
-        manager.destroy
+        current_user.destroy
         head :no_content
     end
 
