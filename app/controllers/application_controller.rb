@@ -2,8 +2,9 @@ class ApplicationController < ActionController::API
 # 
 rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
     # stores secret key in environment variable
+    SECRET = Rails.application.secret_key_base
     def encode_token(payload)
-        JWT.encode(payload, 'pass_phrase')
+        JWT.encode(payload, SECRET)
     end
     # bearer token {Authorization: 'Bearer <tokrn>'}
     def auth_header
@@ -15,7 +16,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
             # get the token from the header which is an array object
             token = auth_header.split(' ')[1]
             begin
-                JWT.decode(token, 'pass_phrase', true, algorithm: 'HS256')
+                JWT.decode(token, SECRET)
             rescue JWT::DecodeError
                 nil
             end
