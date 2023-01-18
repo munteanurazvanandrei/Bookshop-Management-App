@@ -27,9 +27,8 @@ rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
     #PATCH /managers/:id
     def update
-        manager = find_manager
-        manager.update!(manager_params)
-        render json: manager, status: :accepted
+        current_user.update!(manager_params)
+        render json: current_user, status: :accepted
     end
 
     private
