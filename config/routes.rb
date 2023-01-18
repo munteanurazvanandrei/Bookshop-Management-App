@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   post "/signup", to: "managers#create"
   delete "/me", to: "managers#destroy"
   get "/me", to: "application#show_user"
+  patch "/me", to: "managers#update"
 
 
 end
