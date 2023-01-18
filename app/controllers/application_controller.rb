@@ -34,6 +34,13 @@ rescue_from ActiveRecord::RecordInvalid, with: :unprocessable_entity_method
     def logged_in?
         !!current_user
     end
+    def show_user
+        if current_user
+            render json: current_user
+        else
+            render {error: "User not found"}, status: :unauthorized
+        end
+    end
 
     # checks if a user is authorized to view a resource if not, expected to sign in
     def authorized
