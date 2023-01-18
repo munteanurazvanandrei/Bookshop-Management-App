@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import "./styling/main.css";
 import {v4} from "uuid";
 import { useNavigate } from "react-router-dom";
-export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo Bookshop", managerName="John Doe"}) {
+export default function ManagerDashboard({setLoggedIn}) {
   // eslint-disable-next-line
+  const {name,bookshop_name, bookshop_items_alert_limit, employees} = JSON.parse(localStorage.getItem("user"))
   const [dashboardObj, setDashboardObj] = useState({items:[], salesTransactions:[]});
   const [currentTime, setCurrentTime] = useState();
   const nav = useNavigate();
@@ -19,44 +20,45 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
 
   useEffect(()=>{
     fetch("https://bma-server-production.up.railway.app/items",{
-      headers:{"role":"manger",
+      headers:{
     "Authorization": `Bearer ${localStorage.getItem("token")}`}
     })
     .then(r=>{
       if(r.ok){
-        r.json().then(json=>setDashboardObj(prev=>({...prev, items:json})))
+        r.json().then(data=>setDashboardObj(prev=>({...prev, items:data})))
       }
     })
     .then(()=>{
     })
     .catch(e=>console.log(e))
-    fetch("http://localhost:3000/sales_transactions",{
-      headers:{"role":"manger",
+    fetch("https://bma-server-production.up.railway.app/sales_transactions",{
+      headers:{"role":"manager",
     "Authorization": `Bearer ${localStorage.getItem("token")}`}
     })
     .then(r=>{
       if(r.ok){
-        r.json().then(json=>setDashboardObj(prev=>({...prev, salesTransactions:json})))
+        r.json().then(data=>setDashboardObj(prev=>({...prev, salesTransactions:data})))
       }
     })
     .catch(e=>console.log(e))
   },[]);
   setInterval(changeTime,1000)
+  console.log(dashboardObj.salesTransactions)
   // Manager's Dashboard
   return (
   <div className="manager-dashboard">
     <div className="title-and-time">
-      <h2>{bookshopName.toUpperCase()}</h2>
+      <h2>{bookshop_name.toUpperCase()}</h2>
       <h4 className="time">{currentTime}</h4>
     </div>
-    <div className="logout" onClick={()=>{localStorage.clear();nav("/")}}>
+    <div className="logout" onClick={()=>{setLoggedIn(false);localStorage.clear();nav("/")}}>
       <img src="/svgs/logout.svg" alt=""/>
     </div>
     <div className="dashboard-all-items">
       <div onClick={()=>{nav("./transactions")}}>
         <h3>Sale & Transactions</h3>
         <div className="sales-and-transactions div-glass">
-          <span>{itemAlertLimit}</span>
+          <span>{dashboardObj.salesTransactions.length}</span>
           <img src="/svgs/history-logo.svg" alt=""/>
           <small>Transactions</small>
         </div>
@@ -64,6 +66,7 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
       <div onClick={()=>{nav("./employees")}}>
         <h3 className="employees-h3">Employees</h3>
         <div className="div-glass">
+          <span>{employees.length}</span>
           <img src="/svgs/employees.svg" className="employees" alt=""></img>
             <small>Employee List</small>
         </div>
@@ -75,7 +78,7 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
             <img src="/svgs/dashboard-items.svg" className="employees" alt=""/>
           </div>
           <div className="items-alert">
-            {dashboardObj.items.filter(item=>item.qty<itemAlertLimit).slice(0,3).map(item=><div key={v4()}>
+            {dashboardObj.items.filter(item=>item.qty<bookshop_items_alert_limit).slice(0,3).map(item=><div key={v4()}>
               <span>{item.qty}</span>
               <p>{item.name_or_title}</p>
             </div>)}
@@ -87,8 +90,8 @@ export default function ManagerDashboard({itemAlertLimit=100, bookshopName="Demo
       <div onClick={()=>{nav("./manager_profile")}}>
         <h3>Edit Profile</h3>
         <div className="div-glass">
-          <small className="profile">{managerName}</small>
-          <small className="profile">{bookshopName}</small>
+          <small className="profile">{name}</small>
+          <small className="profile">{bookshop_name}</small>
         </div>
       </div>
     </div>
