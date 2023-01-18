@@ -4,9 +4,8 @@ import { v4 } from "uuid";
 import "./styling/main.css"
 import { useNavigate } from "react-router-dom";
 
-export default function Employees(){
+export default function Employees({employees, setEmployees}){
     // Render the employees (employee-cards)
-    const[employees, setEmployees] = useState();
     const[searchItem, setSearchItem] = useState("");
     const[reloadTimes,setReloadTimes] = useState(0);
     const nav = useNavigate();

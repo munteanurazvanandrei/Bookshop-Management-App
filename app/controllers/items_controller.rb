@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
 
     def index
         user = current_user
-        items = current_user.is_a?(Manager) ? current_user.items : current_user.manager.items
+        items = current_user.is_a?(Manager) ? current_user.items : current_user.manager.items.where(active: true)
         render json: items
     end
 

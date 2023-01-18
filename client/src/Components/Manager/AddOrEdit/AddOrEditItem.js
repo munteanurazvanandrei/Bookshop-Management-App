@@ -14,7 +14,8 @@ export default function AddOrEditItem({setItems, items}) {
     if(userInfo){
       itemId?  fetch(`https://bma-server-production.up.railway.app/items/${itemId}`,{
           method:"PATCH",
-          body:JSON.stringify(userInfo),
+          body:JSON.stringify({...userInfo, price_per_item:parseInt(userInfo.price_per_item),
+            qty: parseInt(userInfo.qty)}),
           headers:{
             "Content-Type": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`,

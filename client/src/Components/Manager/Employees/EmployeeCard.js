@@ -87,7 +87,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
             <p>Sales : {salesTransactions.length}</p>
             <div className="buttons">
                 <img src={`/svgs/${active?"closed-eye-icon.svg":"eye-icon.svg"}`} alt="icon" onClick={()=>handleActive()}/>
-                <img src="/svgs/edit-icon.svg" alt="icon" onClick={()=>nav(`/manager/add_or_edit_employee/${id}`)}/>
+                <img src="/svgs/edit-icon.svg" alt="icon" onClick={()=>nav(`/dash/add_or_edit_employee/${id}`)}/>
                 <img src="/svgs/delete-icon.svg" alt="icon" onClick={handleDelete} />
             </div>
         </>
