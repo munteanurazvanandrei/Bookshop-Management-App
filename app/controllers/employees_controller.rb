@@ -13,7 +13,8 @@ class EmployeesController < ApplicationController
 
     # POST
     def create
-        employee = Employee.create!(employee_params)
+        employee = Employee.new(employee_params)
+        current_user.employees << employee
         render json: employee, status: :created
     end
 
