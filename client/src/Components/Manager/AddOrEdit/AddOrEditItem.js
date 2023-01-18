@@ -4,15 +4,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import "./styling/add-edit.css"
 export default function AddOrEditItem({setItems, items}) {
   const nav = useNavigate();
-  const [userInfo, setUserInfo] = useState();
   const user = JSON.parse(localStorage.getItem("user"));
   const {itemId} = useParams();
   const editItem = items&& items.find(item=>item.id== itemId)
+  const [userInfo, setUserInfo] = useState(editItem?editItem:null);
   function handleUpdate(e){
     e.preventDefault();
     console.log(userInfo)
     if(userInfo){
-        fetch(`https://bma-server-production.up.railway.app/items/${itemId}`,{
+      itemId?  fetch(`https://bma-server-production.up.railway.app/items/${itemId}`,{
           method:"PATCH",
           body:JSON.stringify(userInfo),
           headers:{
@@ -23,31 +23,31 @@ export default function AddOrEditItem({setItems, items}) {
         })
         .then(nav("/dash/items"))
         .catch(e=>console.log(e))
+        :
+        fetch("https://bma-server-production.up.railway.app/items",{
+          method:"POST",
+          body:JSON.stringify(userInfo),
+          headers:{
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${localStorage.getItem("token")}`,
+            "role":'manager'
+          }
+        })
+        .then(()=>nav("/dash/items"))
+        .catch(e=>console.log(e))
     }
   }
   function handleChange(e){
       setUserInfo(prev=>({...prev, [e.target.name]: e.target.value}))
   }
-  function newItem(e){
-    e.preventDefault();
-    fetch("https://bma-server-production.up.railway.app/items",{
-      method:"POST",
-      body:JSON.stringify(userInfo),
-      headers:{
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${localStorage.getItem("token")}`,
-        "role":'manager'
-      }
-    })
-    .then(()=>nav("/dash/items"))
-  }
+
   return(
   <div className="add-edit-main">
     <div className="title-logout">
       <h1>{user &&user.bookshop_name? user.bookshop_name:"BookShop"} Manager</h1>
       <div>Logout<img src="/svgs/logout.svg" alt=""/></div>
     </div>
-    <form onSubmit={handleUpdate}>
+    <form onSubmit={handleUpdate} id="form">
       <label>
         <p>Name: </p>
         <input required onChange={handleChange} name="name_or_title" type="text" placeholder={editItem&& editItem.name_or_title}/>
@@ -58,7 +58,7 @@ export default function AddOrEditItem({setItems, items}) {
       </label> 
       <label>
         <p>Image url: </p>
-        <input required onChange={handleChange} name="img_url" type="text" placeholder={editItem&& editItem.img_url}/>
+        <input  onChange={handleChange} name="img_url" type="text" placeholder={editItem&& editItem.img_url}/>
       </label>
       <label>
         <p>Price: </p>
@@ -73,7 +73,7 @@ export default function AddOrEditItem({setItems, items}) {
         <input required onChange={handleChange} name="qty" type="number" placeholder={editItem&& editItem.qty}/>
       </label>
       <div className="buttons">
-        {itemId?<button type="submit" className="add-update">Update</button>:<button type="submit" onClick={newItem} className="add-update">Add</button>}
+        <button type="submit" className="add-update">{itemId?"Update":"Add"}</button>
       </div>
       
     </form>

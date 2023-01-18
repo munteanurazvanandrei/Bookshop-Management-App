@@ -6,7 +6,7 @@ import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
 import { Route, Routes } from 'react-router-dom';
 import ManagerDesktop from './Components/Manager/ManagerDesktop';
 import MakeASale from './Components/Employee/MakeASale/MakeASale';
-
+import Loader from './Components/Loader';
 import Registration from './Components/SignInPage/RegistrationPage';
 import SignIn from './Components/SignInPage/SignInPage';
 
@@ -31,14 +31,14 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         {role==="manager"?<>
-          <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
-          <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+          <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<Loader/>}/>
+          <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<Loader/>}/>
         </>:<>
           <Route path="/dash" element={loggedIn?<EmployeeDashboard setLoggedIn={setLoggedIn}/>:<>Kindly Login</>}/>
-          <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+          <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<Loader/>}/>
         </>}
-          <Route path='/signup' element={loggedIn?<>Already LoggedIn</>:<Registration setLoggedIn={setLoggedIn}/>} />
-          <Route path='/signin' element={loggedIn?<>Already LoggedIn</>:<SignIn setLoggedIn={setLoggedIn}/>} />
+          <Route path='/signup' element={loggedIn?<>Already LoggedIn<Loader/></>:<Registration setLoggedIn={setLoggedIn}/>} />
+          <Route path='/signin' element={loggedIn?<>Already LoggedIn<Loader/></>:<SignIn setLoggedIn={setLoggedIn}/>} />
       </Routes>
     </div>
 
