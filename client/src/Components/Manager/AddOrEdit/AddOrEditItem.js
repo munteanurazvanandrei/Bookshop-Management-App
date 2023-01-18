@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import "./styling/add-edit.css"
-export default function AddOrEditItem({setItems, items}) {
+export default function AddOrEditItem({ items}) {
   const nav = useNavigate();
   const user = JSON.parse(localStorage.getItem("user"));
   const {itemId} = useParams();
@@ -22,7 +22,7 @@ export default function AddOrEditItem({setItems, items}) {
             "role":"manager"
           }
         })
-        .then(nav("/dash/items"))
+        .then(()=>nav("/dash/items"))
         .catch(e=>console.log(e))
         :
         fetch("https://bma-server-production.up.railway.app/items",{

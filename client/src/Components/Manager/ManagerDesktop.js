@@ -19,10 +19,10 @@ export default function ManagerDesktop({setLoggedIn}){
             <Route path="/employees" element={<Employees employees={employees} setEmployees={setEmployees}/>}/>
             <Route path="/transactions" element={<EmployeeSales/>}/>
             <Route path="/items" element={<Items setItems={setItems} items={items}/>}/>
-            <Route path="/add_or_edit_employee" element={<AddOrEditEmployee employees={employees} setEmployees={setEmployees}/>}/>
-            <Route path="/add_or_edit_employee/:employeeId" element={<AddOrEditEmployee/>}/>
-            <Route path="/add_or_edit_item" element={<AddOrEditItem setItems={setItems} items={items}/>}/>
-            <Route path="/add_or_edit_item/:itemId" element={<AddOrEditItem setItems={setItems} items={items}/>}/>
+            <Route path="/add_or_edit_employee" element={<AddOrEditEmployee employees={employees}/>}/>
+            <Route path="/add_or_edit_employee/:employeeId" element={<AddOrEditEmployee  employees={employees}/>}/>
+            <Route path="/add_or_edit_item" element={<AddOrEditItem  items={items}/>}/>
+            <Route path="/add_or_edit_item/:itemId" element={<AddOrEditItem items={items}/>}/>
             <Route path="/manager_profile" element={<EditManagerProfile/>}/>
         </Routes></div>)
 }

@@ -2,30 +2,29 @@ import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 import "./addOrEdit.css";
-export default function AddOrEditEmployee({employees, setEmployees}) {
+export default function AddOrEditEmployee({employees }) {
   const nav = useNavigate();
-  const {itemId} = useParams();
-  const editItem = employees&& employees.find(item=>item.id== itemId)
-  const [userInfo, setUserInfo] = useState(editItem?editItem:null);
+  const {employeeId} = useParams();
+  const editEmployee = employees&& employees.find(item=>item.id== employeeId)
+  const [userInfo, setUserInfo] = useState(editEmployee?editEmployee:null);
   const user = JSON.parse(localStorage.getItem("user"));
   function handleUpdate(e){
     e.preventDefault();
     console.log(userInfo)
     if(userInfo){
-      itemId?  fetch(`https://bma-server-production.up.railway.app/items/${itemId}`,{
+      employeeId?  fetch(`https://bma-server-production.up.railway.app/employees/${employeeId}`,{
           method:"PATCH",
-          body:JSON.stringify({...userInfo, price_per_item:parseInt(userInfo.price_per_item),
-            qty: parseInt(userInfo.qty)}),
+          body:JSON.stringify(userInfo),
           headers:{
             "Content-Type": "application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`,
             "role":"manager"
           }
         })
-        .then(nav("/dash/items"))
+        .then(()=>nav("/dash/employees"))
         .catch(e=>console.log(e))
         :
-        fetch("https://bma-server-production.up.railway.app/items",{
+        fetch("https://bma-server-production.up.railway.app/employees",{
           method:"POST",
           body:JSON.stringify(userInfo),
           headers:{
@@ -34,7 +33,7 @@ export default function AddOrEditEmployee({employees, setEmployees}) {
             "role":'manager'
           }
         })
-        .then(()=>nav("/dash/items"))
+        .then(()=>nav("/dash/employees"))
         .catch(e=>console.log(e))
     }
   }
@@ -50,17 +49,17 @@ export default function AddOrEditEmployee({employees, setEmployees}) {
       </div>
       <form onSubmit={handleUpdate} id="form">
           <label>
-            Name: <input type="text" name="name" onChange={handleChange} />
+            <p>Name:</p> <input required type="text" name="name" onChange={handleChange} placeholder={editEmployee&& editEmployee.name}/>
           </label>
           <label>
-            Email: <input type="email" name="email" onChange={handleChange} />
+            <p>Email:</p> <input required type="email" name="email" onChange={handleChange} placeholder={editEmployee&& editEmployee.email}/>
           </label>
           <label>
-            Password:{" "}
-            <input type="password" name="password" onChange={handleChange} />
+            <p>Password:</p>
+            <input required type="password" name="password" onChange={handleChange} />
           </label>
         <div className="buttons">
-          <button type="submit" className="add-update">{itemId?"Update":"Add"}</button>
+          <button type="submit" className="add-update">{employeeId?"Update":"Add"}</button>
         </div>
       
     </form>
