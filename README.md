@@ -30,9 +30,36 @@ Pioneer Bookshop Management System is a web application that automates  all kind
 - Ruby on rails -  for backend and database
 
 ## Project Preview
-a user can sign in as a  manager and is able to view: their employees,the items that are sold in their shop,the sales/ transactions  made by the employees,create: an employee, an item to sell in the bookshop,edit: their profile details,items sold in their shop, employee details,shop details,shortage of stock,delete: items sold in their bookshop,their employee,their profile
+a user can sign in as a  manager and is able to view: their employees
+,the items that are sold in their shop,
+the sales/ transactions  made by the employees,create: 
+- an employee,
+- an item to sell in the bookshop
 
-a user can log in as an employee and can , view: the items to sell,previous transactions, create: a sale
+edit: 
+
+- their profile details,
+- items sold in their shop, 
+- employee details,
+- shop details,
+- shortage of stock,
+
+delete: 
+
+- items sold in their bookshop,
+- their employee,
+- their profile
+
+a user can log in as an employee and can 
+
+view:
+
+- the items to sell,
+- previous transactions
+
+create: 
+
+- a sale
 
 
 ## Overview
