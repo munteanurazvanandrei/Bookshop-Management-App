@@ -65,17 +65,6 @@
   flex-wrap: wrap;
   overflow-y: scroll;
 }
-.employees .employee-cards::-webkit-scrollbar {
-  width: 7px;
-}
-.employees .employee-cards::-webkit-scrollbar-track {
-  background-color: #939394;
-  border-radius: 0.5rem;
-}
-.employees .employee-cards::-webkit-scrollbar-thumb {
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
 .employees .employee-cards .employee-card {
   /* ...more css */
   width: 15rem;

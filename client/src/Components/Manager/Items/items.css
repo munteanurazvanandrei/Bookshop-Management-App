@@ -171,17 +171,6 @@
   flex-wrap: wrap;
   overflow-y: scroll;
 }
-.items .item-cards::-webkit-scrollbar {
-  width: 7px;
-}
-.items .item-cards::-webkit-scrollbar-track {
-  background-color: #939394;
-  border-radius: 0.5rem;
-}
-.items .item-cards::-webkit-scrollbar-thumb {
-  border-radius: 0.5rem;
-  background-color: rgba(0, 0, 0, 0.2);
-}
 .items .item-cards p {
   color: black;
   /* ...more css */

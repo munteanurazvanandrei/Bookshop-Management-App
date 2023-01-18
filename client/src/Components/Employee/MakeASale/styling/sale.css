@@ -6,19 +6,6 @@
   width: 97.5%;
   overflow-y: scroll;
 }
-.point-of-sale .sale-items-div .all-items::-webkit-scrollbar,
-.point-of-sale .sale-items-div .cart-items::-webkit-scrollbar {
-  height: 70%;
-  width: 7px;
-}
-.point-of-sale .sale-items-div .all-items::-webkit-scrollbar-track,
-.point-of-sale .sale-items-div .cart-items::-webkit-scrollbar-track {
-  background-color: #939394;
-}
-.point-of-sale .sale-items-div .all-items::-webkit-scrollbar-thumb,
-.point-of-sale .sale-items-div .cart-items::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.2);
-}
 .point-of-sale .sale-items-div .all-items .item-card,
 .point-of-sale .sale-items-div .cart-items .item-card {
   width: 90%;
