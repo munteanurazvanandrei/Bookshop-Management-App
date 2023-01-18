@@ -1,7 +1,7 @@
 import "./employeeDashboard.css";
 import { useState ,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-export default function EmployeeDashboard() {
+export default function EmployeeDashboard({setLoggedIn}) {
   // eslint-disable-next-line
   const [totalTransactions, setTotalTransactions] = useState(0);
   const nav = useNavigate();
@@ -20,7 +20,7 @@ export default function EmployeeDashboard() {
     <div className="employee-dashboard">
       <div className="employee-dashboard-heading">FROST BOOKSHOP</div>
       <div className="pointofsale-title"> Point of Sale </div>
-      <div className="make-a-sale" onClick={()=>nav("/employee/make_sale")}>
+      <div className="make-a-sale" onClick={()=>nav("/make_sale")}>
         <div className="make-sale-telephone">
           <svg
             width="44"
@@ -56,7 +56,7 @@ export default function EmployeeDashboard() {
         <div className="total-transactions">{totalTransactions}</div>
         <div className="sales-history-text">Sales History</div>
       </div>
-      <button type="button" className="button" onClick={()=>nav("/")} >
+      <button type="button" className="button" onClick={()=>{setLoggedIn(false);localStorage.clear();nav("/")}} >
 
         <span>  Logout </span>
         <svg

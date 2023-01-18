@@ -1,5 +1,5 @@
 import './App.css';
-
+import { useEffect, useState } from 'react';
 import EmployeeDashboard from './Components/Employee/Dashboard/EmployeedDashboard';
 import LandingPage from './Components/LandingPage/LandingPage';
 import ManagerDashboard from './Components/Manager/Dashboard/ManagerDashboard';
@@ -11,18 +11,34 @@ import Registration from './Components/SignInPage/RegistrationPage';
 import SignIn from './Components/SignInPage/SignInPage';
 
 function App() {
+  const [loggedIn,setLoggedIn] = useState(false);
+  const token = localStorage.getItem("token")
+  const role = localStorage.getItem("role"); 
+  useEffect(()=>{
+  if(token){
+    fetch("https://bma-server-production.up.railway.app/me",
+    {headers:{"Authorization": `Bearer ${token}`,"role":role}})
+    .then(r=>{
+      if(r.ok){
+        r.json().then(data=>{localStorage.setItem("user", JSON.stringify(data)); setLoggedIn(true)})
+      }
+    })
+  }},[])
   return (
     <>
     
     <div className="App">
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
-        <Route path="/sales_employee" element={<EmployeeDashboard/>}/>
-        <Route path="/employee/make_sale" element={<MakeASale/>}/>
-        <Route path="/manager" element={<ManagerDashboard/>}/>
-        <Route path="/manager/*" element={<ManagerDesktop/>}/>
-        <Route path='/signup' element={<Registration />} />
-        <Route path='/signin' element={<SignIn />} />
+        {role==="manager"?<>
+          <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+          <Route path="/manager/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+        </>:<>
+          <Route path="/dash" element={loggedIn?<EmployeeDashboard setLoggedIn={setLoggedIn}/>:<>Kindly Login</>}/>
+          <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<> Kindly Login</>}/>
+        </>}
+          <Route path='/signup' element={loggedIn?<>Already LoggedIn</>:<Registration setLoggedIn={setLoggedIn}/>} />
+          <Route path='/signin' element={loggedIn?<>Already LoggedIn</>:<SignIn setLoggedIn={setLoggedIn}/>} />
       </Routes>
     </div>
 

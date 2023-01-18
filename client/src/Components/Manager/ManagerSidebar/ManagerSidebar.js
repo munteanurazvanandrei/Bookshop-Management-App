@@ -1,7 +1,7 @@
 import './styling/main.css'
 import { NavLink, useNavigate } from 'react-router-dom'
 
-export default function ManagerSideBar({ managerName }) {
+export default function ManagerSideBar({ managerName, setLoggedIn }) {
   // manager's side bar
   const nav = useNavigate();
   return (
@@ -27,7 +27,7 @@ export default function ManagerSideBar({ managerName }) {
       </NavLink>
       <div className='bottom'>
         <hr/>
-        <div onClick={/*Logout and navigate to landing page */ ()=>{localStorage.clear();nav("/")}}>
+        <div onClick={/*Logout and navigate to landing page */ ()=>{setLoggedIn(false);localStorage.clear();nav("/")}}>
             <img src='/svgs/logout.svg' alt="logout"/>
             <span>Logout</span>
         </div>

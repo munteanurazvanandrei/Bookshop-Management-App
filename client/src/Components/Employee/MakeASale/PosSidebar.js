@@ -15,7 +15,7 @@ export default function PosSidebar({
         <button
           className="input-btn"
           type="submit"
-          onClick={() => nav('/sales_employee')}
+          onClick={() => nav('/dash')}
         >
           Back to Dashboard
         </button>

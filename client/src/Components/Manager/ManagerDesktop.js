@@ -8,10 +8,10 @@ import { Route, Routes } from "react-router-dom";
 import EditManagerProfile from "./AddOrEdit/EditManagerProfile";
 import "./managerDesktop.css";
 
-export default function ManagerDesktop(){
+export default function ManagerDesktop({setLoggedIn}){
     // manager's view for all desktops with the side bar
     return(<div className="manager-desktop">
-    <ManagerSideBar managerName={"John"}/>
+    <ManagerSideBar managerName={"John"} setLoggedIn={setLoggedIn}/>
         <Routes>
             <Route path="/employees" element={<Employees/>}/>
             <Route path="/transactions" element={<EmployeeSales/>}/>

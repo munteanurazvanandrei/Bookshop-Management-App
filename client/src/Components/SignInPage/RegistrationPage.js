@@ -7,7 +7,7 @@ import {
   HiOutlineLockClosed,
   HiOutlineHome,
 } from "react-icons/hi";
-export default function Registration() {
+export default function Registration({setLoggedIn}) {
   // the registration for the manager;
   // also for the bookshop
   const [next, setNext] = useState(false);
@@ -45,8 +45,9 @@ const [errors,setErrors] = useState(null)
     }).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
-          localStorage.setItem("user", data.user);
+          localStorage.setItem("user", JSON.stringify(data.user));
           localStorage.setItem("token", data.jwt);
+          setLoggedIn(true)
           navigate("/manager");
         });
       } else {

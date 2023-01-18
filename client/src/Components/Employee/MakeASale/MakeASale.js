@@ -4,7 +4,7 @@ import PosSidebar from './PosSidebar'
 import SaleItems from './SaleItems'
 import { useNavigate } from 'react-router-dom'
 
-export default function MakeASale({ employeeName }) {
+export default function MakeASale({ setLoggedIn }) {
   const [items, setItems] = useState()
   const [loading, setLoading] = useState(true)
   const [searchInput, setSearchInput] = useState('')
@@ -52,7 +52,7 @@ export default function MakeASale({ employeeName }) {
             type="text"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
-          /><img src="/svgs/black-logout.svg" alt="logout" onClick={() => { localStorage.clear(); nav("/"); }} />
+          /><img src="/svgs/black-logout.svg" alt="logout" onClick={() => { setLoggedIn(false);localStorage.clear(); nav("/"); }} />
         </div>
         <SaleItems isNotSearching={searchInput.length === 0}
           items={items} setItems={setItems} filteredItems={filteredItems} />

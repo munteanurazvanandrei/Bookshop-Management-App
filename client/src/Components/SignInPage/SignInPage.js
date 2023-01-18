@@ -8,7 +8,7 @@ import {
 } from "react-icons/hi";
 import "./sigin.css";
 
-export default function SignIn() {
+export default function SignIn({setLoggedIn}) {
   // The signIn page
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState("");
@@ -37,9 +37,11 @@ export default function SignIn() {
         if (r.ok) {
           r.json().then((user) => {
             console.log(user);
-            localStorage.setItem("user", user.user);
+            localStorage.setItem("user", JSON.stringify(user.user));
             localStorage.setItem("token", user.jwt);
-            navigate(`${action ? "/employee/make_sale" : "/manager"}`);
+            localStorage.setItem("role", action?"":"manager");
+            setLoggedIn(true)
+            navigate(`${action ? "/make_sale" : "/dash"}`);
           });
         } else {
           r.json().then((err) => {
