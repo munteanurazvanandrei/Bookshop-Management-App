@@ -172,7 +172,6 @@
   overflow-y: scroll;
 }
 .items .item-cards::-webkit-scrollbar {
-  height: 70%;
   width: 7px;
 }
 .items .item-cards::-webkit-scrollbar-track {
