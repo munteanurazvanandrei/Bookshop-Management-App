@@ -43,7 +43,6 @@ export default function ManagerDashboard({setLoggedIn}) {
     .catch(e=>console.log(e))
   },[]);
   setInterval(changeTime,1000)
-  console.log(dashboardObj.salesTransactions)
   // Manager's Dashboard
   return (
   <div className="manager-dashboard">

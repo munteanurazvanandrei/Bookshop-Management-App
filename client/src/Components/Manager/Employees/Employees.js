@@ -28,7 +28,7 @@ export default function Employees(){
                 <input type="text" placeholder="Enter number or name" onChange={(e)=>setSearchItem(e.target.value)}/>
                 <img className="search-icon" src="/svgs/search-icon.svg" alt="search-icon"/>
             </div>
-            <div className="add" onClick={()=>nav("/manager/add_or_edit_employee")}><img className="add-icon" src="/svgs/add-icon.svg" alt="add"/></div>
+            <div className="add" onClick={()=>nav("/dash/add_or_edit_employee")}><img className="add-icon" src="/svgs/add-icon.svg" alt="add"/></div>
         </div>
         <div className="employee-cards">
         {

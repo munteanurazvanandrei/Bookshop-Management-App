@@ -4,13 +4,12 @@ import "./items.css"
 import { v4 } from "uuid";
 import { useNavigate } from "react-router-dom";
 
-export default function Items(){
+export default function Items({items, setItems}){
     // render the items (item-cards)
     // TODO add search and filter functionalities
     // TODO add eye, edit and click item-icon redirects functionalities
     const[reloadTimes,setReloadTimes] = useState(0);
     const[searchItem, setSearchItem] = useState("");
-    const[items, setItems] = useState();
     const nav = useNavigate();
     useEffect(()=>{
         fetch("https://bma-server-production.up.railway.app/items",{
@@ -35,7 +34,7 @@ export default function Items(){
                 <input type="text" placeholder="Enter number or name" onChange={(e)=>setSearchItem(e.target.value)}/>
                 <img className="search-icon" src="/svgs/search-icon.svg" alt="search-icon"/>
             </div>
-            <div className="add" onClick={()=>nav("/manager/add_or_edit_item")}><img className="add-icon" src="/svgs/add-icon.svg" alt="add"/></div>
+            <div className="add" onClick={()=>nav("/dash/add_or_edit_item")}><img className="add-icon" src="/svgs/add-icon.svg" alt="add"/></div>
         </div>
         <div className="item-cards">
             {items ? filteredItems.map(item=><ItemCard key={v4()} item={item} setItems={setItems}/>)
