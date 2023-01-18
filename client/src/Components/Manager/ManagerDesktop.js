@@ -7,17 +7,20 @@ import EmployeeSales from "./EmployeeSales/EmployeeSales";
 import { Route, Routes } from "react-router-dom";
 import EditManagerProfile from "./AddOrEdit/EditManagerProfile";
 import "./managerDesktop.css";
+import { useState } from "react";
 
 export default function ManagerDesktop({setLoggedIn}){
     // manager's view for all desktops with the side bar
+    const[items, setItems] = useState();
     return(<div className="manager-desktop">
     <ManagerSideBar managerName={"John"} setLoggedIn={setLoggedIn}/>
         <Routes>
             <Route path="/employees" element={<Employees/>}/>
             <Route path="/transactions" element={<EmployeeSales/>}/>
-            <Route path="/items" element={<Items/>}/>
+            <Route path="/items" element={<Items setItems={setItems} items={items}/>}/>
             <Route path="/add_or_edit_employee" element={<AddOrEditEmployee/>}/>
-            <Route path="/add_or_edit_item" element={<AddOrEditItem/>}/>
+            <Route path="/add_or_edit_item" element={<AddOrEditItem setItems={setItems} items={items}/>}/>
+            <Route path="/add_or_edit_item/:itemId" element={<AddOrEditItem setItems={setItems} items={items}/>}/>
             <Route path="/manager_profile" element={<EditManagerProfile/>}/>
         </Routes></div>)
 }
