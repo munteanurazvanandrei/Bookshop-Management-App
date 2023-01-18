@@ -37,6 +37,7 @@ export default function SignIn() {
         if (r.ok) {
           r.json().then((user) => {
             console.log(user);
+            localStorage.setItem("user", user.user);
             localStorage.setItem("token", user.jwt);
             navigate(`${action ? "/employee/make_sale" : "/manager"}`);
           });

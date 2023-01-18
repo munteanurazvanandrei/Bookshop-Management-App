@@ -44,6 +44,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
     setLoading(true)
     fetch(`https://bma-server-production.up.railway.app/employees/${id}`,{
         headers:{
+            "Content-Type":"application/json",
             "Authorization": `Bearer ${localStorage.getItem("token")}`,
             "role": "manager"},
         body:JSON.stringify({active:!active}),

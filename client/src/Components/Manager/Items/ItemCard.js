@@ -20,7 +20,7 @@ export default function ItemCard({item, setItems}){
     function handleDelete(){
         setLoading(true)
         setAction("delete")
-        fetch(`http://localhost:3000/items/${id}`,{method:"DELETE",
+        fetch(`https://bma-server-production.up.railway.app/items/${id}`,{method:"DELETE",
             headers:{
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 "role": "manager"},
@@ -43,19 +43,21 @@ export default function ItemCard({item, setItems}){
     function handleActive(){
         setAction("update")
         setLoading(true)
-        fetch(`https://bma-server-production.up.railway.app/items/${id}`,{
+        console.log(active)
+        fetch(`https://bma-server-production.up.railway.app/items/${id}`,{method:"PATCH",
             headers:{
+                "Content-Type":"application/json",
                 "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 "role": "manager"},
-            body:JSON.stringify({ "active":!active}),
-            method:"PATCH"})
+            body:JSON.stringify({ active:!active})
+        })
             .then(r=>{
                 r.json().then(json=>console.log(json));
                 if(r.ok){
-                    setTimeout(()=>{setLoaded(()=>true);setLoading(false);},1000)
+                    setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                     setTimeout(()=>{
-                        setItems(prev=>prev.map(item=>item.id===id?{...item, active:!item.active}:item))
-                    },3000);
+                        setItems(prev=>prev.map(item=>item.id===id?{...item, active:!active}:item))
+                    },300);
     
                 }else{
                     unknownError();

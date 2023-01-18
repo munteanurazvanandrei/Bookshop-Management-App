@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
     before_action :authorized
     before_action :is_manager?, except: [:index]
     
@@ -31,5 +32,8 @@ class ItemsController < ApplicationController
     private
     def item_params
         params.permit(:manager_id, :name_or_title, :manufacturer_or_author, :price_per_item, :qty, :active)
+    end
+    def record_not_found
+        render json: { error: "Item not found" }, status: :not_found        
     end
 end
