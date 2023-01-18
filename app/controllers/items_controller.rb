@@ -4,7 +4,8 @@ class ItemsController < ApplicationController
     before_action :is_manager?, except: [:index]
     
     def create
-        item = Item.create!(item_params)
+        item = Item.new(item_params)
+        current_user.items << item
         render json: item, status: :created
     end
 
