@@ -45,10 +45,12 @@ const [errors,setErrors] = useState(null)
     }).then((r) => {
       if (r.ok) {
         r.json().then((data) => {
+          console.log(data);
           localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("role", "manager")
           localStorage.setItem("token", data.jwt);
           setLoggedIn(true)
-          navigate("/manager");
+          navigate("/dash");
         });
       } else {
         r.json().then((e) => setErrors(e));
