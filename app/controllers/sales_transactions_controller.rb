@@ -15,7 +15,7 @@ class SalesTransactionsController < ApplicationController
     end
 
     def index
-        render json:  current_user.is_a?(Manager) ? current_user.salesTransactions : current_user.manager.salesTransactions
+        render json: current_user.salesTransactions
     end
 
     private
