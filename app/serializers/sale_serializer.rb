@@ -1,3 +1,3 @@
 class SaleSerializer < ActiveModel::Serializer
-  attributes :id, :transaction_id, :item_id_integer, :item_id, :item_price_at_sale, :employee_id, :qty
+  attributes :id, :sales_transaction_id, :item, :item_price_at_sale, :qty
 end
