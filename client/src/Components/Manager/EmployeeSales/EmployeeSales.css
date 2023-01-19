@@ -77,3 +77,7 @@
   max-width: 4rem;
   padding-left: 1rem;
 }
+
+.employee-sales table {
+  height: min-content;
+}

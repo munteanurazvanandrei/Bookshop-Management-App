@@ -2,7 +2,7 @@ import './EmployeeSales.css'
 import React, { useState, useEffect } from 'react'
 
 export default function EmployeeSales() {
-  const {bookshop_name} = JSON.parse(localStorage.getItem("user"));
+  const {bookshop_name, name} = JSON.parse(localStorage.getItem("user"));
   const role = localStorage.getItem("role");
   const [employeeSales, setemployeeSales] = useState()
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function EmployeeSales() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setemployeeSales(data)
+        setemployeeSales(role ? data: data.filter(sale => sale.employee_name === name))
       })
   }, [])
 

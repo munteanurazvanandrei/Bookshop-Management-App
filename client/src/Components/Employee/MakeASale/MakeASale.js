@@ -28,7 +28,7 @@ export default function MakeASale({ setLoggedIn }) {
       .then((r) => r.json())
       .then((json) => {
         setItems(
-          json.map((item) => ({ ...item, isCartItem: false, total_sold: 1 }))
+          json.filter(item=>item.active).map((item) => ({ ...item, isCartItem: false, total_sold: 1 }))
         )
         setLoading(false)
       })

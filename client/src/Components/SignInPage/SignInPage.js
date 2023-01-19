@@ -18,6 +18,7 @@ export default function SignIn({setLoggedIn}) {
   function handleInput(e) {
     const key = e.target.name;
     const value = e.target.value;
+    setErrors()
 
     setErrors("");
     setFormData({ ...formData, [key]: value });
@@ -42,12 +43,12 @@ export default function SignIn({setLoggedIn}) {
             navigate(`${action ? "/make_sale" : "/dash"}`);
           });
         } else {
-          r.json().then((err) => {
-            setErrors(err.errors);
-          });
+          console.log(r.status)
+          setErrors("Wrong Email or Password")
         }
       })
-      .catch((err) => err);
+      .catch((err) => {
+        setErrors(err)});
   }
 
   return (

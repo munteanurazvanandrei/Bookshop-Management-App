@@ -55,7 +55,7 @@ export default function ItemCard({item, setItems}){
                     setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                     setTimeout(()=>{
                         setItems(prev=>prev.map(item=>item.id===id?{...item, active:!active}:item))
-                    },300);
+                    },900);
     
                 }else{
                     unknownError();

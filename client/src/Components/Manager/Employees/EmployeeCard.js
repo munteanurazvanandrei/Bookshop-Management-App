@@ -40,7 +40,6 @@ export default function EmployeeCard({ employee, setEmployees }) {
   }
 
   function handleActive(){
-    console.log("Active")
     setLoading(true)
     fetch(`https://bma-server-production.up.railway.app/employees/${id}`,{
         headers:{
@@ -54,7 +53,7 @@ export default function EmployeeCard({ employee, setEmployees }) {
                 setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                 setTimeout(()=>{
                     setEmployees(prev=>prev.map(employee=>employee.id===id?{...employee, active:!active}:employee))
-                },3000);
+                },1000);
     
             }else{
                 unknownError();
