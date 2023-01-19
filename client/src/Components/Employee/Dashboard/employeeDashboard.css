@@ -22,15 +22,16 @@
   top: 39px;
 
   /* Header 1 */
-  font-family: "Work Sans";
+  font-family: "Lato", "Helvetica Neue";
   font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 5px;
+  white-space: nowrap;
+  font-size: 28px;
   line-height: 40px;
   display: flex;
   align-items: center;
   text-align: center;
-  letter-spacing: -0.02em;
 
   color: #f0eaea;
 }

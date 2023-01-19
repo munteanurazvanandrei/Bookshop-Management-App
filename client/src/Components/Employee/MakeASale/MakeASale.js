@@ -9,6 +9,7 @@ export default function MakeASale({ setLoggedIn }) {
   const [loading, setLoading] = useState(true)
   const [searchInput, setSearchInput] = useState('')
   const [change, setChange] = useState(0);
+  const [receivedAmount, setReceivedAmount] = useState(0);
   const nav = useNavigate();
 
   const filteredItems = items
@@ -40,11 +41,46 @@ export default function MakeASale({ setLoggedIn }) {
   function handleCalc(e) {
     const total = items && items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0)
     setChange(isNaN(parseInt(e.target.value)) ? 0 : parseInt(e.target.value) - total)
+    setReceivedAmount(parseInt(e.target.value))
   }
+  function checkout(){
+    const amount = items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0);
+    const cartItems = items.filter(item=>item.isCartItem);
+    console.log(receivedAmount);
+    console.log(change);
+    console.log(amount);
+    fetch("https://bma-server-production.up.railway.app/sales_transactions",{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${localStorage.getItem("token")}`
+      },
+      body:JSON.stringify({
+          items: cartItems,
+          received: receivedAmount,
+          amount: amount,
+          change: change
+      })
+    })
+    .then(r=>{
+      if(r.status==201){
+        r.json().then(res=>{
+          console.log(res)
+          setItems(prev=>prev.map(item=>({...item, isCartItem: false, total_sold: 1 })))
+          setReceivedAmount(0)
+          setChange(0)
+          nav("/make_sale")
+        })
+      }
+    })
+    .catch(e=>console.log(e))
+  }
+
 
   return (
     <div className="point-of-sale">
-      <PosSidebar setItems={setItems} items={items} isSearching={searchInput.length > 0} setSearchInput={setSearchInput} />
+      <PosSidebar setItems={setItems} items={items} isSearching={searchInput.length > 0} checkout={checkout}
+      change={change} setSearchInput={setSearchInput} />
       <div className="sale-items-div">
         <div className='search-div'>
           <input
@@ -55,7 +91,7 @@ export default function MakeASale({ setLoggedIn }) {
           /><img src="/svgs/black-logout.svg" alt="logout" onClick={() => { setLoggedIn(false);localStorage.clear(); nav("/"); }} />
         </div>
         <SaleItems isNotSearching={searchInput.length === 0}
-          items={items} setItems={setItems} filteredItems={filteredItems} />
+          items={items} setItems={setItems} filteredItems={filteredItems} setChange={setChange} />
         <div className='sale-calc-main'>
           <div className='flex-main'>
             <div className='total-h4s'>
@@ -67,7 +103,7 @@ export default function MakeASale({ setLoggedIn }) {
             <div className='total-text'>
               <h4>{items && items.reduce((total, item) => item.isCartItem ? item.total_sold + total : total, 0).toLocaleString()}</h4>
               <h4>{items && items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0).toLocaleString()}</h4>
-              <input type="number" onChange={handleCalc} />
+              <input type="number" onChange={handleCalc} value={receivedAmount}/>
               <h4 className='change' style={change < 0 ? { color: "red" } : { color: "#0368FF" }}>{change.toLocaleString()}</h4>
             </div>
           </div>

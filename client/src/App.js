@@ -9,6 +9,7 @@ import MakeASale from './Components/Employee/MakeASale/MakeASale';
 import Loader from './Components/Loader';
 import Registration from './Components/SignInPage/RegistrationPage';
 import SignIn from './Components/SignInPage/SignInPage';
+import EmployeeSales from './Components/Manager/EmployeeSales/EmployeeSales';
 
 function App() {
   const [loggedIn,setLoggedIn] = useState(false);
@@ -31,11 +32,12 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage/>}/>
         {role==="manager"?<>
-          <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<Loader/>}/>
-          <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<Loader/>}/>
+          <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<><Loader/>Kindly Login</>}/>
+          <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<><Loader/>Kindly Login</>}/>
         </>:<>
+        <Route path='/sales_history' element={loggedIn?<div className='employee-sales-history'><EmployeeSales/></div>:<><Loader/>Kindly Login</>}/>
           <Route path="/dash" element={loggedIn?<EmployeeDashboard setLoggedIn={setLoggedIn}/>:<>Kindly Login</>}/>
-          <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<Loader/>}/>
+          <Route path="/make_sale" element={loggedIn? <MakeASale setLoggedIn={setLoggedIn}/>:<><Loader/>Kindly Login</>}/>
         </>}
           <Route path='/signup' element={loggedIn?<>Already LoggedIn<Loader/></>:<Registration setLoggedIn={setLoggedIn}/>} />
           <Route path='/signin' element={loggedIn?<>Already LoggedIn<Loader/></>:<SignIn setLoggedIn={setLoggedIn}/>} />

@@ -2,7 +2,8 @@ import './EmployeeSales.css'
 import React, { useState, useEffect } from 'react'
 
 export default function EmployeeSales() {
-
+  const {bookshop_name} = JSON.parse(localStorage.getItem("user"));
+  const role = localStorage.getItem("role");
   const [employeeSales, setemployeeSales] = useState()
   useEffect(() => {
     fetch('https://bma-server-production.up.railway.app/sales_transactions',{
@@ -20,7 +21,7 @@ export default function EmployeeSales() {
   // return <div>{employeeSales.map((sales)=>sales.employee_name)}</div>;
   return (
     <div className="employee-sales">
-      <h1>Bookshop Manager</h1>
+      <h1>{bookshop_name} {role==="manager" && "Manager"}</h1>
 
       <table>
         <thead>

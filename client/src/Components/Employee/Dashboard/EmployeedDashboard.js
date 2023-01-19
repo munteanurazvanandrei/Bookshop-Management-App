@@ -5,6 +5,7 @@ export default function EmployeeDashboard({setLoggedIn}) {
   // eslint-disable-next-line
   const [totalTransactions, setTotalTransactions] = useState(0);
   const nav = useNavigate();
+  const {name,bookshop_name}= JSON.parse(localStorage.getItem("user"))
   useEffect(() => { 
     fetch ("https://bma-server-production.up.railway.app/sales_transactions")
     .then((r)=>{
@@ -18,7 +19,7 @@ export default function EmployeeDashboard({setLoggedIn}) {
   // Employee dashboard
   return (
     <div className="employee-dashboard">
-      <div className="employee-dashboard-heading">FROST BOOKSHOP</div>
+      <div className="employee-dashboard-heading"><h3>{bookshop_name.toUpperCase()}</h3> <h4></h4></div>
       <div className="pointofsale-title"> Point of Sale </div>
       <div className="make-a-sale" onClick={()=>nav("/make_sale")}>
         <div className="make-sale-telephone">
@@ -38,7 +39,7 @@ export default function EmployeeDashboard({setLoggedIn}) {
         <div className="make-a-sale-text">Make a Sale</div>
       </div>
 
-      <div className="sales-history" onClick={()=>nav("/employees_sales")}>
+      <div className="sales-history" onClick={()=>nav("/sales_history")}>
         <div className="sales-history-svg">
           <svg
             width="52"

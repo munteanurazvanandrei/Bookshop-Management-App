@@ -14,7 +14,7 @@ export default function AddOrEditItem({ items}) {
     if(userInfo){
       itemId?  fetch(`https://bma-server-production.up.railway.app/items/${itemId}`,{
           method:"PATCH",
-          body:JSON.stringify({...userInfo, price_per_item:parseInt(userInfo.price_per_item),
+          body:JSON.stringify({...userInfo, img_url: `${userInfo.img_url}`,price_per_item:parseInt(userInfo.price_per_item),
             qty: parseInt(userInfo.qty)}),
           headers:{
             "Content-Type": "application/json",
@@ -51,11 +51,11 @@ export default function AddOrEditItem({ items}) {
     <form onSubmit={handleUpdate} id="form">
       <label>
         <p>Name: </p>
-        <input required onChange={handleChange} name="name_or_title" type="text" placeholder={editItem&& editItem.name_or_title}/>
+        <input  onChange={handleChange} name="name_or_title" type="text" placeholder={editItem&& editItem.name_or_title}/>
       </label> 
       <label>
         <p>Make/<br/>Publisher: </p>
-        <input required onChange={handleChange} name="manufacturer_or_author" type="text" placeholder={editItem&& editItem.manufacturer_or_author}/>
+        <input  onChange={handleChange} name="manufacturer_or_author" type="text" placeholder={editItem&& editItem.manufacturer_or_author}/>
       </label> 
       <label>
         <p>Image url: </p>
@@ -63,7 +63,7 @@ export default function AddOrEditItem({ items}) {
       </label>
       <label>
         <p>Price: </p>
-        <input required onChange={handleChange} name="price_per_item" type="number" placeholder={editItem&& editItem.price_per_item}/>
+        <input  onChange={handleChange} min="1" name="price_per_item" type="number" placeholder={editItem&& editItem.price_per_item}/>
       </label>
       <label>
         <p>Category: </p>
@@ -71,7 +71,7 @@ export default function AddOrEditItem({ items}) {
       </label>
       <label>
         <p>Quantity: </p>
-        <input required onChange={handleChange} name="qty" type="number" placeholder={editItem&& editItem.qty}/>
+        <input  onChange={handleChange} name="qty" type="number" placeholder={editItem&& editItem.qty}/>
       </label>
       <div className="buttons">
         <button type="submit" className="add-update">{itemId?"Update":"Add"}</button>

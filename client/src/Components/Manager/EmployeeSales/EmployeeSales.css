@@ -2,6 +2,13 @@
 /* Emphasis on using the "super" parent class, ie. "employee-sales" */
 @import url('https://fonts.googleapis.com/css?family=Work Sans');
 @import url('https://fonts.googleapis.com/css?family=Lato');
+.employee-sales-history{
+  background: url(../ManagerSidebar/styling/background.svg);
+  background-size: cover;
+}
+.employee-sales-history div{
+  width: 100%;
+}
 .employee-sales {
   background: transparent;
   width: 82%;

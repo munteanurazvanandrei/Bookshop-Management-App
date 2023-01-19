@@ -27,7 +27,7 @@ export default function ItemCard({item, setItems}){
         })
         .then(res=>{
             if(res.ok){
-                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
+                setTimeout(()=>{setLoaded(()=>true);setLoading(false);},900)
                 setTimeout(()=>{
                     setItems(prev=>prev.filter(itm=>itm.id !== id))
                 },300);

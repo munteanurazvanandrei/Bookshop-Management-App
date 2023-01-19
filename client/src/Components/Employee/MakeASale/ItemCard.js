@@ -1,12 +1,14 @@
 import {FiCheck} from "react-icons/fi"
 import Checkbox from "react-custom-checkbox";
-export default function ItemCard({ item, isDisplayingCart,setItems }) {
+export default function ItemCard({ item, isDisplayingCart,setItems, setChange}) {
   const {id,name_or_title,isCartItem,img_url,manufacturer_or_author,qty,price_per_item, total_sold} = item
-  function handleAItemCart(){
+  function handleItemToCart(){
+    setChange(prev=> isCartItem? prev + (total_sold*price_per_item) : prev - (total_sold*price_per_item))
     setItems(prev=>prev.map(item=>item.id===id?{...item, isCartItem: !item.isCartItem, total_sold: 1}:item))
   }
   function handleQtySold(opt){
     setItems(prev=>prev.map(item=>item.id===id?{...item, total_sold: (opt==="add" ?item.total_sold+ 1: item.total_sold-1)}:item))
+    setChange(prev=>opt==="add"? prev - price_per_item: prev + price_per_item )
   }
   return (
     <div className="item-card">
@@ -28,7 +30,7 @@ export default function ItemCard({ item, isDisplayingCart,setItems }) {
       </div>
       <div className="price-and-checkbox">
         <p>Ksh {isDisplayingCart ? (total_sold*price_per_item).toLocaleString():price_per_item.toLocaleString()}</p>
-        {isDisplayingCart ? <img src="/svgs/delete-icon.svg" onClick={()=>handleAItemCart()}/>:
+        {isDisplayingCart ? <img src="/svgs/delete-icon.svg" onClick={()=>handleItemToCart()}/>:
         <Checkbox className="custom-checkbox" borderColor = "white" borderRadius={4}
         type="checkbox" checked={isCartItem} 
         icon={
@@ -44,7 +46,7 @@ export default function ItemCard({ item, isDisplayingCart,setItems }) {
               <FiCheck color="white" size={20} />
             </div>
           }
-        onChange={()=>handleAItemCart()}
+        onChange={()=>handleItemToCart()}
         /> }
       </div>
     </div>
