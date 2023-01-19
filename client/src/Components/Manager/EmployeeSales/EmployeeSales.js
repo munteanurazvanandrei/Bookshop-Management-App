@@ -13,7 +13,7 @@ export default function EmployeeSales() {
     })
       .then((response) => response.json())
       .then((data) => {
-        setemployeeSales(role ? data: data.filter(sale => sale.employee_name === name))
+        setemployeeSales(role=="manager" ? data: data.filter(sale => sale.employee_name === name))
       })
   }, [])
 
