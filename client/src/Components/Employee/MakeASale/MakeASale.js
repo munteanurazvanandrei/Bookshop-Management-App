@@ -11,6 +11,7 @@ export default function MakeASale({ setLoggedIn }) {
   const [change, setChange] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
   const nav = useNavigate();
+  const role = localStorage.getItem("role");
 
   const filteredItems = items
     ? items.filter((item) =>
@@ -21,7 +22,7 @@ export default function MakeASale({ setLoggedIn }) {
   useEffect(() => {
     fetch(`https://bma-server-production.up.railway.app/items`, {
       headers: {
-        role: 'manager',
+        role: '',
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })

@@ -8,7 +8,7 @@ export default function EmployeeSales() {
   useEffect(() => {
     fetch('https://bma-server-production.up.railway.app/sales_transactions',{
       headers:{"Authorization":`Bearer ${localStorage.getItem("token")}`,
-            "role":"manager"
+            "role":role
     }
     })
       .then((response) => response.json())

@@ -57,7 +57,7 @@ export default function ManagerDashboard({setLoggedIn}) {
       <div onClick={()=>{nav("./transactions")}}>
         <h3>Sale & Transactions</h3>
         <div className="sales-and-transactions div-glass">
-          <span>{dashboardObj.salesTransactions.length}</span>
+          <span>{dashboardObj.salesTransactions&& dashboardObj.salesTransactions.length}</span>
           <img src="/svgs/history-logo.svg" alt=""/>
           <small>Transactions</small>
         </div>
@@ -65,7 +65,7 @@ export default function ManagerDashboard({setLoggedIn}) {
       <div onClick={()=>{nav("./employees")}}>
         <h3 className="employees-h3">Employees</h3>
         <div className="div-glass">
-          <span>{employees.length}</span>
+          <span>{employees &&  employees.length}</span>
           <img src="/svgs/employees.svg" className="employees" alt=""></img>
             <small>Employee List</small>
         </div>
