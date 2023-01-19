@@ -11,7 +11,6 @@ export default function MakeASale({ setLoggedIn }) {
   const [change, setChange] = useState(0);
   const [receivedAmount, setReceivedAmount] = useState(0);
   const nav = useNavigate();
-  const role = localStorage.getItem("role");
 
   const filteredItems = items
     ? items.filter((item) =>
