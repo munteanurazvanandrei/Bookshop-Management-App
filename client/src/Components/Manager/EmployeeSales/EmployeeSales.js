@@ -13,7 +13,6 @@ export default function EmployeeSales() {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
         setemployeeSales(data)
       })
   }, [])
@@ -29,7 +28,7 @@ export default function EmployeeSales() {
           <th>Date</th>
           <th>Employee</th>
           <th>Total</th>
-          <th>Recieved</th>
+          <th>Received</th>
           <th>Change</th>
         </tr>
         </thead>

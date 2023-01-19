@@ -24,7 +24,6 @@ export default function SignIn({setLoggedIn}) {
   }
   function handleSubmit(e) {
     e.preventDefault();
-    console.log("hello");
     fetch("https://bma-server-production.up.railway.app/login", {
       method: "POST",
       headers: {
@@ -36,7 +35,6 @@ export default function SignIn({setLoggedIn}) {
       .then((r) => {
         if (r.ok) {
           r.json().then((user) => {
-            console.log(user);
             localStorage.setItem("user", JSON.stringify(user.user));
             localStorage.setItem("token", user.jwt);
             localStorage.setItem("role", action?"":"manager");

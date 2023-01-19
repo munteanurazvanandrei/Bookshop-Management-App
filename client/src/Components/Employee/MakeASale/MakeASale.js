@@ -27,7 +27,6 @@ export default function MakeASale({ setLoggedIn }) {
     })
       .then((r) => r.json())
       .then((json) => {
-        console.log(json)
         setItems(
           json.map((item) => ({ ...item, isCartItem: false, total_sold: 1 }))
         )
@@ -36,7 +35,7 @@ export default function MakeASale({ setLoggedIn }) {
       .catch((e) => {
         console.log(e)
       })
-  }, [2])
+  }, [])
 
   function handleCalc(e) {
     const total = items && items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0)
@@ -46,9 +45,7 @@ export default function MakeASale({ setLoggedIn }) {
   function checkout(){
     const amount = items.reduce((total, item) => item.isCartItem ? item.total_sold * item.price_per_item + total : total, 0);
     const cartItems = items.filter(item=>item.isCartItem);
-    console.log(receivedAmount);
-    console.log(change);
-    console.log(amount);
+    console.log(receivedAmount)
     fetch("https://bma-server-production.up.railway.app/sales_transactions",{
       method:"POST",
       headers:{
@@ -57,15 +54,14 @@ export default function MakeASale({ setLoggedIn }) {
       },
       body:JSON.stringify({
           items: cartItems,
-          received: receivedAmount,
+          recieved: receivedAmount,
           amount: amount,
           change: change
       })
     })
     .then(r=>{
-      if(r.status==201){
+      if(r.status===201){
         r.json().then(res=>{
-          console.log(res)
           setItems(prev=>prev.map(item=>({...item, isCartItem: false, total_sold: 1 })))
           setReceivedAmount(0)
           setChange(0)

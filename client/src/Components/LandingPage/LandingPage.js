@@ -6,7 +6,7 @@ import {
   HiOutlineBookmarkAlt,
 } from "react-icons/hi";
 
-export default function LandingPage() {
+export default function LandingPage({loggedIn}) {
   // Landing page
   const navigate = useNavigate();
 
@@ -20,7 +20,7 @@ export default function LandingPage() {
               <HiOutlineLogout className="landing_page_icon"/>
           </div>
           <div>
-            <button className="home_link">Discover</button>
+            <button className="home_link" onClick={()=>navigate(loggedIn?"/dash":"/")}>Dashboard</button>
               <HiOutlineBookmarkAlt className="landing_page_icon"/>
           </div>
         </div>

@@ -30,7 +30,7 @@ function App() {
     
     <div className="App">
       <Routes>
-        <Route path="/" element={<LandingPage/>}/>
+        <Route path="/" element={<LandingPage loggedIn={loggedIn}/>}/>
         {role==="manager"?<>
           <Route path="/dash" element={loggedIn? <ManagerDashboard setLoggedIn={setLoggedIn}/>:<><Loader/>Kindly Login</>}/>
           <Route path="/dash/*" element={loggedIn? <ManagerDesktop setLoggedIn={setLoggedIn}/>:<><Loader/>Kindly Login</>}/>

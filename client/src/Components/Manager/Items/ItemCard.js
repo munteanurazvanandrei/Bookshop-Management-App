@@ -43,7 +43,6 @@ export default function ItemCard({item, setItems}){
     function handleActive(){
         setAction("update")
         setLoading(true)
-        console.log(active)
         fetch(`https://bma-server-production.up.railway.app/items/${id}`,{method:"PATCH",
             headers:{
                 "Content-Type":"application/json",
@@ -52,7 +51,6 @@ export default function ItemCard({item, setItems}){
             body:JSON.stringify({ active:!active})
         })
             .then(r=>{
-                r.json().then(json=>console.log(json));
                 if(r.ok){
                     setTimeout(()=>{setLoaded(()=>true);setLoading(false);},100)
                     setTimeout(()=>{
